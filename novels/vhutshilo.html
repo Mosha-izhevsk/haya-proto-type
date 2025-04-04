@@ -1,0 +1,2992 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vhutshilo - Hayani ha zwitori</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Base styles */
+      body {
+        background-color: #f8f1eb;
+        color: #333333;
+      }
+
+      /* Dark mode variables */
+      .dark {
+        background-color: #1a202c;
+        color: #f7fafc;
+      }
+
+      .dark .novel-content {
+        color: #f7fafc;
+      }
+
+      .dark .novel-content h2 {
+        color: #f1c6b0;
+      }
+
+      .dark .nav-link {
+        color: #f7fafc;
+      }
+
+      .dark .nav-link:hover {
+        background-color: #d98f3b;
+        color: #000;
+      }
+
+      .dark .placeholder-img {
+        background-color: #2d3748;
+        color: #e2e8f0;
+      }
+
+      .dark .scroll-to-top {
+        background-color: #2d3748;
+        color: #f7fafc;
+      }
+
+      .dark .scroll-to-top:hover {
+        background-color: #d98f3b;
+        color: #000;
+      }
+
+      .dark p,
+      .dark span,
+      .dark label,
+      .dark div {
+        color: #f7fafc;
+      }
+
+      .dark #font-size-display,
+      .dark #page-number,
+      .dark #go-to-page-input {
+        color: #f7fafc;
+        background-color: #2d3748;
+      }
+
+      .dark .page {
+        color: #f7fafc;
+      }
+
+      .dark .navigation button {
+        background-color: #2d3748;
+        color: #f7fafc;
+      }
+
+      .dark .navigation button:hover {
+        background-color: #d98f3b;
+        color: #000;
+      }
+
+      .dark footer {
+        background-color: #2d3748;
+        color: #f7fafc;
+      }
+
+      .dark footer a {
+        color: #f7fafc;
+      }
+
+      .dark footer a:hover {
+        color: #d98f3b;
+      }
+
+      .dark .text-gray-600 {
+        color: #cbd5e0 !important;
+      }
+
+      .dark .text-gray-700,
+      .dark .text-gray-800 {
+        color: #e2e8f0 !important;
+      }
+
+      .dark .bg-gray-100,
+      .dark .bg-gray-200,
+      .dark .bg-white {
+        background-color: #2d3748 !important;
+      }
+
+      /* Header and navigation */
+      header {
+        background-color: #3b2f2a;
+        color: #f1c6b0;
+      }
+
+      .nav-link {
+        color: #f1c6b0;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link:hover {
+        background-color: #d98f3b;
+        color: #000;
+      }
+
+      .active-nav {
+        background-color: #d98f3b;
+        color: #000;
+      }
+
+      /* Mobile menu */
+      #mobile-menu {
+        background-color: #3b2f2a;
+        color: #f1c6b0;
+      }
+
+      /* Novel content styling */
+      .novel-content p {
+        margin-bottom: 1.25rem;
+        line-height: 1.75;
+      }
+
+      .novel-content h2 {
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        color: #3b2f2a;
+      }
+
+      .dark .novel-content h2 {
+        color: #f1c6b0;
+      }
+
+      /* Improve spacing for dialogue */
+      .novel-content p + p {
+        margin-top: 0.5rem;
+      }
+
+      /* Dialog styling */
+      .novel-content p:has(strong),
+      .novel-content p:has(em) {
+        padding-left: 1rem;
+        border-left: 3px solid #d98f3b;
+        margin-bottom: 1.5rem;
+      }
+
+      /* Placeholder image */
+      .placeholder-img {
+        background-color: #e2e8f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #a0aec0;
+        font-size: 0.875rem;
+      }
+
+      /* Scroll to top button */
+      .scroll-to-top {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 99;
+        cursor: pointer;
+        padding: 12px;
+        border-radius: 50%;
+        background-color: #3b2f2a;
+        color: #f1c6b0;
+        transition: all 0.3s;
+      }
+
+      .scroll-to-top:hover {
+        background-color: #d98f3b;
+        color: #000;
+      }
+
+      /* Page navigation styles */
+      .page {
+        display: none;
+      }
+
+      .page.active {
+        display: block;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .novel-content {
+          font-size: 1rem;
+        }
+
+        h1 {
+          font-size: 1.75rem;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+        }
+      }
+
+      /* Footer styles */
+      footer {
+        background-color: #3b2f2a;
+        /* Default footer background */
+        color: #f1c6b0;
+        /* Default footer text color */
+      }
+
+      .dark footer {
+        background-color: #1a202c;
+        /* Dark mode footer background */
+        color: #f7fafc;
+        /* Dark mode footer text color */
+      }
+
+      footer a {
+        color: #f1c6b0;
+        /* Default footer link color */
+      }
+
+      .dark footer a {
+        color: #f7fafc;
+        /* Dark mode footer link color */
+      }
+
+      footer a:hover {
+        color: #d98f3b;
+        /* Hover color for footer links */
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen flex flex-col" id="body-element">
+    <!-- Header -->
+    <header
+      class="p-4 flex justify-between items-center fixed w-full z-50 shadow-md"
+    >
+      <div class="text-2xl font-bold">
+        <a href="../index.html">Hayanihazwitori</a>
+      </div>
+
+      <nav class="hidden md:block">
+        <ul class="flex space-x-6">
+          <li>
+            <a
+              href="../index.html"
+              class="nav-link p-2 rounded transition-colors"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="../novels.html" class="nav-link active-nav p-2 rounded">
+              Novels
+            </a>
+          </li>
+          <li>
+            <a
+              href="../about.html"
+              class="nav-link p-2 rounded transition-colors"
+            >
+              About
+            </a>
+          </li>
+          <li>
+            <a
+              href="../contact.html"
+              class="nav-link p-2 rounded transition-colors"
+            >
+              Contact
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <button
+        id="menu-toggle"
+        class="md:hidden text-[#F1C6B0]"
+        aria-label="Toggle menu"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </button>
+
+      <form id="search-form" class="hidden md:flex items-center">
+        <input
+          type="text"
+          placeholder="Search novels..."
+          class="p-2 rounded-l text-black"
+          aria-label="Search novels"
+        />
+        <button
+          type="submit"
+          class="bg-[#F1C6B0] text-[#3A3A3A] p-2 rounded-r hover:bg-[#D98F3B] transition-colors"
+          aria-label="Search"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            ></path>
+          </svg>
+        </button>
+      </form>
+    </header>
+
+    <!-- Mobile Menu (hidden by default) -->
+    <div
+      id="mobile-menu"
+      class="fixed top-16 left-0 w-full p-4 z-40 md:hidden hidden"
+    >
+      <ul class="flex flex-col space-y-4">
+        <li>
+          <a
+            href="../index.html"
+            class="block p-2 hover:bg-[#D98F3B] hover:text-black rounded text-[#F1C6B0]"
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <a
+            href="../novels.html"
+            class="block p-2 bg-[#D98F3B] text-black rounded"
+          >
+            Novels
+          </a>
+        </li>
+        <li>
+          <a
+            href="../about.html"
+            class="block p-2 hover:bg-[#D98F3B] hover:text-black rounded text-[#F1C6B0]"
+          >
+            About
+          </a>
+        </li>
+        <li>
+          <a
+            href="../contact.html"
+            class="block p-2 hover:bg-[#D98F3B] hover:text-black rounded text-[#F1C6B0]"
+          >
+            Contact
+          </a>
+        </li>
+      </ul>
+      <form class="mt-4 flex">
+        <input
+          type="text"
+          placeholder="Search novels..."
+          class="p-2 rounded-l flex-1 text-black"
+        />
+        <button
+          type="submit"
+          class="bg-[#F1C6B0] text-[#3A3A3A] p-2 rounded-r hover:bg-[#D98F3B] transition-colors"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            ></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 pt-20 pb-12 relative">
+      <div class="container mx-auto px-4 flex flex-col md:flex-row">
+        <!-- Reading Controls - Side Panel -->
+        <div class="md:w-64 mb-8 md:mb-0 md:mr-8">
+          <div
+            class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md sticky top-24"
+          >
+            <h3
+              class="text-lg font-semibold mb-4 text-gray-800 dark:text-[#F1C6B0]"
+            >
+              Reading Settings
+            </h3>
+
+            <div class="space-y-4">
+              <div>
+                <label
+                  class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300"
+                  >Font Size</label
+                >
+                <div class="flex items-center">
+                  <button
+                    id="decrease-font"
+                    class="bg-gray-200 dark:bg-gray-700 p-2 rounded-l hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                    aria-label="Decrease font size"
+                  >
+                    <span class="text-lg font-bold">-</span>
+                  </button>
+                  <div
+                    id="font-size-display"
+                    class="px-4 py-2 bg-gray-100 dark:bg-gray-800 text-center"
+                  >
+                    16px
+                  </div>
+                  <button
+                    id="increase-font"
+                    class="bg-gray-200 dark:bg-gray-700 p-2 rounded-r hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                    aria-label="Increase font size"
+                  >
+                    <span class="text-lg font-bold">+</span>
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <label
+                  class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300"
+                  >Theme</label
+                >
+                <button
+                  id="toggle-theme"
+                  class="w-full py-2 px-4 rounded flex items-center justify-center bg-gray-200 text-gray-800 hover:bg-gray-300 transition-colors"
+                >
+                  Dark Mode
+                </button>
+              </div>
+
+              <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
+                <div class="flex justify-between">
+                  <button
+                    id="bookmark-button"
+                    class="flex items-center text-gray-800 dark:text-[#F1C6B0] hover:text-[#D98F3B] dark:hover:text-[#D98F3B] transition-colors"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 mr-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+                      />
+                    </svg>
+                    <span>Bookmark</span>
+                  </button>
+                  <button
+                    id="share-button"
+                    class="flex items-center text-gray-800 dark:text-[#F1C6B0] hover:text-[#D98F3B] dark:hover:text-[#D98F3B] transition-colors"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 mr-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+                      />
+                    </svg>
+                    <span>Share</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
+                <a
+                  href="../novels.html"
+                  class="inline-flex items-center text-gray-800 dark:text-[#F1C6B0] hover:text-[#D98F3B] dark:hover:text-[#D98F3B] transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                    />
+                  </svg>
+                  <span>Back to Novels</span>
+                </a>
+              </div>
+
+              <!-- Page Navigation Controls -->
+              <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
+                <label
+                  class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300"
+                  >Page Navigation</label
+                >
+                <div class="flex items-center justify-between">
+                  <button
+                    id="prev-page"
+                    class="bg-gray-200 dark:bg-gray-700 p-2 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                    aria-label="Previous page"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 19l-7-7 7-7"
+                      />
+                    </svg>
+                  </button>
+                  <div
+                    id="page-number"
+                    class="px-4 py-2 bg-gray-100 dark:bg-gray-800 text-center"
+                  >
+                    Page 1 of 15
+                  </div>
+                  <button
+                    id="next-page"
+                    class="bg-gray-200 dark:bg-gray-700 p-2 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                    aria-label="Next page"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
+                <label
+                  class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300"
+                  >Go to Page</label
+                >
+                <div class="flex items-center">
+                  <input
+                    id="go-to-page-input"
+                    type="number"
+                    min="1"
+                    max="15"
+                    class="p-2 rounded-l text-black border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300"
+                    placeholder="Enter page number"
+                    aria-label="Go to page input"
+                  />
+                  <button
+                    id="go-to-page-button"
+                    class="bg-gray-200 dark:bg-gray-700 p-2 rounded-r hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                    aria-label="Go to page button"
+                  >
+                    Go
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Novel Content -->
+        <div
+          id="novel-content-container"
+          class="flex-1 bg-white dark:bg-gray-800 p-6 md:p-8 rounded-lg shadow-md dark:text-white"
+          style="font-size: 16px"
+        >
+          <h1 class="text-3xl md:text-4xl font-bold mb-6">Vhutshilo</h1>
+          <div class="flex items-center mb-8">
+            <div class="mr-4">
+              <div class="placeholder-img w-[80px] h-[80px] rounded-full">
+                Image
+              </div>
+            </div>
+            <div>
+              <p class="font-semibold text-lg">Nethononda Mutshidzi</p>
+              <p class="text-gray-600 dark:text-gray-400">Published: 2020</p>
+            </div>
+          </div>
+
+          <!-- Page 1 -->
+          <div id="page-1" class="page active">
+            <div class="space-y-4 novel-content">
+              <p>
+                Pfanelo dza u kopa bugu iyi dzo iledzwa. Nnyi na nnyi ane anga
+                wanala o kopa bugu nga ṋnda ha thendelo ya muṅwali wa iyi bugu
+                uḓo iswa khothoni.
+              </p>
+              <p>
+                Copyrights are prohibited. Anyone found copying a book without
+                the permission of the author will be prosecuted.
+              </p>
+              <p>Bugu iyi yo aṋdadzwa nga nwaha wa 2020</p>
+              <p>Munwali ndi: NETHONONDA MUTSHIDZI</p>
+              <p>Vhaanḓadzi ndi: AKO EL ECHAD PUBLISHERS</p>
+              <p>079 8685 921</p>
+              <p>
+                Email:
+                <a
+                  href="/cdn-cgi/l/email-protection"
+                  class="__cf_email__"
+                  data-cfemail="b0d1dbdf9dd5dc9dd5d3d8d1d4f0c7d5d2ddd1d9dc9ed3df9ecad1"
+                  >[email&#160;protected]</a
+                >
+              </p>
+              <p>ISBN</p>
+              <p>©2020</p>
+
+              <h2 class="text-2xl font-bold mt-8 mb-4">Vhutshilo</h2>
+              <p class="text-center">NGA</p>
+              <p class="text-center">Nethononda Mutshidzi</p>
+            </div>
+          </div>
+
+          <!-- Page 2 -->
+          <div id="page-2" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Ndi nga Mugivhela nga matsheloni ḓuvha ḽo tou bva zwavhuḓi hu
+                tshi khou rotholela. Mulweli o vuwa a mona murahu ha nnḓu a vha
+                a khou ḓi orela ḓuvha a tshi khou humbula nga vhutshilo vhune a
+                tama u vhu tshila musi a tshi aluwa. O vha tshi khou humbula ana
+                dzi tshelede dzawe nahone asi tsha dzula kha nnḓu ine a khou
+                dzula khayo zwa zwino. Uyo wo vha u tshi tou vha muḽoro wawe wa
+                uri a tshi hula u ṱoḓa u vha dokotela a dzudza vhabebi vhawe.
+                Vhusiwana hahawe ho vha hu tshi muremisa ṱhoho ḓuvha na ḓuvha
+                ngauri huna zwithu zwinzhi zwine a zwi tama vhutshiloni fhedzi
+                ha koni u zwi swikelela ngauri vhabebi vhawe a vha na tshelede.
+              </p>
+
+              <p>
+                Mulweli ovha a tshi kha ḓi tou vha mutukana wa miṅwaha ya
+                fumimalo ane a vha kha murole wa vhu fumimbili ngei tshikoloni
+                tsha Mpandeli tshi no wanala Tshifuḓi. O vha a muṱhannga wa u
+                ṱalifha ngauri o vha a tshi ḓi ṱanganedza no ṱanganedza nyimele
+                ya hawe naho zwithu zwi tshi khou konḓa. Hayani o vha a tshi
+                dzula na mme awe Vho-Mukonḓi vhane vha na miṅwedzi miṱanu vho ḓi
+                hwala nga ṅwana wa mukalaha wavho vho-Solani. Afho muḓini wa ha
+                Solani hovha hu tshi khou tambuliwa vha tshi dzula kha nnḓu
+                mbili dza Ranṋdavhula.
+              </p>
+
+              <p>
+                Vho-Mukonḓi ho vha husina mushumo na muthihi une vha shuma wone
+                nga nnḓani ha u vuwa vha tshi kulumaga muḓini wavho. Vho-Solani
+                vhone vho vha vha vhone vhane panga zwiḽiwa muḓini ngauri vho
+                vha vha tshi shuma u lisa kholomo dza ngei ha Vho-Thovhele vhane
+                vha vha mukomana wa afho kusini kwa havho shangoni ḽa Tshidzini.
+              </p>
+            </div>
+          </div>
+
+          <!-- Page 3 -->
+          <div id="page-3" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Musi Mulweli a tshe o dzula a tshi khou ḓi elekanya nga ha
+                vhumatshelo hawe, khotsi awe vho mbo ḓi muvhidzelela vhari khaḓe
+                ri ṱuwe kholomoni aye u vha thusa u dzi vula vha dzi ise fhasi
+                hangei tieni hune dza fula hone. Mulweli nga khathihi fhedzi o
+                do takuwa a ṱuwa na khotsi awe vhaya mukomani ha Vho-Thovhele u
+                vula kholomo.
+              </p>
+
+              <p>
+                Vho-Mukonḓi vho vha vho sala hayani vha tshi khou kulumaga na u
+                bika. Mulweli na khotsi awe vho swika ha Vho-Thovhele vha vula
+                kholomo vha tsa na dzo tieni. Vho ḓo ri musi zwenezwi vha tshi
+                khou tshimbila vha tshi khou lisa kholomo. Vhaṅwe vhaṱhannga
+                vhane Mulweli a dzhena navho tshikolo vho ri vha tshi muvhona a
+                khou lisa kholomo vha thoma u musea.
+              </p>
+
+              <p>
+                Mulweli mbiluni yawe a ḓi vhudza uri naho a tshi khou seiwa
+                hanga litshi ngauri u khou thusa khotsi awe vhane ṅwedzi u
+                tshifhela vha ya muhumbula uri vhana ṅwana hayani ane a tea u
+                ḽa. Kholomo dza Mukomani dzo vha dzo ḓala vhukuma, Vho-Solani
+                vho vha vha tshi ri vha khou lisa na Mulweli vhapfa zwi tshi
+                leluwa vhukuma ngauri vho vha vha sa gidimi vha tshi tsa vha
+                tshi gonya vha khou khadana na kholomo. Khotsi na ṅwana vho ri u
+                tou swika tieni vha dzi laṱela haningei vhari vha ḓo dzi tevhela
+                nga madekwana. Vha dzhena nḓilani ya u humela hayani.
+              </p>
+            </div>
+          </div>
+
+          <!-- Page 4 -->
+          <div id="page-4" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Musi vha nḓilani vha tshi khou humela hayani Mulweli ari, "Baba
+                zwienda zwanga zwa tshikolo vho vhuya vha zwi vhona?"
+              </p>
+              <p>
+                Habe zwi khou ṱahala zwono thoma na u kheruwa nga hafha phanḓa,
+                a thi kholwi na ṅwedzi hoyu zwi tshi ḓo u fhedza ndi ḓo tea u
+                wana zwiṅwe. Ni songo vhilaela mutukana wanga, ndo zwivhona nga
+                Ḽavhutanu ni tshi khou vhuya hayani uri zwi khou ṱahala. Ndi ḓo
+                ri ndi tshi hola hoyu ṅwedzi nda ṱuwa na ini nda ni rengela
+                zwienda. Zwingasi litshe u ṱahala habe tshikoloni tshaṋu hu vha
+                hu kule musi ni tshi khou tshimbila nga milenzhe. Arali ndo vha
+                ndi tshi shuma zwavhuḓi ndo vha ndi tshi ḓo tou ni ṱoḓela
+                tshiendedzi tsha uni isa tshikoloni tsha dovha hafhu tsha ni
+                tevhela."
+              </p>
+              <p>
+                Mulweli zwa mutakadza vhukuma a vha a tshi khou sokou
+                setshelela.
+              </p>
+              <p>
+                Musi vha tshi swika hayani Mulweli o swika a dzhena nḓuni a
+                thoma u ḓi itela zwiḽiwa ngauri o vha o bva a songo ḽa. Khotsi
+                awe vhone vho mbo ḓi ya vha doba banga vha onesa mufumakadzi
+                wavho vhari vha khou thoma vha gonya thavhani u rema khuni.
+                Mulweli ori a tshi tou fhedza u ḽa aya a dzula nṱha ha guvha a
+                tshi khou humbula uri ṋamusi a nga vhala thero ifhio.
+                Vho-Mukonḓi vha tshi mu vhona vhari, "Mulweli khezwi ni sa
+                tevheli khotsi aṋu ngei khunini ngauri ni khou zwivhona uri a hu
+                tshena na luhuni na luthihi fhano hayani, ni na khotsi aṋu asi
+                khwiṋe naa. Ni ḓo ḓi vhuya no rema nnzhi dzine nda nga dzi
+                shumisa u bika maḓuvha nyana o vhalaho. Hafhu na thavhani hu si
+                kule vho na fhano hayani."
+              </p>
+            </div>
+          </div>
+
+          <!-- Page 5 -->
+          <div id="page-5" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Mulweli ari, "Mme anga, ndo vha ndi tshi ḓo ya fhedzi ndi khou
+                ṱoḓa uya nda vhala zwa zwino. Hezwi vha tshi mbona ndo dzula
+                hafha, ndi khou lingedza u humbula uri ndi vhale thero ifhio."
+              </p>
+              <p>
+                Vho-Mukonḓi vha tshi pfa izwo vhari, "Tshimbilani ni yo vhala
+                ṅwananga, nṋe zwa u vhala haṋu a thilwi na zwo. Ndo vha ndi tshi
+                khou ri khamusi ahuna zwine na kho ṱoḓa u ita. Ndi na fulufhelo
+                kha ini ṅwananga uri na nṋe nga ḽiṅwe ḽa maḓuvha ndi ḓo ḓi rwa
+                khana nga ini sa vhaṅwe vhabebi vha tshi ḓi rwa khana nga vhana
+                vhavho. Hovhu vhuḓu ha fhano ni ḓo vhu thudzela kule hangei na
+                fhaṱa ḽiḓu ḽihulu vhukuma ḽine ḽa ḓo fhira na ḽa Vho-Thovhele.
+                Ngoho ni vhalese."
+              </p>
+              <p>
+                Mulweli a takuwa nṱha ha guvha a fhindula mme awe a tshi khou
+                setshelela ari, "Afho vha khou amba zwone mme anga. Ndi ngasi
+                vuwe ndo vha shonisa na ḓuvha na ḽithihi," a vhari ndi ye u
+                thoma u vhala. Mulweli a ṱuwa a dzhena nḓuni yawe a swika a ḓi
+                valela a thoma u vhala bugu dzawe.
+              </p>
+              <p>
+                Nga mathabama musi Vho-Solani vha tshi khou tevhela kholomo ngei
+                fhasi tieni, vho dovha hafhu vha ṱuwa na Mulweli sa izwi Mulweli
+                ovha ono fhedza u vhala. Vha swika vha thoma u ṱoḓana nadzo vha
+                si vhuye vha lenga na u dzi wana sa izwi Vho-Solani vha tshi vho
+                tou zwiḓivha uri dzi wanala nga gai. Vho mbo ḓi dzi khada vha
+                tshi khou vhuya na dzo hayani. Zwezwi vha nḓilani ya u vhuya
+                hayani Vho-Solani vha thoma u zwi vhona uri hunga huna
+                tshiṋamana tshine a tshiho hafha fhethu. Vha thoma vhe
+                dzhudzhuru nḓevhe dza ralo u ima vhono tshuwa vhari "Mulweli!",
+                swikisani kholomo hedzi mukomani nṋe ndi humele u sedza
+                tshiṋamana, a thi khou tshi vhona hafha tshi ngavha tsho sala
+                fhasi hangei tieni.
+              </p>
+            </div>
+          </div>
+
+          <!-- Page 6 -->
+          <div id="page-6" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Vho-Thovhele vha ḓo kwata vhukuma arali vhanga tou zwivhona uri
+                tshiṋamana a thingo vhuya natsho. Mulweli ari, "Zwoluga ndi ḓo
+                dzi swikisa," a ṱuwa nadzo a dzi swikisa mukomani.
+              </p>
+              <p>
+                A tshi swika mukomani a wana Vho-Thovhele vho no ima muṋangoni
+                wa danga vho lindela u vhona uri kholomo dzi khou vhuya hayani
+                dzo fhelela na. Uyo wo vha u tshi tou vha mushumo wa
+                Vho-Thovhele wa ḓuvha na ḓuvha. Vho vha vha tshiri u swika
+                hayani musi vha tshi khou bva ngei Mushumoni wavho, Kholomo
+                dzavho nadzo dza tshi vha dzi khou dzhena dangani. Izwo zwa ita
+                uri ḓuvha na ḓuvha Vho-Thovhele vha thome vha fhire nga dangani
+                vha sathu swika na muṱani vha thome u vhona uri kholomo dzavho
+                dzi khou vhuya hayani dzo fhelela na.
+              </p>
+              <p>
+                Musi Mulweli a tshi tou fhedza u dzhenisa kholomo dangani a dzi
+                valela. Vho-Thovhele vhari, "Mulweli khotsi aṋu vha ngafhi
+                ṋamusi dzo vhuisiwa nga ini, kani vha khou vhaisala." Mulweli
+                ari, "Hai a vha vhaisali, vho tevhela tshiṅwe tshiṋamana tsho
+                salaho fhasi hangei tieni. Vho zwivhona ri nḓilani, ro no tou
+                vha mudavhini uri tsho sala." A vhari, "Nṋe ndi ṱuwe."
+                Vho-Thovhele zwa uri huna tshiṋamana tshisiho vho vha vha songo
+                zwivhona vho tou thoma u zwi sedza vha zwi vhona nga murahu ha
+                musi Mulweli ono amba. Zwa vha dina vhukuma vha kwatesa.
+                Vho-Thovhele kha kholomo dzavho vho vha vhasa ṱoḓi upfa na
+                tshithu na tshithihi. Vho vha vha tshi dzi funa vhukuma nahone
+                vha tshi dzi ṱhogomela. Wa tshiri arali u tshi khou tshimbila wa
+                ṱangana na dzo nḓilani wa dzirwa, na vhone vho vha vha tshi u
+                lifhedza arali vha hone tsini.
+              </p>
+            </div>
+          </div>
+
+          <!-- Page 7 -->
+          <div id="page-7" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Vho-Solani vho swika vha ṱoḓana na tshiṋamana na ḓaka ḽoṱhe vha
+                tshi khou amba nga mbilu vha tshiri "ngoho hafha ṋamusi ndo i
+                kanda mutshila, Vho-Thovhele vha nga si takale naluthihi arali
+                nda sa tshi wana hetshi tshiṋamana." Kana tshi ḓo vha tsho
+                ngalangalela ngafhi ngauri a hu athu vha na ḓuvha na ḽithihi
+                ḽine tsho no vhuya tsha ngalangala nahone a tshi tambeli kule na
+                mme ahone. Nga nḓila ine Vho-Thovhele vha raka ngayo, ṋamusi ndi
+                hone ndo ḽa mushumo hafha. Ndi tou rabela uri nga vhe vha tshi
+                mpfela vhuṱungu vha sa tou mpandela ngoho. Hafhu ndi na miṅwaha
+                ino swika miṱanu ndi tshi khou dzi lisa hedzi kholomo. Na nthihi
+                yadzo a i athu vhuya ya xela." Vho-Solani vho ṱoḓa ya vhuya ya
+                tsha ya awara ya malo vha sa kho vhuya vha tshi wana. Vha mbo ḓi
+                huma vhaya mukomani vhono tou neta nga u ṱoḓa ngauri na ḓuvha ḽo
+                vha ḽo no swifhala vhukuma.
+              </p>
+
+              <p>
+                Musi vha tshi tou swika mukomani Vho-Thovhele vha vha vha khou
+                vha thoma ngazwo zwa tshiṋamana vha sa athu vhuya vha dzula na
+                fhasi, vhari ndi a kholwa no tshi wana tshiṋamana tshanga.
+                Vho-Solani vha kwatamisa tshifhaṱuwo vhari, vha mpfarele
+                Vho-Thovhele, ngauri a thingo tshi wana, nahone ndo mona-mona
+                hoṱhe fhedzi ndi sa tshi wane. Vho-Thovhele vhari Vho-Solani
+                arali vha tshi kho ṱoḓa u thoma u ḓi ita mbava kha nṋe ari nga
+                anḓani na luthihi. Tshiṋamana tshanga ndi khou tshi ṱoḓa vha tou
+                ri vho humela u sedza u swikela vha tshi tshi wana vha vhuya
+                natsho fhano hayani. Arali zwa sa ralo vha ḓivhe uri mushumo wo
+                vha fhelela na tshelede ya hoyu ṅwedzi a vha nga i wani, vha tou
+                ṋanga kha zwezwo ngauri ahuna tshiṋamana tshine tshi nga sokou
+                ngalangala zwiamba vha nga vha vho tou tshi tswa vha rengisa.
+                Khezwi tsha kale-kale tshi sa ngalangali. Arali vho thanya vha
+                ḓo ita zwo fanelaho vha tshi vhuisa hayani.
+              </p>
+            </div>
+          </div>
+
+          <!-- Page 8 -->
+          <div id="page-8" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Vho-Solani vha tshi pfa izwo vha vhona tsha khwiṋe hu u humela u
+                ṱoḓa tshiṋamana ngauri hayani vha na muṱa ngauralo maṱo oṱhe o
+                sedza khavho. Arali vha fheleliwa nga mushumo zwi amba nḓala ndi
+                hone itshi ḓo tou ḓi ṋea mannḓa.Vho-Solani vha ṱuwa hayani vha
+                dzhia luvhone lwo vhonetshela vha vhidza na Mulweli uri aḓe a
+                vha fhelekedze u ṱoḓa tshiṋamana. Mulweli ovha a tshi khou vhala
+                bugu dzawe a hana ari ene ha khou ya fhethu u khou vhala. Khotsi
+                awe vha muṱalutshedza uri hezwi ndi zwa u fa na u tshila khavho,
+                arali tshiṋamana tsha sa wanala zwiamba na mushumo wo fhela, a
+                hu tshena u ṅwa tie fhano muḓini. Mulweli o fhedza a khou zwi
+                vhona uri mushumo wa khotsi awe ndi wa vhuṱhogwa kha vho, a mbo
+                ḓi tiba bugu dzawe a ṱuwa na khotsi awe vha ya u ṱoḓana na
+                tshiṋamana tsho ngalangalaho. Vho swika vha tshi ṱoḓa na ḓaka
+                ḽoṱhe ya vhuya ya tshaya awara ya fuminthihi vha sa khou vhuya
+                vha tshi wana.Vho-Solani vha mbo ḓi bva kha zwo vha tenda uri
+                tshiṋamana a tshi khou wanala zwiamba mushumo wo vha fhelela ahu
+                tshena zwine vhanga ita.Vho-Solani vha mbo ḓi humela hayani na
+                Mulweli vha ya u eḓela.
+              </p>
+
+              <p>
+                Ḓuvha ḽi tevhelaho Vho-Solani vha buba nga matsheloni vha livha
+                ngei mukomani vha tshi khou itela uri vha wane Vho-Thovhele vha
+                sa athu bva vha ya mushumoni wavho uri vha kone u amba na vho
+                khamusi vha ḓo pfesesa vha vha khathutshela vha tenda u vhafha
+                mushumo wavho murahu. Vho-Solani vha tshi swika vho wana
+                Vho-Thovhele hu hone vha tshi khou ṱoḓa u bva hayani vha ya
+                mushumoni.Vho-Solani vha swika vha gwadama fhasi phanḓa ha
+                Vho-Thovhele vha tshi khou ḓi ṱukufhadza vhari, muhulwane wanga,
+                ndi khou tenda ndo khakha fhedzi ndi humbela u farelwa lufhanga
+                a thinga dovhi nda ita vhukhakhi ho raliho. Ndi khou tou humbela
+                uri vha singo mpandela ngauri hayani ndo sia mufumakadzi na
+                ṅwana vhane vha khou ṱoḓa u ḽa. U tou amba ngoho nṋe tshiṋamana
+                a thingo tou tshi rengisa. Vho-Thovhele vha si vhuye vha tenda
+                upfa tshithu na tshithihi, vha hana vha tou dadadza vhari
+                Solani, ḽa ḓa hafha ḽia kovhela.
+              </p>
+            </div>
+          </div>
+
+          <!-- Page 9 -->
+          <div id="page-9" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                No itesa vhukhakhi vhuhulu nga mannḓa vhune a vhu farelei. Ndi
+                ḓo dovha nda ni fulufhela hani no ita zwithu zwo raliho. Hone
+                ndi nnyi ane a vha na vhuṱanzi na zwo uri tshiṋamana tsho tou
+                ngalangala, hu ḓivha nnyi ḽiṅwe ḓuvha ni nga vha no tou tshi
+                rengisa nga yone nḓala. Ahuna mushumo une na ḓo u wana fhano
+                ngauri ndo no wana kale muṅwe ane aḓo lisa. Vho-Solani vha mbo
+                ḓi rembuluwa vha humela muḓini wavho vho bilufhala vhukuma.
+              </p>
+
+              <p>
+                Zwithu zwo ḓo thoma u lemela muṱani wa Vho-Solani. Ho vha hu
+                tshi bala na tshelede ya u renga vhurotho ha u ṅwa na tie nga
+                matsheloni. Fhedzi Vho-Solani vho vha vha tshi ḓi ita vha tshi
+                ima-ima sa munna vha ṱoḓa zwikoropo uri vha ḓo kona u rengela
+                mufumakadzi na ṅwana zwiḽiwa. Tshiṅwe tshifhinga arali Mulweli a
+                hone hayani a songo ya tshikoloni o vha a tshi ṱuwa na khotsi
+                awe zwikoroponi, u fana na uya u haḓa na u remulula ḓaka dzi
+                tsimuni. Zwone u ṱuwa tshikoloni Mulweli asi na tshelede o mbo
+                ḓi tou thoma u zwiḓowela a ṱanganedza na uri zwienda zwa
+                tshikolo ha tsha ḓo zwiwana.
+              </p>
+
+              <p>
+                Nga murahu ha vhege musi Vho-Solani vho dzula hayani na muṱa
+                wavho, luṱingo lwavho lwa vha lu ya lila vha tshi sedza vha wana
+                hu malume avho Vho-Tshumedzo vhane ndi kale vhukuma vhasa ambi
+                navho. Vho-Solani vha fara luṱingo vhari malume, habe ndi kale
+                vhukuma, hone vho vuwa hani. Vho-Tshumedzo vha ri Solani nṋe ndo
+                vuwa, ndi khou vhuya venḓa nga Mugivhela honoyu wa yeneyi vhege
+                nda ni dzhia na awela u lisa kholomo ngauri ndo ni wanela
+                mushumo wa khwiṋe ngeno tshikhuwani.Vho-Solani vha tshi pfa izwo
+                vha takala vhukuma vha takuwa vha ima vho ḓala dakalo. Vhari
+                malume ndi khou livhuwa ngoho a vha ntshileli na kholomoni ndo
+                vha ndi sa tsha shuma ndo pandeliwa, zwa zwino ri khou amba
+                ahuna na zwiḽiwa hafha hayani.
+              </p>
+            </div>
+          </div>
+
+          <!-- Page 10 -->
+          <div id="page-10" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Vho-Tshumedzo vhari ni singo vhilaela ndi ḓo vhuya nda ni dzhia
+                zwiḓo luga ndi khou ṱoḓa uri ni vhe ni khou shuma u linda hafha
+                vhengeleni ḽanga. Vho-Solani vha takalesa vhukuma vha vhudza
+                mufumakadzi wavho mafhungo maḓifha vha fhedza vha mufulufhedzisa
+                uri vha ḓo posa tshelede ṅwedzi muṅwe na muṅwe musi vha tshi
+                hola. Luṱingo lwa Vho-Tshumedzo lwo ita uri mapfeṋe a tsitse
+                vhana muṱani wa ha Solani ḓuvha iḽo vhunga Vho Solani na mushumo
+                vho vha vha si tshena.
+              </p>
+
+              <p>
+                Nangoho Mugivhela u tshi swika malume a Vho Solani na
+                Vho-Tshumedzo vho swika venḓa vha ya ha Solani vha tshi khou ya
+                u vha dzhia uri vha ṱuwe navho tshikhuwani. Vho swika vho fara
+                na matshekasi mavhili ana zwiḽiwa nga ngomu vha fha Vho-Mukonḓi
+                vha ri vha ḓo sala vha tshi khou ḽa na ṅwana vhunga sa izwi
+                husina zwiḽiwa ngauri mukalaha vho vha vha si tsha
+                shuma.Vho-Mukonḓi zwo vha takadza vhukuma u vhona uri
+                Vho-Tshumedzo vhana ndavha na Vho-Solani.
+              </p>
+
+              <p>
+                Vho-Tshumedzo vha ri ndo fhaṱa vhengele ḽihulu hangei
+                tshikhuwani, ndi khou ṱoḓa uri Solani a shume sa mulindi wa
+                tsireledzo ngauri ho ḓala vhugevhenga hangei
+                tshikhuwani.Vho-Solani vha onesana na mufumakadzi wavho na ṅwana
+                vha ṱuwa u ṋamela goloi ya malume vha livha ḓoroboni ngei
+                Soweto. Nga murahu ha ṅwedzi musi Vho-Solani vhangei
+                tshikhuwani, vhari vha tshi tou hola nga Muholo wavho wa u thoma
+                vha humbula mufumakadzi na mutukana wavho Mulweli vha vha rumela
+                tshelede ya zwiḽiwa. Na nga ṅwedzi u tevhelaho vha ḓi itisa
+                zwezwo vha rumela tshelede fhedzi tshelede yone yo vha i ṱhukhu
+                lune I nga si renge zwiḽiwa na zwienda zwa Mulweli nga khathihi
+                ngauri Vho-Solani navho vho vha vha tshi khou tea u ḽa ngei
+                tshikhuwani.Vho-Mukonḓi vho vhudza Mulweli uri vha ḓo tou
+                sengedza nga ṱhukhu nga ṱhukhu uri vha kone u murengela zwienda
+                zwa tshikolo.
+              </p>
+            </div>
+          </div>
+
+          <!-- Page 11 -->
+          <div id="page-11" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Kha ṅwedzi wa vhuraru Vho-Solani vho ḓo ri vha mushumoni vha
+                tshi khou shuma, ha swika he vha tama muṅwe mufumakadzi wa mu
+                Zulu ono pfi Thandeka ono shuma hanefho vhengeleni u badelisa
+                musi vhathu vha khou renga.Vho- Solani vho fhedza vha tshi khou
+                ambisa Thandeka vha funana nae. U ḓa ha Thandeka vhutshiloni
+                havho zwo thoma u ita uri Vho-Solani vha hangwe nga ha
+                mufumakadzi wavho na ṅwana vhe vha vha sia venḓa nga zwiṱuku nga
+                zwiṱuku ngauri vho vha vha tshi vho ṱhogomelana na mufumakadzi
+                wavho muswa wa muzulu. Vho-Mukonḓi vha thoma u zwivhona uri
+                hunga zwithu zwi vho thoma u shanduka ngauri Vho-Solani vhovha
+                vhasi tsha founa sa kale.
+              </p>
+
+              <p>
+                Vho-Mukonḓi vha tshi founa Vho-Solani vhovha vha tshi dzula vho
+                fara tshifhinga tshoṱhe vha tshi sokou ri ndi nga si kone u amba
+                zwa zwino. Ṅwedzi uyo wa vhuraru u tshifhela Vho-Solani a vho
+                ngo tsha rumela tshelede venḓa, vho i ḽa tshikhuwani na
+                Thandeka.Vho-Mukonḓi vha tshi founa vha tshi vhudzisa uri
+                tshelede vha ḓo panga lini khotsi a Mulweli ngauri ṅwedzi wo
+                fhela phindulo kha Vho-Solani ya ri ndi bva vhubvo.
+              </p>
+
+              <p>
+                Maḓuvha o vhuya a tou fhela Vho-Solani vha tshi sokou ri ndi
+                khou thoma nda dzudzanya. Ho ḓo swika he Vho-Solani vha neta vha
+                si tsha fara na luṱingo lwa Vho-Mukonḓi ngauri vho vha vha tshi
+                khou shavha uri vha ḓo nga vha sa vhuya vha lwa na Thandeka.
+                Mbilu ya Vho-Mukonḓi yo thoma u vhavha vhukuma musi vha tshi
+                vhona zwine Vho-Solani vha khou vha ita zwone ngauri ḓuvha ḽe
+                Vho-Solani vha ṱuwa nga ḽo tshikhuwani vho sia vho vha
+                fulufhedzisa uri vha ḓo posa tshelede ṅwedzi muṅwe na muṅwe,
+                fhedzi naho zwo ralo Vho- Mukonḓi vha ḓi vhudza uri ndi khwiṋe
+                vha litshe u kombetshedza zwithu ngauri Vho-Solani vha khou tou
+                zwi sumbedza uri avha tsha vha ṱoḓa na luthihi vhutshiloni
+                havho.Vho-Mukonḓi mbilu yavho yo tou ṋaṋa u vhavha vha tshi
+                humbula uri vho ḓi hwala nga ṅwana wa Vho-Solani vhane avha tsha
+                ṱoḓa u ḓi ṱumanya navho. Vho-Solani tshikhuwani ho vha
+                shandukisa tshoṱhe vhambo ḓi tou shandukisa na luṱingo lwavho a
+                renga luswa a tshi khou itela uri Mukonḓi asi tsha vhuya a
+                mudina na luthihi.
+              </p>
+            </div>
+          </div>
+
+          <!-- Page 12 -->
+          <div id="page-12" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Ndi nga Musumbuluwo nga masiari musi Mulweli a tshi khou vhuya
+                hayani a tshi khou bva tshikoloni. Mulweli o vha o neta vhukuma
+                a tshi khou tshimbila ngo tou hwenya nga upfa yone ndaḽa ngauri
+                tshikoloni ho vha hu songo phakhiwa. Musi a tshi swika hayani a
+                tshi tibula dzi bodo a wana uri ahuna zwiḽiwa mme awe a vho ngo
+                bika.
+              </p>
+
+              <p>
+                Mulweli aya kha mme awe ari zwiḽiwa vho zwi vhea kha mini ndi sa
+                zwi vhoni afha nḓuni. Vho-Mukonḓi vhari Mulweli nṋe a thingo
+                bika ngauri ahuna zwiḽiwa, khotsi aṋu avha ngo posa tshelede
+                hoyu ṅwedzi mugayo wo tou fhela tshoṱhe sagani. Hezwi ndi hafha
+                a thina na puḽane uri tshelede ya mugayo ndi yo itswa fhi ngauri
+                nṋe a thi shumi. Khezwi ini ni singo vhuya no ḽa ngei
+                tshikoloni. Mulweli ari ṋamusi a hu ngo phakhiwa tshikoloni
+                hupfi zwiḽiwa zwo fhela zwi ḓoḓa matshelo. Mulweli ambo ḓi
+                dzhena nḓuni a thoma u vhala bugu dzawe a tshi ralo u rothisa
+                mitodzi ya matomola mbilu ana mbiti dza uri u khou ṱoḓa u phasa
+                a fhelise vhusiwana hahawe sa izwi zwino ho tou ḓi ṋea mannḓa
+                tshoṱhe ngauri khotsi awe vho mulaṱa na mme awe.
+              </p>
+
+              <p>
+                Mulweli o vhala awara nthihi fhedzi a mbo ḓi takuwa nga u pfa
+                zwi si khou vhuya zwa dzhena zwine a khou vhala ngauri thumbuni
+                hovha hu tshi vho lila nga nḓala. A tshi bvela nnḓa a wana mme
+                awe vha tshi khou vhuya hayani vho fara tshekasi ina maswiri na
+                mapapawe vha ri Mulweli ṅwananga soko lingedza u ḽa maswiri khea
+                na mapapawe ni ḓo pfa ni khwiṋe, ndo tou tshimbila ndi tshi
+                humbela na miḓi heyi. Mulweli aya a dzula fhasi na mme awe vha
+                thoma u ḽa.
+              </p>
+            </div>
+          </div>
+
+          <!-- Page 13 -->
+          <div id="page-13" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Tshikoloni Mulweli o vha asi muthu wo tou phasa zwavhuḓi a tshi
+                phasa nga maraga dza fhasi fhedzi ene ovha ana muḽoro wa uvha
+                dokotela une ha ṱoḓi u u bvisa muhumbuloni wawe naluthihi.
+                Mulweli o vha ono ḓi dovholola vhunzhi ha mirole kha kiḽasi dza
+                murahu. Fhedzi naho zwo ralo a zwi ngo ita uri a litshe tshikolo
+                naho o vha a tshi dzhena na vhana. Ḽiṅwe ḓuvha tshikoloni
+                mudededzi wa Life Siences Vho-Lukoto vha tshi khou funza
+                kiḽasini ine Mulweli a dzhena khayo, vho thoma nga u tshimbila
+                vha tshi khou vhudzisa vhagudiswa uri musi vha tshi bva vha kho
+                uya u gudela mini magudedzini a pfunzo dza nnṱha (University.)
+                Mugudiswa muṅwe na muṅwe o vha a tshi khou amba zwawe zwine a
+                ṱoḓa u vha zwone. Vho-Lukoto musi vha tshi swika kha Mulweli vha
+                tshi muvhudzisa uri u ṱoda u vha mini afha vhutshiloni ari ene u
+                ṱoḓa u vha dokotela. Vho-Lukoto vha tou fa nga zwiseo vhari
+                vhathu ani mpfeli, Mulweli ini ni khou ṱoḓa u vha dokotela nga
+                nḓila-ḓe ni sa vhali na bugu ni tshi kha ḓi phasa Life Sciences
+                nga maraga dza fhasi vhukuma.
+              </p>
+
+              <p>
+                Vho-Lukoto vhori u amba izwo vhaṅwe vhagudiswa vha thoma u sea.
+                Mulweli mbiluni yawe ya vhavha vhukuma ngauri ene ovha a tshi
+                zwi ḓivha uri uya vhala. Vho-Lukoto vhari i vhani Pholisa kana
+                ni ye vhusoleni. Mulweli mafhungo o ambiwaho nga Vho-Lukoto a
+                mukwama vhukuma a dzula a ṱungufhala kiḽasini vhaṅwe vhagudiswa
+                vha tshi khou musea.
+              </p>
+            </div>
+          </div>
+
+          <!-- Page 14 -->
+          <div id="page-14" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Musi hu tshi swika tshifhinga tsha thero ya Geography ho ḓa
+                Vho-Muḓalo afho kiḽasini vhane vha funza thero iyo. Vho-Muḓalo
+                ndi muthu ane a funa vhana fhedzi Mulweli ene u bva phanḓa vha
+                sokou pfa vha tshi mutakalela vhukuma. Musi Vho-Muḓalo vha tshi
+                khou funza Mulweli o vha o fara luṱaha a tshi khou humbula zwe
+                Vho-Lukoto vha muvhudza zwone uri angasi vhe dokotela. Zwo vha
+                zwi tshi khou mudina ngauri ndi muḽoro wawe u bva a tshi khou ḓi
+                tou vha muṱuku. Mulweli o dovha hafhu a vha a tshi khou humbula
+                ngaha mme awe vhane vha vha uri vho vhifha muvhilini. O pfa zwi
+                tshi khou mudina vhukuma uri hayani ahuna na zwiḽiwa zwine vha
+                khou ḽa.
+              </p>
+
+              <p>
+                Mulweli a mbo ḓi thoma u rothisa miṱodzi hanefho kiḽasini ngeno
+                Vho-Muḓalo vha kati no funza. Mulweli o thoma u amba nga mbilu a
+                tshi khou ḓi vhudza uri ngoho khotsi awe angasi vuwe o vha
+                farela na ḓuvha na ḽithihi. Vho-Muḓalo vhori zwezwi vha kati vha
+                tshi khou funza vha mbo ḓi zwivhona uri Mulweli u khou lila vha
+                muvhidzelela lu vhili loṱhe asa vha pfi, nga lwa vhuraru a kona
+                u tshenuwa o ḓaḓa a sedza Vho-Muḓalo mitodzi i tshi khou bva.
+                Vhana kiḽasini vha musea. Vho-Muḓalo vha kaidza vhagudiswa uri a
+                vha litshe u sea muṅwe mugudiswa nga vho. Vha vhidza Mulweli vha
+                ri kha ḓe vha bvela nae nnḓa vha swika vha muvhudzisa uri ndi
+                ngani a tshi khou lila. Mulweli ari a vha mpfarele Vho-Muḓalo
+                ndo vha ndi tshi khou tou humbula zwiṅwe, ndi khou vha
+                fulufhedzisa a zwi tsha ḓo dovha zwa itea. Vho-Muḓalo vha ri
+                Mulweli nṋe a thi ngo ri ni nkhumbele pfarelo ndi khou ṱoḓa u
+                ḓivha uri ini ni khou lila mini khamusi ḽiṅwe ḓuvha ndi nga kona
+                uni thusa. Mulweli asi tende u vha vhudza a sokou ri kha vho,
+                asi zwithu zwino dina. Vho-Muḓalo vhari tshimbilani ni ye u
+                ṱamba khofheni bombini ni kone u vhuya ni tshi dzhena kiḽasini.
+                Mulweli a ṱuwa a tshi khou phumula na miṱodzi a fhedza a vhuya
+                kiḽasini a funziwa na vhaṅwe.
+              </p>
+            </div>
+          </div>
+
+          <!-- Page 15 -->
+          <div id="page-15" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Vhunzhi ha vha gudiswa afho tshikoloni tsha Mpandeli, Mulweli
+                vho vha vha sa mu takaleli zwavhuḓi vha tshi dzulela u mu goḓa
+                nga zwine avha zwone. Mulweli o vha a tshi ya tshikoloni a songo
+                pholisha zwienda. Zwienda zwawe zwa tshikolo zwo vha zwo no ḓi
+                ṱahala fhedzi mme awe o vha asa vha vhudzi uri u khou ṱoḓa
+                zwienda zwiswa ngauri a tshi zwi ḓivha uri a vha shumi nahone
+                uyu u tou vha ṅwaha wawe wo fhedza a tshikoloni. Tshikoloni
+                tshiṅwe tshifhinga u ṱuwa a songo aina zwiambaro zwawe nga
+                nṱhani ha uri hayani hu avha husina muḓagasi wo fhela. Vhathu
+                vho vha vha tshi ri una vhuaḓa. izwo zwa ita uri Mulweli asi
+                ṱoḓe u vha na khonani a ḓi tshimbilele a eṱhe ngauri vhathu vha
+                a kola.
+              </p>
+
+              <p>
+                Nga bureiki Mulweli oya a phakha tshiḓammba tshi tshi nzhi hu u
+                itela uri tshiṅwe a ṱuwe na tsho hayani ayo fha mme awe. Nga
+                bureiki ṱhukhu Mulweli o bva kiḽasini a ṱuwa aya nḓuni ṱhukhu,
+                ari musi a tshi vhuya kiḽasini a wana mukhwama wawe wo vuliwa ho
+                tswiwa tshi ḽa tshikhafuthihi tshawe na tshiḓammba tshe a vha o
+                ḓi vhudza uri u ḓo swika a tshifha mme awe. Mulweli a kwata zwa
+                mudina aya a vhudzisa vhaṅwe vhasidzana vho dzulaho kiḽasini uri
+                ndi nnyi o vulaho mukhwama wawe. Vha tshi fhindula vhari vhone a
+                vha ngo muvhona. Mulweli a mbo ḓi bva aya a ima nnḓa ha kiḽasi o
+                kwata a tshi khou humbula uri u ḓo tou zwi itisa hani ngauri
+                hetshiḽa tshikhafuthini ndi tshine a phakhela khatsho na nga
+                maḓuvha.
+              </p>
+              <p>
+                Misi Mulweli a tshe o ima ha mbo di da munwe mutukana ono pfi
+                Mueletshedzi ari Mulweli no kwatela tshidammba tshaṋu naa. Tsho
+                tswiwa nga ha vhala vhatukana vhano dzula murahu Maluṱa na thama
+                dzawe na nne tshanga tsho tswiwa ndi tshi vhuya kilasini a
+                thongo tshi wana ni songo vhilaela zwievha ita ndi
+                tshivitshuhulu.
+              </p>
+            </div>
+          </div>
+          <!-- Page 16 -->
+          <div id="page-16" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Hoyo we ani vhaisa vhutshiloni, na ene duvha lawe la uri a
+                vhaisiwe vho lido swika ngauri ahuna matali hafha shangoni ri
+                tshi kha di tshila zwino na henevhala vhatukana vha do zwi
+                lifha. Mulweli o vha o sokou fhumula o lavhelesa Mueletshedzi
+                musi a tshi khou pfa zwine a khou amba. Nga tsha matshelo hahone
+                tshikoloni Mueletshedzi o ya a phakha zwiliwa zwawe avhea
+                mukwamani a sia kiḽasini. Mulwelili ene o phakha a vhea
+                mukhwamai a tshimbila o u beba a tshi khou shavha shavha u
+                tsweliwa.
+              </p>
+              <p>
+                Musi bureiki ya vhuvhili i tshi vhuyelela Mueletshedzi a tshi
+                humela kiḽasi o swika a wana mukhwama wawe wo vuliwa
+                tshikhafuthihi tshawe thso tswiwa futhi, A si vhuye a gungula
+                ngauri o vha a khou zwidivha uri ene huna zwe a ita kha zwiliwa.
+                Vho-Lukoto vho mbo di da afho kiḽasini vha thoma u funza, musi
+                vha kati vha tshi khou funza Maluṱa a thoma u lunwa lunwa o
+                dzula murahu a takuwa o fara thumbu yawe ayo humbela u bva a
+                tshi khou sumbedza upfa vhutungu Vho-Lukoto vha mutendela Maluṱa
+                a bva a tshi khou gidima ayo ṱanza.
+              </p>
+              <p>
+                Thama dzawe Andani na Thanyani na vho vha mbo di tevhela vha
+                tshi khou ya u ṱanza navho. Vho-Lukoto vho vha vha tshi khou ri
+                khamusi ndi zwo tou tamba vha tshi ya u sedza vha wana Maluṱa na
+                thama dzawe vha tshi khou tanza. Maluṱa o mbo di thoma upfa a
+                tshi khou dzheniwa nga murothola a tetemela a fhedza nga u wela
+                fhasi Vho-Lukoto vha thoma u tavha mukosivha tshi vhidzelela
+                thuso kha vhawe vhadededzi.
+              </p>
+            </div>
+          </div>
+          <!-- Page 17 -->
+          <div id="page-17" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                vhadededzi vha ya vha tshi khou gidima vha tshi ya u thusa,
+                Vhagudiswa vho vha vho no bva dzi kiḽasini dzavho vho no dadza
+                afho nnda vha tshi khou ṱalela. Vho-Ramaleba vhane vha vha Thoho
+                ya Tshikolo vha mbo di ya vha dzhia modoro wavho vha u sendedza
+                tsini vha hwala matshudeni vha vhararu vha vha gidimesa
+                vhuongeloni hanga tsini, Vho-Ramaleba vho ri vha tshi to swika
+                afho vhuongeloni vhatshi khou tsitsa matshudeni mashudu mavhi
+                vha wana uri huna mutshudeni muthihi o lovhaho ane a vha Maluṱa.
+                Thanyani na Andani vhone vha tavhanya vha dzheniswa nga ngomu
+                vha thoma u thusiwa, Vho-Ramaleba zwa vha vhavha vhukuma u lovha
+                ha mutshudeni uyo.
+              </p>
+              <p>
+                Mulweli ori musi a tshi tou swika hayani a tshi khoubva
+                tshikoloni a swika afha mmeawe tshiḓammba tshe a phakha
+                tshikoloni. A fhirela nduni yawe aya a bvula zwiambaro zwawe zwa
+                tshikolo a ambara zwa u ṱwa nga zwo. A doba banga a fhedza a bva
+                aya thavhani u rema khuni dzo rengisa hu itela uri a wane
+                tshelede ya u renga zwiliwa zwa hayani . Mulweli o swika a rema
+                nyana a musi ḓuvha li tshi vho kovhela . A tshi swika hayani a
+                kuvha zwiambaro zwa tshikolo a kona uya u tamba a fhedza a
+                dzhenela bugu . Mulweli ori zwezwi a tshi khou vhala bugu dzawe
+                a humbula uri mara Vho-Lukoto vha dovha vha tshi khou amba
+                zwone. Hezwi zwithu zwa u vha dokotela ndi khwine ndi zwi litshe
+                ndi tou ita zwezwi zwa vhu Pholisa. Mulweli a mbo di tiba bugu
+                dzawe a dzhena nguvhoni a litsha zwo vhala.
+              </p>
+              <p>
+                Nga tsha matshelo ha hone tshikoloni nga matsheloni musi vhana
+                vho kuvhangana thabeloni Vho-Ramaleba vho divhadza tshikolo nga
+                ha lufu lwa Maluta Vhathu vha kanuka vhukuma zwa Vha tshuwisa.
+                Vhanwe vhagudiswa vhane a vha dzheni na Maluṱa kiḽasini nthihi
+                vha hanedza vhari asi zwone Vho-Ramaleba ahu kundwe vha khou tou
+                swaswa Maluṱa hango lovha o vha ahone tshikoloni Mulovha nah o
+                di takalela. Vhagudiswa avho vho vha vha tshi khou ambisiwa
+                ngauri a vha ngo zwi vhona musi Maluṱa a tshi khou tanza na
+                thama dzawe Andani na Thanyani vhane vha khou lwela vhutshilo ha
+                vho ngei vhuongeloni.
+              </p>
+            </div>
+          </div>
+          <!-- Page 18 -->
+          <div id="page-18" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Musi hu tshi khou bviwa thabeloni vha gudiswa vha tshi khou
+                humela dzi kiḽasini dzavho. Vhanwe vha vha vhagudiswa vho vha
+                vhono tungufhala vho dzhieliwa mutakalo nga upfa lufu lwa
+                Maluṱa. Vhanwe vhe vha vha Vho mudowela vhovha vha tshi khou tou
+                lila. Vhanwe vha ri o ita zwone ri do sala ro awela. Mulweli oya
+                kha Mueletshedzi a muvhudzisa uri ndi ene o zwi itaho na
+                Mueletshedzi a hana ari ene ha zwidivhi asi ene. Mueletshedzi
+                nga ngomu mbiluni yawe o vha a tshi tou vhana na vhutanzhi ho ho
+                fhelelaho ndi ene o zwiitaho, Ndi ene o shelelaho Maluṱa na
+                thama dzawe mulimo. O vha o tshuwa a tshi khou di sola ngauri
+                ene a tshi vha shelela o vha asa zwidivhi uri hu do lovha muthu
+                o vha atshi khou ri vha do tou lunwa thumbuni zwa fhelela
+                hanefho. Mulweli o vha a tshi khou zwi humbulela uri muvhangi wa
+                nyete yothe heyi ndi Mueletshedzi fhedzi Mulweli o mbo di bva
+                khazwo a zwi litsha zwo ralo.
+              </p>
+              <p>
+                Mulweli o thoma u ita zwo swika hayani a tshi ya khunini ḓuvha
+                na ḓuvha musi a tshi bva tshikoloni. O vha a tshi vhuya hayani
+                ḓuvha lono swifhala a tshi khou itela uri a reme khuni nnzhi.
+                Zwa u vhala zwone o vha ono tou zwitupha a di vhudza uri u do
+                vhalanga mulingo Vho-Mukonḓi vho Vha vha sa zwi divhi uri
+                Mulweli ha tsha vhala bugu. Vhovha vha tshi zwi dzhia uri
+                Mulweli u vhuya khunini a tamba a fhedza a vhala bugu dzawe.
+                Vho-Mukonḓi zwo vha zwi tshi vha fha mutsiko u vhona Mulweli a
+                khou kakarika a tshi itela u wana tshelede a khou litsha u vhuya
+                hayani a awela uri a vhale zwavhudi.
+              </p>
+              <p>
+                Vho-Mukonḓi vho lingedza u dzula nae vha muvhudza uri kha litshe
+                zwa khuni a vhale bugu dzawe nne ndi do ya nda rema. Mulweli a
+                hana ari mme vhangasi zwi kone vhone u rema khuni vho tou ralo
+                ndi do ya nda rema nne mune. Mulweli o rema khuni dzawe a vhuya
+                a tou fhedza a kona u dzi rengisela Vho-Munzhedzi nga R300 a
+                dzia tshelede aya a renga ngayo mugayo wa yeneyo tshelede a
+                vhuya nawo hayani Vho-Mukonḓi zwa vha takadza vhukuma u vhona
+                uri Mulweli uya humbula hango sokou tambisa tshelede. Naho
+                Mulweli o renga mugayo fhedzi u si na zwisevho zwo vha zwo ḓi
+                thusa nyana afho muṱani ngauri Vho-Mukonḓi vho vha vha tshi
+                konaa u dzhena tsimuni vha palapala muroho vha vhuswa. Mulweli o
+                dovha hafhu a isa phanḓa no reḓa dziṅwe khuni a tshi khou itela
+                uri a kone u renga hafhu zwiṅwe zwiḽiwa.
+              </p>
+            </div>
+          </div>
+          <!-- Page 19 -->
+          <div id="page-19" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Musi maduvha a tshi khou di ya ho do swika maduvha a uri
+                Vho-Mukond vha fholowe. Vho-Mukonḓi vho mbo di onesa Mulweli vha
+                tshi khou tuwa ngei vhuongeloni ha Tshilidzini uri vha do
+                thusiwa hone. Vho tuwa musi ḓuvha la vho lo vhofholowa li sa
+                athu vha tsini vha swika vha fhedza maduvha mavhili vha haningei
+                nga ḓuvha la vhuraru vha kona u vhufholowa vha wawa nwanawa
+                musidzana we vha do muira uri Tshedza. Tshedza musi a tshi khou
+                tou bva u bebiwa Vho-Mukonḓi vhori vha tshi musedza vha zwi
+                vhona uri ningo heyi na mulomo zwifana na zwa Vho-Solani vhone
+                khotsi a nwana.
+              </p>
+              <p>
+                Nga murahu ha vhege Vho-Mukonḓi vho do vhofhololwa fhala
+                sibadela tsha Tshilidzini vha humela hayani. Vhori vha tshi tou
+                swika hayani vha tshi khou dzhena nga gethe, Mulweli a takala
+                vhukuma a tshi vha vhona a vha a tshu khou thoma u vha gidimela
+                a vhudzisa uri nwana ndi wa mumini. Vho-Mukonḓi vha sea vhari
+                Mulweli a ni nndindeli nda thoma nda dzula-vho fhasi, ini ni
+                tshi tou humbulela a ngavha a mumini.mutukana kana musidzana?
+                Mulweli mhh! Ndi musidzana hoyu ndi khou tou zwipfa malofhani,
+                asi zwone?. Vho-Mukonḓi vhari ee no amba zwone ndo ni vhuyela na
+                khaladzi. Vho-Mukonḓi vha dzhena nae nduni vha muededza ntha ha
+                mubete, Mulweli aya a muvhona a pfa a khou mufuna nahone zwo
+                mutakadzesa vhukuma u vha na khaladzi mutuku
+              </p>
+              <p>
+                Vho-Mukonḓi vho dovha hafhu vha lingedza u lidzela lutingo
+                Vho-Solani ngei tshikuwani vha tshi khou di ri kha musi vha do
+                wana lutingo lwa vho lu muyani vha vha talutshedza uri vha na
+                nwana wa musidzana Vho-Mukonḓi vho lingedza nga hothe hune vha
+                nga kona fhedzi lutingo lwa Vho-Solani lwo vha lwusiho muyani.
+                Vho-Mukonḓi muhumbuloni wavho vho vha vha tshi khou ri
+                Vho-Solani vha ḓo vha wana muyani vha vha vhudza ngaha ṅwana
+                khamusi vha ḓo kona u humbula hayani uri vho sia mufumakadzi na
+                vhana vha posa tshelede.
+              </p>
+            </div>
+          </div>
+          <!-- Page 20 -->
+          <div id="page-20" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                U da ha Tshedza shangoni zwo disa manwe mathada ngauri tshedza
+                ovha a tshi toda zwithu zwinzwi nwedzi munwe na munwe. Mafhi na
+                maleri zwine zwavha uri zwiya dura vhukuma Vho-Mukonḓi vho zwia
+                vhona uri vha khou tea u ḓa na nḓila yau ita tshelede. vha mbo
+                ḓi ṱavha maṱamaṱisi henefho hayani vha tshi khou itela u rengisa
+                uri vha wane tshelede ya u unḓa ṅwana wavho ngauri tshelede ya
+                mundende vho vha vha sa vhoni na hune ya fhelela hone. Musi
+                maṱamaṱisi a tshi vhibva Vho-Mukonḓi vhovha vha tshi a rengisa
+                hanefho hayani tshinwe tshifhinga vho vha vha tshi ya u a
+                rengisa mudendeni vho tuwa na nwana wavho ngauri ho vha hu si na
+                munwe muthu ane anga sala nae ngauri Mulweli uvha a tshikoloni.
+              </p>
+              <p>
+                Ḽiṅwe ḓuvha Mulweli e tshikoloni nga bureiki a tshi khoula
+                zwiliwa o dzula a ethe tsini na vhanwe vhasidzana vhavhili. Roli
+                na Ambani vha tshi khou haseledza vhukuma Mulweli o vha o sokou
+                dzula o fhumula atshi khou thetshelesa zwine vha khou amba. Roli
+                ari Ambani habe mulingo wa mafheloni a nwaha wo swika. Ndi uri
+                zwino ni do thoma u vhona vhuznhi ha vhathu vha tshi khou thoma
+                uya dzi kerekeni nga hone u shavha u feila hone kereke yashu ni
+                do wana vhathu vha tshi khou da vho tou hwala na dzi bugu.
+                Ambani ariRoli arali muthu asa koni ha koni ahuna muthu ane anga
+                phasa a songo vhala. Ni wane muthu a tshi khou tuwa na bugu
+                dzawe uri dzi rabeleliwe mara a tshi khou tou zwidivha uri ene
+                ha vhali bugu na luthihi.
+              </p>
+              <p>
+                Mudzimu vha thusa a ḓi thusaho. Roli ari, afho ni khou amba
+                zwone, Mudzimu vha thusa a di thusaho arali muthu a tshi khou
+                vhala no rabela ndi hone a tshi ḓo phasa. Mulweli o vha o dzula
+                a tshi khou ḽa a tshi nga haho kha vho fhedzi nḓevhe dzi tshi
+                khou pfa zwoṱhe zwino khou ambiwa. A pfa Roli na Ambani vha tshi
+                khou amba zwithu zwine zwa pfala zwine zwa vha u rabela zwine
+                ene o vha asa zwi iti.
+              </p>
+              <p>
+                Musi Mulweli a tshi fhedza u ḽa o mbo ḓi takuwa aya a ṱamba
+                zwanḓa zwawe a ṅwa na maḓi, tsimbi ya mbo ḓi vha i tshi khou
+                lila ya uri tshikolo tsho dzhena vhathu a vha humele kiḽasini.
+                Musi Mulweli a tshi swika kiḽasini, Vho-Muḓalo na vho vho mbo ḓi
+                vha vha tshi khou dzhena vha tshi khou ṱoda u thoma u funza.
+                Ḓuvha iḽo Vho-Muḓalo musi vha tshi khou funza vho vha vha tshi
+                khou ambesa ngaha uri vhathu vha vhalese ngauri ṅwaha wo fhela a
+                hu tshena tshifhinga.
+              </p>
+            </div>
+          </div>
+          <!--  Page 21 -->
+          <div id="page-21" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Vho-Muḓalo vho mbo ḓi bva kha zwo funza vha thoma u vhudza
+                vhagudiswa tshiṅwe tshiṱori tsha muṅwe muṱhanga we avha a
+                tshipfi Aifheli we vha mufunza miṅwahani ya murahu yo fhiraho.
+                Vhari Aifheli o vha e muṱhannga we a vha asa vhali bugu na
+                luthihi.Tshifhinga tshoṱhe hu tshi ṅwaliwa dzi thesite o vha a
+                tshi tou tswela. Vhadededzi vho vha vha tshi lila ngae vha tshi
+                dzulela u muwana a tshi khou tswela, vha tshi ḓi ita vha tshi
+                mukaidza uri a zwilitshe ngauri a waniwa a tshi khou tswela
+                mulingoni u ḓo tshi sumba tshikolo. Ḽiṅwe ḓuvha nṋe ndo vhuya
+                nda ya khae nda muvhidzela fhethu husina vhathu nda muvhudzisa
+                uri ndingani asa vhali bugu a tshi tou tswela zwa ḓuvha na
+                ḓuvha.
+              </p>
+              <p>
+                A tshi fhindula ari ene ndi kale a tshikoloni u khou ṱoḓa u
+                phasa ngauri una muḽoro wa u ḓi wana o bvelela vhutshiloni u
+                ṱoḓa u vha pholisa, ari u vhala uya zwifuna nahone o no vhuya a
+                zwi lingedza lunzhi fhedzi zwine a vhala a zwidzheni uya
+                ṱavhanya a zwi hangwa.Nṋe ngauri ndi mufunzi nda thoma u
+                muvhudza ngaha Mudzimu. Nda thoma nga u muvhudzisa uri uya
+                dzhena kereke naa kana u rabela ezwi a hayani. Ari ene ha dzheni
+                kereke zwo rabela ha vhuyi a zwihumbula.Nda muvhudza uri muthu
+                ane a vha na muḽoro hafha vhutshiloni a tshi lwa nndwa ya u
+                bveledza muḽoro wawe ha i lwi a eṱhe ngauri ni nga si zwi kone.
+                Muthu o faraho khii dza matshilo ashu ndi Mudzimu ene muṋe a
+                eṱhe.
+              </p>
+
+              <p>
+                Naho na tou zwi funisa hani u bvelela arali Mudzinu vhasingo
+                vula dzi nḓila ninga si bvelele. Tshiṅwe tshifhinga ni vha no
+                tou ḓi ima phanḓa uri ni sa bvelele hafha vhutshiloni nga u sa
+                ṱoḓa u ḓi ṱumanya na Mudzimu. Vho-Muḓalo vhari hezwi zwine nda
+                khou amba hafha zwino ndi khou zwi vhudza na vheiwe uri arali ni
+                tshi ṱoḓa u bvelela vhutshiloni haṋu rangisani Mudzimu phanḓa
+                kha zwithu zwoṱhe zwine na ita.Vheiwe sa vhana vha tshikolo
+                tshifhinga tshoṱhe musi ni tshi ṱoḓa u vhala bugu dza vheiwe ni
+                thome nga u rabele uri zwine na vhala zwi dzhene. Ni singo
+                lindela u rabeleliwa nga muṅwe muthu. Ni vhe na lutendo nga
+                ngomu mbiluni yaṋu ni ḓo vhona nḓila dzoṱhe dzi tshi vulea
+                miḽoro yaṋu ya wedza.
+              </p>
+            </div>
+          </div>
+          <!--  Page 222 -->
+          <div id="page-22" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Mulweli o vha o sokou sedza Vho-Muḓalo maṱoni musi vha tshi khou
+                amba mafhungo ayo o pangula na nḓevhe a tshi khou thetshelesa
+                vhukuma. Vho-Muḓalo vhari tshifhinga tshe nṋe nda amba na
+                Aifheli ro vha ri kha tshe tshi tshifhinga ri kha kotara ya
+                vhuraru ri tsini no ṅwala mulingo wa kotara yo fhedza. Aifheli o
+                tenda u nthetshelesa musi ndi tshi khou amba nae a thoma u vhala
+                bugu dzawe a tshi rabela na u ḓa kereni nga dzi Swondaha.O vha a
+                tshi vhala ḓuvha na ḓuvha masiari na vhusiku ana fulufhelo asa
+                sedzi uri ono feila kotara tharu dzoṱhe dza murahu. Musi mulingo
+                u tshi thoma u ṅwaliwa Aifheli o vha o ḓi lugisela a si tsha ita
+                zwo tswela.
+              </p>
+
+              <p>
+                Vhadededzi vho vha vha tshi musedza vhukuma musi a tshi khou
+                ṅwala vha tshi vhona uri ha tsweli na luthihi. Musi mvelelo dzi
+                tshi bva nga ṅwedzi wa Phando Aifheli a wana o phasa. Ṋamusi ri
+                tshi khou amba Aifheli u khou shuma zwavhuḓi ndi ene Muhulwane
+                wa Mapholisa fhaḽa Maṱatshe ngauri o vha na fulufhelo kha ene
+                muṋe uri arali ana Mudzimu anga zwikona.
+              </p>
+
+              <p>
+                Arali ni na muḽoro hafha vhutshiloni vhananga ni singo tenda
+                muṅwe muthu a tshi ni vhudza uri ni ngasi kone u bveledzisa
+                muḽoro waṋu. Ahuna muthu ono ḓivha ḽa matshelo nga nnḓa ha
+                Mudzimu. Izwi a tshi ni vhudza uri ni nga si zwi kone o vha o
+                tou ṱolela vhumatshelo haṋu a zwi vhona uri zwi ḓo ni balela?.
+                Naho a tshi tou vha ṱhama yaṋu ya tsini tsini kana u tou vha
+                mubebi waṋu we a vhuya a zwi lingedza hezwo zwine ini na khou
+                ṱoḓa khamusi ene zwa mubalela. Ni singo tenda a tshi ni nyamisa
+                ngau ni vhudza uri na ini zwi ḓo ni balela ngauri ni nga wana hu
+                zwe ini Mudzimu vhani vhetshela zwone. Ni singo tenda u
+                nyamisiwa kha zwithu zwine a ni thu vhuya na zwilingedza nga
+                nṱhani ha uri mugede u khou zwi vhonisa hani. Muḽoro waṋu ahuna
+                muṅwe muthu ane anga ni bveledzela wone nga nnḓani ha ini muṋe
+                wa zwo no tou takutshedza na shuma.
+              </p>
+            </div>
+          </div>
+          <!--  Page 23 -->
+          <div id="page-23" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Ni songo vhuya na ḓinyadza na ri nṋe ndo tou rali ndi ḓo zwikona
+                naa, nṋe arali hahashu ho tou rali ndi ḓo zwikona naa. Arali
+                muṅwe muthu o zwikona na ini ni nga zwikona ngauri roṱhe ri
+                vhathu phanḓa ha Mudzimu ri ya eḓana. Vhagudiswa vho mbo ḓi
+                thoma u bandelela zwanḓa vho takalela maipfi a ṱhuṱhuwedzo ano
+                khou ambiwa nga Vho-Muḓalo vha tshi khou pfa vha khou ṱuṱuwedzwa
+                zwinzhi vhukuma.Mulweli opfa ana manyanyu vhukuma nga mbilu ari
+                ndi tshi swika hayani ndi khou thoma u vhala futhi. Vhunzhi ha
+                vhagusiswa vho thoma u tenda uri nangoho arali wa vhala u tshi
+                rabela Mudzimu, tshiṅwe na tshiṅwe tshi ya konadzea.
+              </p>
+
+              <p>
+                Tshikolo tshi tshi bva Mulweli o ralo u gidimela hayani ari a
+                tshi tou swika hayani asa thu vhuya a bvula na zwiambaro zwawe
+                zwa tshikolo a swika a dzula fhasi tsini na mme awe a thoma u
+                vha fhululela zwoṱhe zwe Vho-Muḓalo vha vha vha tshi khou amba
+                tshikoloni a tshi khou vha vhudza na uri ri khou tea u thoma u
+                rabela na uya kerekeni nga Swondaha. Vho-Mukonḓi vho pfa Mulweli
+                a tshi khou amba zwithu zwine zwa vhonala zwi tshi nga thusa.
+                Mulweli a tshi ṱalutshedza mme awe hango vhuya a sia na
+                tshithihi o amba zwoṱhe uri vha nyanyuwe sae.
+              </p>
+
+              <p>
+                Vho-Mukonḓi vho vhudza Mulweli vhari uya kerekeni na nṋe ndi
+                khou zwifuna fhedzi Tshedza u tshe muṱuku ndi ḓo thoma nda
+                lindela a tshi aluwa nyana ngauri kerekeni hu vha huna zwilidzo
+                zwi ḓo nga zwisa vhaisa ṅwana nḓevhe fhedzi ni songo vhilaela
+                ngauri ndi ḓo thoma u rabela u bva ṋamusi. Mulweli ari zwoluga
+                vha songo vhilaela na nṋe ndi ḓo vha rabelisa.Mulweli a mbo ḓi
+                takuwa a swika a dzhena nḓuni yawe a ḓi valela a thoma u rabela.
+                Ḓuvha iḽo Mulweli na mushum wawe we a vha a tshi u ita ḓuvha na
+                ḓuvha wa u swika hayani a tshi ya u rema khuni thavhani hango
+                ya. Mulweli o vha o tou ḓi vhudza uri ene u khou ṱoḓa u dovha
+                hafhu a humela khou vhala futhi nahone muḽoro wawe u ḓo u wedza
+                wa u vha dokotela.
+              </p>
+            </div>
+          </div>
+          <!--  Page 24 -->
+          <div id="page-24" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Ḓuvha na ḓuvha Mulweli o vha a tshi thoma nga u rabela
+                tshifhinga tshoṱhe musi a tshi ṱoḓa u vhala. Mbiluni yawe o vha
+                o ḓi vhudza uri ene hanga nyami nahone muḽoro wawe u ḓo wedza.
+                Vho- Mukonḓi navho vhovha vha tshi vho rabela tshifhinga tshoṱhe
+                vha tshi rabelisa na ṅwana wa vho uri a phase zwavhuḓi. Nga
+                ḓuvha ḽo tou thoma musi mulingo wo takutshedza, Mulweli a tshi
+                khou ya u ṅwala mulingo wawe wo tou thoma o ṱuwa o tshuwa
+                vhukuma fhedzi a tshi khou zwi ḓivha uri o vhala. O swika a
+                dzula ṱafulani a lindela Vho-Muḓalo vha tshi phakhela mabambiri
+                a dzi mbudziso.
+              </p>
+
+              <p>
+                ha tshi tou muphakela a bonya maṱo a ita thabelo pfufhi a tshi
+                khou rabelela mbiluni uri zwoṱhe zwe a vhala a kone hafhu u
+                zwihumbula. Ngamurahu ha tshifhinga nyana musi Vho-Muḓalo vhono
+                phakhela na mabambiri o ṅwalela.Tsimbi yo mbo ḓi lila ya uri
+                vhagudiswa vha thome u ṅwala. Mulweli o ṅwala o ḓi vhudza uri
+                hezwi u khou zwi ṅwalela uri a vhe dokotela. Vhaṅwe vha gudiswa
+                vho ṅwala vha bva afho kiḽasini. Mulweli a sala a eṱhe a tshi
+                khou ṅwala. Musi a tshi isa bambiri ḽawe Vho-Muḓalo vha ḽi
+                ṱanganedza vhari Mulweli no ṅwala hani ndi a kholwa no vha no
+                vhala.
+              </p>
+
+              <p>
+                Mulweli ari ndo vha ndo vhala nahone ndo ṅwala zwavhuḓi. A vha a
+                tshi khou bva kiḽasini a ṱangana na Vho-Lukoto vha tshi khou
+                dzhena vhari uri "Mulweli ndi ene wo fhedzisela u bva afha" .
+                Vho- Muḓalo vha tenda, Mulweli ovha o ima nnḓa a tshi khou pfa
+                zwino khou ambiwa. Vho-Lukoto vhari u khou sokou lenga u bva
+                hoyu mutukana ahuna na zwine a ṅwala nṋe thero yanga ha i phasi
+                u sokou wana dzi 30%. Maraga ya nṱha ye a vhuya a i wana ndi 45%
+                nahone o ḓi tou pondisa vho ḽiṅwe ḓuvha. Mara vha tou muvhona o
+                dzika kiḽasini a tshi khou vhala vha nga tou ri na zwino u ḓivha
+                luṅwe. Vho-Muḓalo vha tshi fhindula vhari ene mara uḓo phasa nṋe
+                thero yanga uya i kona uya ḓi wana dzi 60% ndi na fulufhelo khae
+                uri u ḓo phasa.
+              </p>
+            </div>
+          </div>
+
+          <!--  Page 25 -->
+          <div id="page-25" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Mulweli a mbo ḓi doba mukhwama wawe ayo phakha a kona u ṱuwa aya
+                hayani. A nḓilani a tshi khou ṱuwa hayani a ṱangana na
+                Vho-Thovhele vha tshi khou tshimbila na muṱanuni wa vho. Mulweli
+                o fhira a tshi khou hwenya mbilu yo no vha phanḓa a sa vha
+                lumelise a tshi khou gidimela u vhala bugu dzawe. Vho-Thovhela
+                vha mbo ḓi muvhidzelela vhari "ṅwana wa Solani! Mulandu ni tshi
+                khou tou fhira no fhumula." Mulweli a si fhindule a sokou vha
+                sedza. Vho-Thovhele vhari khotsi aṋu vha ngafhi? Nahone mpheni
+                ṋomboro dza vho ndi khou ṱoḓa u amba na vho, hedzi ṋomboro dza
+                vho dzine nda vha na dzo hafha a dzi khou shuma.
+              </p>
+
+              <p>
+                Mulweli ari khotsi anga avhaho vho ṱuwa tshikhuwani, nṋe ṋomboro
+                dza vho a thi dzi ḓivhi a thina luṱingo. Mulweli a fhedza a
+                fhira a ṱuwa hayani a tshi khou hwenya. Vho-Maria vhane vha vha
+                mufumakadzi wa Vho- Thovhele vhari vha khou ṱoḓela mini
+                Vho-Solani ngauri vha ri vho tou mupandela. Vho-Thovhela vhari
+                ndo vha ndi tshi khou ṱoḓa u vhafha mushumo wavho murahu, ubva
+                tshe vha ṱuwa zwithu a zwi khou vhuya zwa luga habe ndo no
+                pandela vhalisa vhaṋa vhoṱhe u bva tshe vha ṱuwa. Hu khou sokou
+                ḓa vhathu vhane a vhana ndavha na kholomo. Ndi ḓo tea uri ndi
+                muwane, ndi ḓo ya muḓini wawe ṋamusi nga madekwana khamusi
+                mufumakadzi wawe u ḓo nthusa. Vho- Maria vhari u ḓo vha thusa
+                nga mini ngauri arali hu tshi khou pfi u ḓoroboni zwi khou amba
+                uri o wana mushumo haningei, vhone vha khou tou ri u ḓo litsha
+                mishumo yawe a tshi khou vhuyela vhone vho mukolelaho.
+              </p>
+
+              <p>
+                Vho-Thovhele vhari Maria ḓa nu fhumula a ni na thuso, kholomo
+                dzanga dzi khou ngalangala dziṅwe dzi khou fa ini ni khou amba
+                zwaṋu zwa thungo. Ni khou tou pfa unga ni khou thusa badi ni
+                tshi khou amba ezwo. Vho-Maria vho mbo ḓi fhumula ngauri vha a
+                zwi ḓivha uri Vho-Thovhela kha zwifuwo zwa vho a vha ṱoḓi upfa
+                tshithu vhaya kwata vha ita zwo vha ṱaṱaṱisa vha nga ḓo murwa
+                nga mulaṱela.
+              </p>
+            </div>
+          </div>
+          <!--  Page 26 -->
+          <div id="page-26" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Mulweli a tshi swika hayani o ṱalutshedza mme awe ari ṋamusi ndi
+                tshi khou vhuya tshikoloni ndo ṱangana na Vho-Thovhele vha tshi
+                khou tshimbila na mufumakadzi wavho vha mmbudzisa uri khotsi
+                anga vha gai kana vha khou vha ṱoḓela zwifhio.Vho-Mukonḓi vhari
+                vha khou vha ṱoḓela mini ngauri vho tou vha pandela. Vha ḓo
+                dovha vha vha wana fhi ngauri vho ya na ḽo la muendeulu ahuna na
+                ano ḓivha uri vha khou ḓi tshila naa hune vha vha hone. Hafhu na
+                ṋomboro dza malume wahone ri sa dzi ḓivhi ra tshi ḓo ḓi vhudzisa
+                vhone thi vho tou ḓa vha vha dzhia. Mulweli ari unga zwiḓivha,
+                nṋe ndi khou thoma nda ya u vhala, tshikhontheina tsha zwiḽiwa
+                khetshi hafhu ndo vhuya ndo vha phakhela zwiḽiwa tshikoloni.
+                Mulweli a fha mme awe zwiḽiwa a fhedza a dzhena nḓuni yawe a
+                swika a thoma ngo rabela a kona u ḓi vhalela bugu dzawe.
+              </p>
+              <p>
+                Nga mathabama Vho-Thovhele vho mbo ḓi ya ha Vho-Mukonḓi vha tshi
+                swika vha si vhuye vha ṱoḓa no dzula fhasi, vha thoma ngo
+                vhudzisa uri Solani u gai. Vho-Mukonḓi vhari vha khou
+                muvhudzisela mini ngauri Mulweli o mmbudza uri o ṱangana na
+                vhone badani vha muvhudzisa a vha fhindula. Vha tou vha vha sa
+                mufulufheli naa.Solani ha tsha wanala fhano nahone ndi kale a
+                siho u ḓoroboni. Vho-Thovhele vha ri zwino ni tshi nga ni kha
+                nndwa mulandu? Khezwi Solani a tshi ṱuwa a songo mmbudza. O tou
+                wana mushumo haningei tshikhuwani hahone naa?. Ndi amba ngauri
+                nṋe ndo vha ndi tshi khou ṱoḓau mufha mushumo wawe murahu.
+              </p>
+
+              <p>
+                Zwo vha zwi tshi ḓo thusa na uri a vhe tsini na muṱa wawe nahone
+                a vha mphe ṋomboro dzawe dza luṱingo ndi tou amba nae.
+                Vho-Mukonḓi vhari ṋomboro dza Vho-Solani dzine nda vha nadzo a
+                dzi tsha shuma. Kana vha tou vha vha si tshena luṱingo a thi
+                ḓivhi. Vho-Thovhele vha mbo ḓi rembuluwa vha huma vha songo tsha
+                onesa. Vho-Mukonḓi vha sokou vha lavhelesa vha tshi khou ṱuwa.
+              </p>
+            </div>
+          </div>
+          <!--  Page 27 -->
+          <div id="page-27" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Nga murahu ha awara musi Vho-Thovhele vho no ṱuwa Mulweli ori a
+                kati a tshi khou u vhala ḽivhone ḽa mbo ḓi tsima. Mulweli a
+                bvela nnḓa a lavhesa ha vhadzulatsini a wana mavhone o funga.
+                Aya a vhudzisa mme awe uri mulandu ho tsima. Vho-Mukonḓi vhari
+                muḓagasi wo tou fhela fhedzi ndi ḓo ni fha luvhone holu naya na
+                vhala ngalwo thomani u ima nyana ndi eḓedze ṅwana ndi tshi khou
+                vhona. Na biṱiri dza hone ungari dzi vho ṱoḓa u fhelela habe
+                ḽovha ḽo guma u rengeliwa biṱiri musi khotsi aṋu vha tshe hone.
+                Mulweli opfa o ḓi thusa vhukuma ngauri o vha o vhala vhukuma nga
+                masiari a tshi nga u khou tou zwiḓivha uri muḓagasi u ḓo fhela
+                afho hayani.
+              </p>
+
+              <p>
+                Vho-Mukonḓi vho ri vha tshi tou fhedza u eḓedza ṅwana zwavhuḓi
+                vha fha Mulweli luvhone vha muvhudza uri matshelo u ḓo vuwa ayo
+                thoma u rengisa maṱamaṱisi o dzula badani uri na vhathu vhano
+                fhira nga dzi goloi vha kone u renga. Mulweli a dzhia luvhone
+                aya a vhala zwithu zwiraru zwe avha o sia a tshi fhedza a eḓela
+                nga u vhona lu tshi vho funga wiṱuku u sumbedza uri biṱiri dzi
+                khou fhelela.
+              </p>
+
+              <p>
+                Ḓuvha ḽi tshi tsha nga matsheloni Mulweli o buba a tshi khou
+                itela uri a thome a vhalulule zwoṱhe zwe a vhala ḓuvhani ḽa
+                mulovha a sa thu ṱuwa tshikoloni. Ḓuvha ḽo vha ḽo no ḓi bva
+                ngauri ho vha hu tshilimo. Mulweli a vula vothi ḽa nnḓu yawe uri
+                hu dzhene tshedza a kone u vhona zwavhuḓi zwo ṅwaliwaho musi a
+                tshi vhala. Mulweli a tshi tou fhedza u vhalulula tshifhinga
+                tshawe tsho ṱamba tsho vha tsho no swika a mbo ḓi ṱamba a fhedza
+                a rabela a kona u ṱuwa tshikoloni u ṅwala. Zwienda zwawe zwo vha
+                zwono ṱahala a tshi vho tou phashamedza nga ṋayo.
+              </p>
+            </div>
+          </div>
+          <!--  Page 28 -->
+          <div id="page-28" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Vho-Mukonḓi vho vuwa nga awara ya sumbe vha wana Mulweli ono
+                ṱuwa tshikoloni. Vho- Mukonḓi vha ya ngadeni ya vho vha fula
+                maṱamaṱisi o vhibvaho vha panga ravhani vha ya vha ṱamba musi
+                vha tshi fhedza vha beba ṅwana muṱanani, vha ṱuwa vhaya badani
+                vha swika vha dzula hune ha vha na murunzi vha thoma u rengisa
+                maṱamaṱisi. Dziṅwe goloi dzo vha dzi tshi khou ḓi ima vha tshi
+                renga vhaṅwe vha tshi ita vha tshi vha pfela vhuṱungu vha tshi
+                ri vho renga vha vha vhudza uri tshelede ino sala vha dzhie.
+                Vho-Mukonḓi vho vha vha tshi khou tou zwi konḓelela u rengisa
+                afho badani ngauri Tshedza ovha a tshe muṱuku tshiṅwe tshifhinga
+                o vha a tshi sokou lila o neta.
+              </p>
+              <p>
+                Naho zwo ralo vho- Mukonḓi a zwi ngo vhanyamisa vho ḓi vhudza
+                uri vha khou tea u shumela vhana vhavho. Vho ri vha tshi tou
+                fara tshelede yo vhalaho vhaya vha renga muḓagasi u itela uri
+                Mulweli a kone u vhala zwavhuḓi. Zwo vuwa nga matsheloni vho-
+                Mukonḓi vha tshi ya badani zwo mbo ḓi tou vha mushumo wa vho wa
+                ḓuvha na ḓuvha. Vho vha vha tshi khou zwi vhona uri zwi khou vha
+                thusa ngauri vho vha vha tshi vhuya hayani vho fara tshelede ino
+                vhonala nyana, hayani vha si lalele luvhondo. Mulweli o vha a
+                tshiri u bva tshikoloni a fhira nga badani a tshi fha mme awe
+                zwiḽiwa zwe a phakha tshikoloni arali o phakha zwi zwinzhi. Ene
+                a fhirela hayani ayo vhala.
+              </p>
+
+              <p>
+                Ḓuvha ḽe vhagudiswa vha fhedza nga ḽo u ṅwala mulingo wavho, vho
+                vha vho takala vhukuma u tshi tou zwi vhona uri vhana vho vha
+                vho neta nga u vhala bugu. Vhaṅwe vho vha vha tshi khou
+                tshimbila vha tshi onesa vhadededzi ngauri lwendo lwa uri vha
+                funziwe nga vho lo swika magumoni. Mulweli a tshi khou bva u
+                ṅwala o ṱangana na Vho-Muḓalo vha muvhidzelela vha muvhudza uri
+                vha khou mutamela mashudu uri zwi mutshimbilele vhutshiloni
+                hawe.
+              </p>
+            </div>
+          </div>
+
+          <!--  Page 29 -->
+          <div id="page-29" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Vho- Muḓalo vho ita no ṅwala ṋomboro dza vho dza luṱingo kha
+                bambiri vhafha Mulweli vha ri musi mvelelo dzi tshi bva a vha
+                kwame a vha vhudze uri o tshimbilisa hani, arali a vha o phasa
+                huna Mpho ine vha ḓo mufha yone. Mulweli zwa mutakadza vhukuma
+                ari u ḓo ita ngauralo. A ṱuwa hayani o ḓala dakalo.
+              </p>
+
+              <p>
+                Nga madekwana mme a Mulweli vha tshi vhuya u rengisa maṱamaṱisi.
+                Mulweli o vha vhudza uri vha songo tsha vuwa vha tshi ya u
+                rengisa ene u ḓo ya ngauri o fhedza ṅwala uḓo vha asi tsha ya
+                tshikoloni. Mulweli o vha asa zwi bvafhi u shumela mme awe, hone
+                mbilu yawe yo vha i tshi vhavha vhukuma musi a tshi vhona mme
+                awe vha tshi khou ita zwo rengisa maṱamaṱisi vho beba na ṅwana
+                muṱanani.
+              </p>
+
+              <p>
+                Mulweli o vha a tshi tou ri u fhedza lini u ṅwala mulingo a vha
+                awedza. Nangoho Mulweli o thoma zwo u vuwa a tshi isa mushumo wa
+                mme awe phanḓa. Naho Mulweli huna zwine a tama musi a tshi khou
+                vhuya u rengisa o vha asa shumisi tshelede ya mme awe a songo
+                amba navho. O vha a tshi ṱuwa nayo hayani a swika a vhafha yoṱhe
+                ngauri o vha a tshi khou zwi ḓivha uri tshelede iyo ndi yone yo
+                no khou ita uri a lale o ḽa.
+              </p>
+
+              <p>
+                Ḽinwe ḓuvha nga madekwana zwezwi Mulweli o vhuya hayani a tshi
+                khou bva u rengisa, o swika hayani o neta a wana mme awe vho
+                dzula vha tshi khou ḽisa ṅwana mukapu. Aya a dzula tsini na vho
+                ari mme anga ngoho ndi tou rabela uri mvelelo dzi tshi bva nga
+                ṅwedzi wa Phando ndi vhe ndo phasa nahone zwavhuḓi.
+              </p>
+            </div>
+          </div>
+          <!--  Page 30 -->
+          <div id="page-30" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Vho-Muḓalo vho mpfulufhedzisa uri arali nda phasa vha ḓo mpha
+                Mpho. Mvelelo dzi tshi tou bva fhedzi vha mphe tshelede ndi ye u
+                renga airtime ndi pange hafho kha luṱingo lwa vho ndi vha
+                founele Vho- Muḓalo ndi a zwi ḓivha uri ndi ngasi feile. Vho-
+                Mukonḓi vhari ni ḓo phasa, ndo vha ndi tshi khou ḓi ni rabelisa
+                na nṋe tshifhinga tshe na vha ni khou ṅwala. U phasa haṋu zwi ḓo
+                shandukisa zwithu zwinzhi fhano hayani. Mulweli ari ndi tshi tou
+                shuma ndi khou ḓo thutha vhuḓu hoṱhe hovhu ha mahatsi. Nda
+                fhedza nda fhaṱa ḽidu ḽihulu ḽine a ḽi a thu vhonwa hafha
+                Tshidzini. Nda renga na goloi ya BMW.
+              </p>
+
+              <p>
+                Vhone vha ḓovha vha si tsha ita zwo rengisa maṱamaṱisi ngauri
+                tshelede I ḓovha I hone ya u renga zwiḽiwa. Tshedza u ḓovha ono
+                aluwa hanga dzheni zwikolo hezwi zwa mahayani. Vho-Mukonḓi vho
+                vha vho dzula vha tshi khou setshelela vha tshi khou pfa muḽoro
+                une Mulweli a vha nawo vhari Amen. Mulweli miḽoro yaṋu I do
+                wedza yoṱhe. Ho vhu Vhutshilo haṋu vhu tou vha thabelo khulu
+                vhukuma yo lindelaho upfi Amen nga mvelelo dzaṋu musi dzi tshi
+                bva.
+              </p>
+              <p>
+                Musi ṅwedzi wa Phando u tshi tou swika Mulweli o vha a si tsha
+                dzulisea a tshi sokou dzula o tshuwa ngeno mme awe vha tshi vha
+                vha khou murindidza vha tshi ri a songo tshuwa u ḓo phasa.
+                Mulweli u rengisa hawe maṱamaṱisi zwo vha zwi tshi muthusa uri a
+                vhe o hangwa nga mvelelo dzawe. Ḓuvha ḽe hapfi Mvelelo dzi khou
+                bva matshelo Mulweli ori a badani a tshi khou rengisa. Ha fhira
+                Vho-Muḓalo vha kha goloi a vha vhidzelela, Vho-Muḓalo vha mupfa
+                vha humela murahu vha tsa moḓorini vhaya khae vhari Mulweli
+                mathina ndi ini, mulandu ni afha a ni ngo tshuwa naa?.
+              </p>
+            </div>
+          </div>
+          <!--  Page 31 -->
+          <div id="page-31" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Habe ni songo hangwa uri nṋe na ini ri na mulanga we ra vhofha.
+                Mulweli ari ndi nga si hangwe, hezwi ndi hafha ndi vha ndi khou
+                itela uri ndi hangwe ngaha mvelelo hezwo ndo tshuwa nga ndila i
+                akhamadzaho. Vho-Muḓalo vhari ni songo tshuwa arali no vhala ni
+                ḓo phasa. Ndi khou livhuwa ndo ni vhona Mulweli fhedzi zwa zwino
+                ndo dzhaya, R20 khei ni ḓo renga nyamunaithi, maṱamaṱisi ndi nao
+                hayani. Mulweli ari, ndo livhuwa a tshi khou ṱanganedza
+                tshelede. Vho-Muḓalo vha ya vha dzhena moḓoroni wavho vha ṱuwa.
+              </p>
+
+              <p>
+                Mulweli hango vhuya a dzi bonya vhusiku u vho o tshuwa vhukuma.
+                O vha o ita uri mvelelo dzi tshi bva a tou rumeliwa mulaedza kha
+                luṱingo lwa mme awe uri a ṱavhanye u dzi vhona. Vho- Mukonḓi a
+                vha ngo eḓela na luṱingo lwa vho vhusiku uvho, vho vhudziwa upfi
+                vha ḓo lu wana nga matsheloni. Musi luṱingo lwa mme awe lu tshi
+                tou dzhena mulaedza o vha a tshi tshuwa a tshi khou sokou pfa
+                unga ndi mulaedza wa mvelelo. Nga Matsheloni nga awara ya sumbe
+                mulaedza wa mvelelo wo ri u tshi dzhena, Mulweli a vha o bvela
+                nnḓa ono kwata nga u vhona mulaedza wa hone usa dzheni. Mulweli
+                a tshi humela nḓuni a wana huna mulaedza a tshi u vula a wana u
+                wa mvelelo nahone o phasa nga batshela.
+              </p>
+
+              <p>
+                Mulweli a ṱavha mukosi muhulu o takalesa aya kha mme awe a vha
+                vhudza uri o phasa nga batshela. Vho-Mukonḓi vhari.Mulweli ni
+                khou zwifha ntsumbedzeni ndi tou vhona nṋe muṋe wazwo. Mulweli a
+                fha mme awe luṱingo. Vho- Mukonḓi vhari nṋe a thi zwi vhoni zwo
+                ṅwaliwa fhi hanefha ndi tshi khou sokou vhona dzi 60% na dzi
+                70%, Mulweli aya a sumbedza mme awe. Vho-Mukonḓi vha tshi zwi
+                vhona vha wa nga magona vha livhuwa Mudzimu, tshifhatuwo tshi
+                khou ralo u elela mitodzi ya dakalo. Mma ndi khou vhuya ndi khou
+                thoma nda ya u renga airtime nga R20 ye nda fhiwa nga Vho-
+                Muḓalo mulovha, ndi khou ṱoḓa uri ndi vha founela ndi vha vhudze
+                uri ndo phasa. Mulweli a bva a gidimela tshiphazani a renga
+                airtime a vhuya a panga kha luṱingo lwa mme awe a vhudza
+                Vho-Muḓalo uri o phasa.
+              </p>
+              <p>
+                Vho-Muḓalo vha tshi zwipfa zwa vha takadza vhukuma vha ri
+                Mulweli no shuma nga mannḓa, ni ḓo nngwana tshikoloni musi ni
+                tshi ḓa u dzhia mvelelo ṋamusi. Mulweli a tsima luṱingo a ṱuwa a
+                ya u ṱamba, a tshi fhedza a bva a livha tshikoloni. Mulweli naho
+                a tshi khou tshimbila badani zwo vha zwi sa vhudzisiwi uri o
+                phasa naa, wo vha u tshi tou muvhona nga matshimbilele na
+                tshifhaṱuwo tsho ḓalaho dakalo.Mulweli oya a dzhia mvelelo dzawe
+                a sedza a tshi ṱoda u vhona uri luṱingo lo vha lu si khou tou
+                mufhura na. Nangoho Mulweli a wana uri luṱingo a lu khou mufhura
+                na luthihi. Ṱhoho ya tshikolo Vho-Ramaleba vho ita na u mukhoḓa
+                vha tshi vhona ku phasele kwawe ku kwa vhuḓi.
+              </p>
+            </div>
+          </div>
+          <!--  Page 32 -->
+          <div id="page-32" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Mulweli o ya kha Vho-Muḓalo a vha sumbedza uri nangoho o phasa.
+                Vho-Muḓalo vha tshi zwivhona vha pfa vha sa kholwi vha ri
+                Mulweli ndi maraga dzaṋu edzi?. Ngoho no phasa nga nḓila ye nda
+                vha ndi songo vhuya nda lavhelela. Hezwi zwi khou tou sumbedza
+                uri no vha ni tshi khou vhala vhukuma. Mulweli ari nṋe ndi tou
+                livhuwa vhone vho nṱuṱuwedzaho musi vha tshi amba mafhungo a
+                Aifheli kiḽasini. Ndi ḽone ḓuvha ḽe nda thoma u zwi vhona uri
+                muthu ha tei u ḓi nyadza hafha vhutshiloni.Vho-Muḓalo vhaisa na
+                tshanḓa vha tshi khou mukhaḓa vha tshi kha divha vho mangala nga
+                nḓila ye Mulweli a phasa ngayo.
+              </p>
+
+              <p>
+                ho-Lukoto vha mbo ḓi vha vha khou bvelela vhaya hune ha vha na
+                Mulweli na Vho- Muḓalo vha swika vha ri Mulweli ni tshi khou tou
+                nwethuwa no phasa, Mulweli a fhindula ari Ee ndo phasa.
+                Vho-Lukoto vhari ḓanu ri ndi vhone. Vha tshi tou zwivhona na vho
+                zwa vha mangadza vhari, Mulweli ndo vha ndi songo vhuya nda
+                lavhelela zwithu zwo raliho kha inwi. Hezwi zwi khou ntshuwisa
+                ndi khou tou pfa unga ndi muḽoro, na Life Sciences yanga kheyi
+                no i phasa zwavhuḓi. Vho-Muḓalo vhari o vhala vhukuma hoyu
+                muthu. Vho-Lukoto vha bvisa R100 vha mufha vhari, Mulweli no
+                shuma vhukuma ngoho.
+              </p>
+              <p>
+                Vho-Muḓalo vhari, Mulweli ari ṱuwe moḓoroni wanga. Mulweli a
+                ṱuwa na Vho-Muḓalo vha tshi khou tshimbila vha tshi khou
+                muvhudza uri matshelo ndi ḓoḓa nda ni dzhia ra ṱuwa University
+                hafho Ṱhohoyanḓou, nda ya u ni thusa uri ni kone u ḓi ṅwalisela
+                u dzhena hone. Musi vha tshi swika moḓoroni Vho-Muḓalo vha dzhia
+                tshipatshi tsha vho tsha tshelede vha bvisa R1 500 vhari
+                Mulweli, ni ḓo ya na renga zwine na ṱoḓa. Kana ni tou renga
+                zwiambaro zwi kha inwi.
+              </p>
+
+              <p>
+                Mulweli a ṱanganedza tshelede iyo o takala vhukuma a vhudza
+                Vho-Muḓalo uri o livhuwesa. Mulweli a fhedza a ṱuwa hayani a
+                tshi swika a sumbedza mme awe tshelede ye a fhiwa nga
+                Vho-Muḓalo. Mulweli afha mme awe R1000 ari vha ḓo renga zwiḽiwa
+                zwa hayani zwine ra ḓola ro awela uya badani u rengisa
+                maṱamaṱisi.
+              </p>
+            </div>
+          </div>
+          <!--  Page 33 -->
+          <div id="page-33" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Ḓuvha li tevhelaho Vho-Muḓalo vho buba nga matsheloni vha ya vha
+                dzhia Mulweli vha ṱuwa nae University, a ya a ḓi ṅwalisela uri a
+                dzhene hone a tshi khou gudela vhudokotela. Mulweli vha
+                muṱanganedza uri musi zwikolo zwi tshi vula u ḓo dzhena hone.
+                Musi zwikolo zwi tshi tou vula, Mulweli o ṱuwa a vha tshi khou
+                dzula haningei University a tshi tou ita a tshi vhuya hayani
+                musi ṅwedzi wo fhela a tshi khou vhuyela u vhona mme awe na
+                khaladzi awe khathihi na u vha ḓisela zwiḽiwa zwe a renga nga
+                tshelede ya bursary. Mulweli hango vhuya a ṱoḓana na khonani
+                naho a University. O vha o ḓi tou ḓowelana na honoyu Mbulungeni
+                ane a dzula nae kamarani nthihi.
+              </p>
+              <p>
+                Nga murahu ha miṅwaha yo vhalaho, Mulweli o swika he a ṱhaphudza
+                pfunzo dzawe dza vhudokotela a mbo ḓi wana fhaḽa sibadela tsha
+                Tshilidzini. Mulweli hango vhuya a ita tshilengo, o mbo ḓi fhaṱa
+                nnḓu khulu vhukuma ye a vha a tshidzulela u i ḽora musi a tshi
+                kha ḓi dzhena tshikolo.Zwiḓu zwivhili zwa mahatsi a zwi thudzela
+                kule hangei a zwi bvisa. Ṅwaha u tevhelaho musi Mulweli ono
+                fhedza zwa nnḓu, o ḓo tevhela moḓoro wawe wa BMW une nawo o vha
+                a tshi dzulela u ḓi vhudza uri nga ḽiṅwe ḽa maḓuvha u ḓo u
+                reila.Zwithu zwo vha zwo no tou vha nṱha vhukuma afho muḓini
+                husi tshe na tshine vha lila. Vho-Mukonḓi vho vha vha tshi
+                dzulela u ḓi ṱongisa vhukuma nga ṅwana wa vho khathihi na u
+                livhuwa Mudzimu nga zwine Mulweli a vha zwone.
+              </p>
+              <p>
+                Nga Mugivhela nga mathabama musi Mulweli a tshi khou bva
+                Ṱhohoyandou na mme awe na Tshedza, vha tshi swika hayani vha
+                wana huna munna o imaho getheni wa madebvu mahulu. Tshedza o vha
+                a tshi khou ṱoḓa u tsa moḓoroni a ya u vula gethe, Vho-Mukonḓi
+                vhari a songo tsa kha dzule ngomu modoroni. Mulweli a mbo ḓi tsa
+                a vhudzisa uri ndi vhone vho nnyi vho imaho getheni ḽa muḓi
+                wanga. Uḽa munna ari Mulweli ndi ini mathina, habe no no aluwa a
+                thi tsha vhuya nda ni ḓivha, ndi nṋe khotsi aṋu Solani ndo
+                vhuya. Mulweli ari baba ndi vhone. Vho-Mukonḓi vha tsa kha goloi
+                vhari ndo vha ndo ḓi zwi vhona nga masedzele haya uri ndi ini,
+                Solani ni khou ṱoḓa mini fhano.
+              </p>
+            </div>
+          </div>
+          <!--  Page 34 -->
+          <div id="page-34" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Vho- Solani vhari ndo vhuya hayani muḓini wanga, khezwi vhathu
+                ni tshi nga ani ngo takala nṋe ndo vha ndi tshi khou ri vhathu
+                ni ḓo tou takala vhukuma ni tshi mmbona. Mulweli ari ri tshi
+                takadziwa nga mini, vhone a vha ngo ṱanganedziwa fhano a vha
+                humele tshikhuwani. Kha u vhuya havho fhano hayani ri ḓo
+                takadziwa nga mini ngoho. Mulweli a ya a vula gethe a dzhenisa
+                goloi yawe hayani. Vho-Mukonḓi na Tshedza vha dzhena Solani a
+                sala o ima na dzi bege nnḓa.
+              </p>
+              <p>
+                Vho-Solani vho fhedzisela vha tshi khou tou dzhena vhari,
+                Mukonḓi uyu ṅwana wa musidzana ndi uḽa we nda ni sia nae naa?.
+                Habe ndi khou tou humbulela nga u vhona mulomo hoyu. Vho-
+                Mukonḓi vho pfa vha tshi khou vha vhenga luṅwe Vho-Solani, vha
+                fhedza vho vha vhudza uri a vha ngo ṱanganedziwa kha vha bve vha
+                fhele. Mulweli nae a tikedza ari baba kha dzi dale matemba ari
+                vha ṱoḓi fhano. Vho-Solani vha zwi vhona uri hafha hu tou nga
+                vha khou vhengiwa vhari, vhathu ndi khou humbela pfarelo, ndi
+                khou tenda uri ndo khakha ndo ni vhaisa fhedzi zwa zwino ndo
+                vhuya hayani uri ndi lugise mafhungo na muṱa wanga. Vho-Mukonḓi
+                vho pfa ngoho Vho-Solani vha tshi khou tou vha silinga vhukuma
+                na u vha vusela matsivha, vha thoma u sinyuwa khathihi na u
+                bvisa miṱodzi musi vha tshi humbula nga nḓila ye vha tambula
+                ngayo na Mulweli.
+              </p>
+
+              <p>
+                Vho-Mukonḓi vhari Vhone vha khou ṱoḓa u lugisa mafhungo na nnyi
+                ane a khou vha ṱoḓa fhano muḓini. Ndi tshini tshe vha vhuya na
+                tsho afha hayani tshi no tou sumbedza uri vha khou bva ḓoroboni
+                u shuma. Tshe vha ṱuwa tsha miṅwaha yoṱhe ya Malo ndi hone vha
+                tshi khou humbula u vhuya ṋamusi. Vho mpha mihwalo vha fhedza
+                vha shavhela tshikhuwani ngeno vha tshi tou zwiḓivha vha
+                zwifhedza uri nṋe a thi shumi. Vho- Solani vho vha vha gai tsha
+                kale-kale hu hone vha tshi khou bvelela zwino nge Mulweli a vha
+                na zwawe. Vhuṱungu he vha ntsia naho vha a vhuya vha vhuḓivha?
+                Uri Tshedza a aluwe a vhe mungafha vha khou ri nṋe tshelede ya
+                hone ndo vha ndi khou tea u i wanafhi?.
+              </p>
+            </div>
+          </div>
+          <!--  Page 35 -->
+          <div id="page-35" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Vho-Mukonḓi vho vha vha tshi khou amba vha tshi khou
+                lila.Vho-Solani ndo vha ndi tshi tou buba nga matsheloni ndo
+                beba na ṅwana muṱanani ndi tshi rengisa maṱamaṱisi na Mulweli,
+                ndi tshi khou itela u alusa ṅwana hoyu ane a vha wavho vhone vho
+                dzula tshikhuwani. Vha sa ṱoḓi na u ḓivha uri venḓa hu khou itea
+                mini kana u tou founa vha vhudzisa mutakalo wa vhana vhavho zwi
+                tshi khou vha balela, mara ṋamusi vha khou sokou bvelela
+                tshikhalani vhari vho vhuya muḓini wavho, hone tsho vha vhuisaho
+                afha hayani ndi mini ngauri nṋe na vhananga ndi kale ro
+                ṱanganedza uri kha riṋe vho lovha avha tsha tshila.
+              </p>
+              <p>
+                Mulweli o mbo ḓi ya kha mme awe nga u vhona vha tshi vho u lila,
+                ari Solani ndi khou humbela uri ni ṱuwe. Tshedza ene o vha o
+                sokou ima o tshuwa asa ḓivhi na uri hu khou itea mini.
+                Vho-Solani vhari Mulweli ndi yone nḓila ine na amba na nṋe ngayo
+                iyo naa?. Ndi yone nḓila ye nṋe nda ni alusa ngayo naa ni tshi
+                vho mbidza nga dzina. Ndi khou tenda uri ningavha no kwata
+                Mulweli na mme aṋu fhedzi nṋe a thi ngo ḓa nga nndwa fhano ndo
+                vhuyela u khakhulusa vhukhakhi hanga. Mulweli ni songo hangwa
+                uri ini no alusiwa nga nṋe u bva vhuṱukuni haṋu.
+              </p>
+              <p>
+                Ndi yone nḓila ine na khou ndivhuwa ngayo iyo naa kha zwoṱhe zwe
+                nda ni itela na mme aṋu. Zwino ni khou ṱoḓa ndi tshi ya ngafhi
+                hune nda hu ḓivha ngauri nṋe ndo vhuya ḓoroboni ndo ḓi vhudza
+                uri ndi khou vhuyela muḓini wanga. Ni khou ṱoḓa ndi tshi yo
+                eḓela nnḓa maḓakani ini ni hone. Tshitentsi hetshi ndi tshanga
+                tsho ṅwaliswa nga madzina anga, tshiri nṋe. Ndi ye fhi nṋe
+                vheiwe no kwashekanya nnḓu dzanga na vhea maḓu a vheiwe. Ni khou
+                ri nṋe ndi ye fhi nahone ahuna hune nda khou ya hone ndi muḓini
+                wanga na nṋe fhano.
+              </p>
+              <p>
+                Vho-Solani vho vha vha sa khou vhuya vha ṱoḓa u pfesesa na
+                luthihi. Ha vuwa phosho khulu vhukuma he na vhadzulatsini vha
+                ima nga milenzhe vha tshi ṱoḓa u pfa mafhungo. Mulweli na mme
+                awe vha tshi ri Vho-Solani kha vha ṱuwe. Vho-Solani vhari vhone
+                ahuna hune vha khou ya hone tshitentsi hetshi ndi tshavho nahone
+                zwa sa ralo matshelo vha ḓo vuwa vhaya mukomani u amba uri vhone
+                vho thutheliwa nnḓu tshitentsini tshavho.
+              </p>
+            </div>
+          </div>
+          <!--  Page 36 -->
+          <div id="page-36" class="page">
+            <div class="space-y-4 novel-content">
+              <p></p>
+
+              <p>
+                Ho mbo ḓi fhedza ho tou swika na Vho- Tshavhungwe vhane vha vha
+                mudzula tsini vha tshi khou ḓa u lamula nndwa iyo. Mulweli na
+                mme awe vho fhedza vha tshi khou tenda uri Vho-Solani vha dzule
+                hafho muḓini. Mulweli aya a sumbedza khotsi awe kamara ine vha
+                ḓo i shumisa a vha vhudza na uri zwiḽiwa muṅwe na muṅwe u ḓo ḽa
+                zwe a renga nga tshelede yawe. Vho-Solani hezwo vho pfa vha si
+                na khakhathi na zwo, ngauri vho vha vho takalela uri vho wana ha
+                u vhea thoho, ngauri vho vha vha tshi khou zwiḓivha uri ndi mini
+                zwe zwa vha vhuisa venḓa hone tshikhuwani vha nga si tsha humela
+                ngani.
+              </p>
+              <p>
+                Vhege yo vhuya ya tou fhela Vho-Solani vha tshi khou dzula afho
+                muḓini hu si na muthu ano amba navho. Zwiḽiwa vha tshi tou renga
+                vha sa ḽi zwo bikwaho nga Vho-Mukonḓi. Vho-Solani vho vha vha
+                tshi vuwa vha sokou kulumaga hafho hayani ḓuvha na ḓuvha vha
+                tshi khou ri khamusi vha ḓo pfeliwa vhuṱungu vhathu vha
+                vhaṱanganedza zwavhuḓi hafha hayani. Zwezwi maḓuvha a tshi khou
+                ḓi ya Vho-Solani vho vhona uri tshelede ya vho i khou fhela nga
+                u renga zwiḽiwa vha thoma u tshimbila vha tshi ṱoḓana na
+                mushumo. Vho fhedza vho wana mushumo wa u foroma zwidina ha
+                Davhana. Vho-Solani zwo vha zwi tshi vha vhavha uri hayani a vha
+                ambi navho. Tshedza nae o vha asa ṱoḓi na u sendela tsini navho
+                na luthihi. Vho-Solani tsha vho hovha u ḓi sola musi vha tshi
+                humbula zwifhinga zwa murahu, vha sa athu ya ḓoroboni vha tshi
+                shuma u lisa kholomo uri vho vha vho farana na muṱa wavho.
+              </p>
+              <p>
+                Mulweli na Vho-Mukonḓi vho do thoma u zwi ḓowela u vha hone ha
+                Vho-SolaniNga murahu ha vhege mbili, nga madekwana musi Mulweli
+                a siho hayani a mushumoni ho bvelela muthu wa mufumakadzi ana
+                vhana vhavhili vha malwelavanḓa, muṅwe o tou mubeba muṅwe o tou
+                mutakula a swika ari Aa!. O ima muṱani. Vho-Mukonḓi vha bvela
+                nnḓa vha vhudzisa uri ndi nga vha thusa nga mini. Uḽa
+                mufumakadzi ari u khou ṱoḓana na muthu ano pfi Vho-Solani,
+                vhathu vho ntsumbedza uri vha dzula fhano. Vho-Mukonḓi vha mbo
+                ḓi dzhena nḓuni vha vhidza Vho-Solani vhari huna muthu nnḓa ane
+                a khou vha ṱoḓa asa ambiho Tshivenḓa zwavhuḓi. hafho hayani zwa
+                ita uri vha ḓi ita vha tshi amba navho fhedzi zwiḽiwa muṅwe na
+                muṅwe ovha a tshi bika zwawe.
+              </p>
+              <p>
+                Nga murahu ha vhege mbili, nga madekwana musi Mulweli a siho
+                hayani a mushumoni ho bvelela muthu wa mufumakadzi ana vhana
+                vhavhili vha malwelavanḓa, muṅwe o tou mubeba muṅwe o tou
+                mutakula a swika ari Aa!. O ima muṱani. Vho-Mukonḓi vha bvela
+                nnḓa vha vhudzisa uri ndi nga vha thusa nga mini. Uḽa
+                mufumakadzi ari u khou ṱoḓana na muthu ano pfi Vho-Solani,
+                vhathu vho ntsumbedza uri vha dzula fhano. Vho-Mukonḓi vha mbo
+                ḓi dzhena nḓuni vha vhidza Vho-Solani vhari huna muthu nnḓa ane
+                a khou vha ṱoḓa asa ambiho Tshivenḓa zwavhuḓi.
+              </p>
+            </div>
+          </div>
+          <!--  Page 37 -->
+          <div id="page-37" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Vho-Solani vha bvela nnḓa na Vho- Mukonḓi vha tevhela nga murahu
+                vha tshi ṱoda u pfa uri ndi nnyi. Vho-Solani vha tshi tou bvela
+                nnḓa vha wana uri ndi mufumakadzi wavho wa ḓoroboni Thandeka.
+                Vho-Solani vhari Thandeka ni khou ṱoḓa mini fhano hone no
+                sumbedziwa nga nnyi uri ndi dzula fhano. Thandeka ari Solani ni
+                tshi ntshavha na ntsia na vhana no vha ni tshi khou tou zwi
+                humbulisa hani. Ni khou ri nṋe a vha vhana ndi ḓo vha itani ndi
+                ndoṱhe. Ini no vhuya venḓa ni khou dzula kha ḽiḓu ḽihuluhulu
+                ngeno vhana vhaṋu vha tshi khou eḓela mukhukhuni. Vho-Solani
+                vhari Thandeka humelani tshikhuwani nṋe zwa zwino ndo wana
+                mushumo ndi ḓo ni posa tshelede ṅwedzi muṅwe na muṅwe.
+                Vho-Mukonḓi vho mbo ḓi tou fa nga zwiseo. Thandeka ari mina
+                angiyi ndawo ngi zo hlala la nawe na bantwana bethu. Khezwi ni
+                songo mmbudza uri ni khou ya venḓa no vhuya ngo tou shavha, ni
+                tshi ntsedza nṋe ni khou tou vhona ndi tshiḓahela.
+              </p>
+              <p>Vho-Mukonḓi vhari vhone Vho-Solani vha khou
+                hwalana na vhafumakadzi vha vho vha tshi khou
+                ṱoḓa u dzula muḓini wa nnyi. Vha khou tou ri eyi
+                nnḓu Mulweli o i fhaṱela vhone. Ndi khwiṋe vha
+                tshi muvhudza uri ahume ngauri fhano hanga
+                dzuli. Musi Vho-Mukonḓi vha tshi khou ḓi amba
+                ṅwana muthihi o mbo ḓi thoma u lila Thandeka
+                ari Vho-Solani ari ṱuwe nḓuni ndi yo mamisa
+                vhana havha vhana ndaḽa. Vho-Mukonḓi vhari
+                nḓuni ya nnyi? Ani nga dzheni fhano. Ha thoma u
+                vuwa nndwa Thandeka a tshi ri u khou ṱoḓa u
+                dzhena nḓuni. Vho-Mukonḓi vha si vhuye vha
+                tenda zwezwo vhari hu si nḓuni ya ṅwananga.</p>
+                <p>Vhana vho mbo ḓi thoma u lila vhoṱhe nga upfa
+                  phosho. Vho-Solani vha vha lamula, Vho-
+                  Mukonḓi na Thandeka vha tshi fhedza vha thoma
+                  u luvhelela Vho-Mukonḓi uri vha tendele
+                  Thandeka uri a dzule maḓuvha mavhili, mararu.
+                  Ndi khou vha fulufhedzisa uri ndi ḓoya nda ṱoḓa
+                  tshitentsi nda pfuluwa na Thandeka. Vho-
+                  Mukonḓi vha tshi fhindula vhari nṋe heyi asi
+                  nnḓu yanga, vha ḓo tea u thoma u amba na
+                  Mulweli ene muṋe wa muḓi musi a tshi vhuya
+                  mushumoni matshelo nga matsheloni, fhedzi kha
+                  vha sokou dzhena nae honoyu Thandeka wa
+                  hone.</p>
+                  <p>Nga maḓautsha musi Mulweli a tshi vhuya hayani
+                    o mangala a tshi khou pfa phosho ya vhana vha
+                    tshi khou lila a tshe nnḓa uri ndi vhana vha nnyi.
+                    A tshi dzhena nḓuni a wana khotsi awe vha tshi
+                    khou vhilisa maḓi vha tshi khou nyaga u ṱamba
+                    vhaya mushumoni. Mulweli a vhudzisa uri ndi
+                    ṅwana wa nnyi a no khou lila.</p>
+            </div>
+          </div>
+           <!--  Page 38 -->
+           <div id="page-38" class="page">
+            <div class="space-y-4 novel-content">
+              <p>Vho-Solani vhari
+                Mulweli thomani ni ḓe ni dzule fhasi ndi ambe na
+                ini, o no khou lila ndi ṅwananga o ḓa na mme awe
+                madekwe ndi vhana vhavhili vha malwelavanḓa.
+                Ndi khou humbela uri ni vha tendele vha vhe vha
+                khou dzula fhano na riṋe. Nṋe ndi ḓo ri ṋamusi ndi tshi bva mushumoni nda fhirela musanda u
+                ṱoḓa tshitentsi uri ndi ḓo kona u pfuluwa fhano
+                na Thandeka vheiwe nda ni sia nga mulalo na
+                tshitentsi hetshi. Mulweli ari zwoluga ndi khou
+                vhafha yeneyi vhege fhedzi, nṋe a thinga zwi koni
+                zwo fuwa vhathu muḓini wanga na vhana
+                vhavho. Mulweli a takuwa ari ene u khou ya u
+                awela a swika a dzhena kamarani yawe a eḓela.
+                Vho-Solani vha sala vha tshi ya u ṱamba vha kona
+                u ṱuwa mushumoni.</p>
+            <p>Nga awara ya vhu sumbe Vho-Mukonḓi vho
+              vuwa vha vha vha tshi khou thoma u swiela nnḓu.
+              Thandeka o vha a kamarani o sokou ḓi valela na
+              vhana. Vho-Mukonḓi vho shuma mishumo ya
+              vho vha vhuya vha tou fhedza na u bika
+              Thandeka o ḓi valela. Ho no vha kale nyana
+              Thandeka a kona u vuwa a ya dzhia zwiḽiwa a
+              dovha hafhu a humela kamarani. Vho-Mukonḓi
+              vho sokou mulavhelesa vha sa ambe nae tshithu.
+              Thandeka nae hango amba na Vho-Mukonḓi
+              kana u tou mulumelisa zwazwo, o vha a tshi nga
+              ha vha vhoni. Mulweli o vha e kamarani o eḓela
+              sa ezwi o vha a tshi khou shuma vhusiku hoṱhe.</p>
+            <p>Nga masiari Vho-Mukonḓi vho ya vha vusa
+              Mulweli vhari, kha ri ṱuwe u tevhela Tshedza shikoloni ngauri goloi ine a ṋamela yone i ya
+              lenga u muvhuisa hayani u vha ono vha na nḓala.
+              Mulweli a bva na mme awe nga goloi vha tevhela
+              Tshedza tshikoloni tshawe. Musi vha nḓilani Vho-
+              Mukonḓi vho tshimbila vha tshi khou ṱalutshedza
+              Mulweli uri hoyu musadzi Thandeka wa hone u
+              khou tea u ṱavhanya a ṱuwa. Ndi uri muthu wa
+              hone ha ambi na vhathu mara u tou zwi ḓivha uri
+              asi muḓini wawe. Vha songo vhilaela mme anga
+              havha khotsi anga ndi ḓo amba navho vha tshi
+              vhuya.</p>
+            <p>Nga madekwana Vho-Solani vha tshi vhuya
+              hayani vho wana Mulweli a hone vha ya vha
+              dzula nae fhasi vha muṱalutshedza uri, vho wana
+              tshitentsi tshine tsha khou rengisiwa tshi na
+              nnḓu ya 2room. Mulweli ari zwino vhasa tshi
+              rengi nṋe vha khou mmbudzela mini ngauri ono
+              khou tea u pfuluwa ndi vhone asi nṋe. Vho-Solani
+              vhari Mulweli nṋe a thina masheleni o eḓanaho
+              ane nda nga tshi renga tshitentsi.</p></div></div>
+               <!--  Page 39 -->
+           <div id="page-39" class="page">
+            <div class="space-y-4 novel-content">
+            <p>Ndo vha ndi
+              tshi khou ri ini ni khadzimise masheleni uri ndi ḓo
+              kona u tshi renga ndi pfuluwe hutshe zwino
+              tshelede yaṋu ndi ḓo nifha yone nga ṱhukhu nga
+              ṱhukhu na tshitentsi hetshi tshi ḓo sala tshi
+              tshaṋu. Mulweli ari zwoluga ndi ḓo vha hadzima masheleni. Matshelo ndi ḓo vhuya ndo bvisa
+              tshelede banngani nda vha ṋekedza. Vho-Solani
+              vha mbo ḓi takuwa vhari vha khou thoma vha ya
+              u founela Gizara vha muvhudza uri a songo
+              pfukisa tshitentsi vha ḓoḓa vha tshi renga
+              matshelo. Mulweli o vha asa zwi funi u hadzima
+              khotsi awe masheleni, fhedzi o vha a tshi khou
+              tou vhofhea a tshi khou itela uri khotsi awe vha
+              bve na mufumakadzi na vhana muḓini wawe.</p> 
+              <p>Ḓuvha ḽi tevhelaho Mulweli a vhuya na tshelede
+                hayani, a swika a vhudza khotsi awe uri o vhuya
+                o bvisa tshelede banngani ari ṱuwe ri yo renga
+                tshitentsi tsha hone. Vho-Solani vhari ni khou tou
+                shavha u mpha tshanḓani ngahone usa
+                mpfulufhela naa, fhedzi zwoluga tshelede ndi
+                yaṋu ari ṱuwe. Vho-Solani vha takuwa vha
+                dzhena nḓilani vhaya ha Gizara u renga
+                tshitentsi. Vho-Solani na Thandeka vha kona u
+                pfuluwa vhaya muḓini wa vho.</p> 
+                <p>Vha tshi tou ṱuwa
+                  Vho-Mukonḓi vha sala vha tshi femuluwa vhari,
+                  ndo vha ndi tshi khou muvhenga luṅwe houḽa
+                  mufumakadzi. Muthu wa hone u sokou vuwa o ḓi
+                  eḓelela nahone o ḓi hoṋela kamarani, ha
+                  humbuli vho na u vuwa a swiela kana muṱa
+                  zwawo.Vha ḓo vhonana nazwo Vho-Solani haningei phanḓa vha ḓo tou vhuya mushumoni
+                  vha tshi bika nga vhudobadoba. Na zwiambaro
+                  vha ḓo tou kuvha zwoṱhe na zwa vhana.</p>
+            </div></div>
+               <!--  Page 40 -->
+           <div id="page-40" class="page">
+            <div class="space-y-4 novel-content">
+            <p>Musi Vho-Solani na Thandeka vha tshi kha ḓi tou
+              vha kha ḓuvha ḽa vhuvhili vha tshi khou dzula
+              vhoṱhe, Vho-Solani vho thoma u pfa vhutshilo
+              vhu tshi khou vhakonḓela nga u shumela vhana
+              vhavhili na mufumakadzi ngauri tshelede ye vha
+              vha vha tshi khou I hola yo vha i ṱhukhu kha u
+              alusa vhana vhavhili. Vho-Solani vho ri vha tshi
+              khou bva mushumo vha tshi swika hayani vha
+              thoma u semana na Thandeka, vha tshi khou
+              muvhudza uri u khou tea u ṱoḓa mushumo kana
+              a ṱavhe maṱamaṱisi kana zwiṅwe zwithu a
+              rengise u fana na zwe Vho-Mukonḓi vha ita
+              zwone vha tshi alusa vhana vhawe. Thandeka a
+              tshi fhindula ari, u bheke kahle mina ngeke ngizi
+              hluphe angi hlanyi.</p>  
+              <p>Nṋe vha songo mpfanyisa na
+                vhafumakadzi vha venḓa nahone havha vhana
+                vha na khotsi vhane vha kha ḓi tshila. Vho-Solani
+                vhone vho tou ita vhupengo ri tshikhuwani u
+                tswa ndaka ya mushumo vha tshi rengisa. Hezwi
+                zwithu ro vha ri tshi ḓovha ri sa khou vhuya ra zwi
+                vhona zwoṱhe. Vho-Solani vha ri Thandeka ini
+                zwino afha venḓa no ḓa u itani ngauri mushumoni ani ngo pandeliwa, havha vhana no
+                vha ni tshi ḓovha sia na muthu wa u vha lela ni
+                tshi ya mushumoni. Ni khou tou ri nṋe a vha
+                vhana ndi ḓo vha kona ndi ndoṱhe na ini nga
+                thungo wa mufumakadzi.</p>
+                <p>Vho-Solani vho vha
+                  vho sinyuwa vhukuma vha tshi khou pfa
+                  Thandeka a khou vha bora ngauri o tou litsha
+                  mushumo tshikhuwani a tshi khou tevhela vhone
+                  na vhana. Nga ṅwedzi wa u tou thoma musi Vho-Solani vha
+                  tshi hola mushumoni wavho, vho dzhia tshelede
+                  yoṱhe ye vha hola vha i fha Thandeka vha
+                  muvhudza uri a rengele vhana mafhi na maḽeri
+                  ino sala u ḓo renga zwiḽiwa. Thandeka a tenda o
+                  tou takala ari u ḓo ya a renga matshelo zwiṅwe u
+                  ḓo ḓadzisa nga ya mundende wa vhana uri i kone
+                  u renga zwithu zwinzhi. Ḓuvha li tevhelaho Vho-
+                  Solani vho vuwa vha ṱuwa mushumoni vha sia
+                  vho vusa Thandeka uri, a ṱavhanye a ye
+                  mavhengeleni u renga hu itela uri a ṱavhanye a
+                  vhuye hayani. Thandeka o vuwa a sala a tshi
+                  ṱamba, u tou fhedza u ṱamba a ya u ṋamela bisi
+                  a humela tshikhuwani o sia vhana o vha valela
+                  ngomu nḓuni.</p>
+            </div></div>
+             <!--  Page 41 -->
+           <div id="page-41" class="page">
+            <div class="space-y-4 novel-content">
+            <p>Nga masiari Vho-Munzhedzi vhane vha vha
+              mudzulatsini wa Vho-Solani vho mangala vha tshi
+              khou pfa vhana vha tshi khou lila afho nḓuni ha
+              Vho-Solani vhasa fhumuli u bva tsha matsheloni.
+              Vho-Munzhedzi vha ri ndi thome ndi tou ya u
+              ṱolela khamusi mme a vhana u khou balelwa nga
+              vhana vhunga sa ezwi vhana vhe vhavhili. Vho-
+              Munzhedzi vho vha vha tshi vho tou pfa na mbilu
+              ya vho i tshi vho vhavha nga vhana vhasa
+              fhumuli. Vho swika vha khokhonya muṋangoni
+              vha tshi ita vha tshi vhidzela vha tshi khou ri
+              khamusi hu ḓo vhuya ha bva muthu.Vho-
+              Munzhedzi vho vhuya vha tou neta ngo
+              vhidzelela vha mbo ḓi vula vothi vha dzhena
+              ngomu nḓuni. Vha tshi sedza vha wana vhana
+              vho eḓedzwa fhasi hu si na muthu afho nḓuni.</p>  
+              <p>Vha mbo ḓi dzhia vhana vha ṱuwa na vho muḓini
+                wavho vha yo vha vha tshi vha fhumudza vho
+                dzula muṱani vha tshi khou ri khamusi mme a
+                hone vho tou bva vho ya tsini vha ḓo vhuya husi
+                kale. Vha mbo ḓivha bikela na mukapu vha vha
+                kapudza nga u vhona vha sa fhumuli na thumbu
+                dzo tou hwabalala u sumbedza nḓala. Vho-
+                Munzhedzi vho lela ḽa vhuya ḽa kovhela vha sa
+                khou vhuya vha vhona muthu afho muḓini wa
+                Vho-Solani.</p>
+                <p>Vho-Solani vho ri u tshaisa mushumoni vha
+                  vhuya hayani vho ḓi takalela. Musi vha tshi swika
+                  vha wana hayani hu si na muthu, hu sina na
+                  tshithu na tshithihi tsho rengiwaho u sumbedza
+                  uri Thandeka o vha oya mavhengeleni. Vho-
+                  Solani vha thoma u tshuwa vha ḓi vhudzisa uri
+                  Thandeka o tou ya fhi na vhana ngauri asi muthu
+                  wa u bva hayani vhunga sa ezwi hu sina muthu
+                  ane a muḓivha hafha venḓa. Vho-Munzhedzi vho
+                  mbo ḓi vha vha khou dzhena vho beba ṅwana
+                  muṅwe vho tou mutakula vha swika vha
+                  vhidzelela Vho-Solani. Vha tshi bvela nnḓa vha
+                  wana Vho-Munzhedzi vha na vhana vha vho.
+                  Vho-Munzhedzi vhari Vho-Solani ndo pfa vhana
+                  vha tshi khou sokou lila nḓuni hafha hu sina
+                  muthu nda ri ndi vhe ndi navho. Mme avho vho
+                  tou ya fhi a vha vhana habe u bva tsha
+                  matsheloni a thi athu vhuya nda vhona muthu
+                  hafha muḓini waṋu.</p>
+                  <p>Vho-Solani avha ngo
+                    fhindula vho vha vho sokou lavhelesa Vho-
+                    Munzhedzi vhane vha vhenga nga ṅwambo wa
+                    uri phungo iri vha a buba vha songo ṱohola .Vho-
+                    Munzhedzi vhari Solani khevha vhana vhaṋu,
+                    ndo vha itela mukapu nda vha ḽisa ndi tshi khou
+                    vhona thumbu dzo tou hwabalala nga nḓala.
+                    Vho-Solani vha ṱanganedza vhana vha sa ḓivhi na uri vha ḓo tou zwi bva hani zwino ngauri
+                    Thandeka anga ḓivha ovha shavha a humela
+                    tshikhuwani. Mbilu ya Vho-Solani yo thoma u
+                    vhavha vha tshi humbula uri vhofha Thandeka
+                    tshelede yavho yoṱhe ya muholo. Vho-Solani vha
+                    dzhia luṱingo lwavho vha thoma u founela
+                    Thandeka vha wana luṱingo lwa Thandeka lo
+                    tsimiwa. Vhana vho vha vha tshi vho thoma na u
+                    lila Vho-Solani vha sa ḓivhi na uri vha tou vha
+                    fhumudzisa hani.</p>
+            </div></div>
+              <!--  Page 42 -->
+           <div id="page-42" class="page">
+            <div class="space-y-4 novel-content">
+            <p>Vhusiku Vho Solani avha ngo lala vha tshi khou ḓi
+              vhudzisa uri vhana vha ḓo vhaisa ngafhi ngauri
+              matshelo vha khou tea u bubela mushumoni.
+              Luṱingo lwavho lo mbo ḓi lila vha tshi lavhelesa
+              vha wana hu Thandeka ane a khou founa. Vho-
+              Solani vha fara vhari Thandeka ndi a kholwa ani
+              ngo humela tshikhuwani, ni gai vhana vhaṋu vha
+              tshi khou sokou lila. Thandeka ari Vho-Solani
+              havho vhana ndi vhashu roṱhe, hezwo zwa u
+              mmbudza uri vhana vhaṋu vha zwi litshe ngauri
+              vha tou zwi ḓivha vha zwi fhedza uri na vhone ndi
+              vhavho. Vha mpfarele uri ndo ṱuwa ndi songo
+              onesa, nṋe zwa zwino ndo no vha tshikhuwani
+              nahone matshelo ndi khou tea u humela
+              mushumoni malume avho vha khou nṱoḓa.</p>  
+              <p>Thandeka ni ri mini... Ndi khou ni pfa zwavhuḓi,
+                zwino avha vhana no vha siela mini ngauri no vha
+                ni tshiḓo ṱoḓa muthu wa u vha lela haningeo
+                tshikhuwani. Ni khou ri nṋe ndi ḓo zwikona mara
+                zwa u alusa avha vhana, nga thungo no shavha
+                na tshelede yanga ni khou ri Mafhi na maḽeri ndi
+                ḓo renga nga mini. Thandeka ari Vho-Solani
+                garaṱa ya vhana ya mundende ndo i vhea fhasi ha
+                musiamelo vha ḓo ya vha renga ngayo mafhi. Kha
+                vha thome vha u pfe muṋo sa nṋe vha tshi
+                mpfisa musi vha tshi ntshavha vha vhuya venḓa
+                vha ntsia na vhana hangei tshikhuwani. Nahone
+                nṋe ndi khou tea u ṱuwa ndo neta nga u dzula
+                bisini, ri ḓo amba ḽotsha. Thandeka a tsima
+                luṱingo lwawe a ḓi eḓelela.</p>
+                <p>Nga matsheloni Vho-Solani vho vuwa vha ṱuwa
+                  ha Vho-Mukonḓi na vhana vhavho vha swika vha
+                  humbela Vho-Mukonḓi uri vha sale vha tshi khou
+                  vhalelela vhana vhone vho ya mushumoni. Vho-
+                  Mukonḓi vhari nṋe ndi tshi khou lela a vha vhana
+                  vhaṋu mme avho vha gafhi?. Vho-Solani vhari
+                  vho shavha mulovha vho ṱuwa ḓoroboni. Vho-
+                  Solani vha tshi amba ezwo vha vha vho tou
+                  ṱhavhela Vho-Mukonḓi tshibudzana.</p>
+                  <p>Vho sea vha bvisa na miṱodzi vha fhedza nga u vhudza Vho-
+                    Solani uri hafha shangoni ahuna muṱali.
+                    Tshikhuwa tshone tshi tou zwi amba uri "What
+                    goes around comes back around" ndi zwe vhone
+                    vha nnyita vha tshi ntshavha vha ya ḓoroboni.
+                    Vho-Solani vho xela, fhano asi hone huno shuma
+                    u leliwa vhana. Vho-Solani vhari Vho-Mukonḓi
+                    ndi khou tou humbela ahuna muṅwe muthu ane
+                    nda nga musia navho havha vhana, vha ḓo ḽa mini
+                    arali nṋe nda sa ya mushumoni. Vho-Mukonḓi
+                    vhari zwino vhone vho tou ri vha tshi sedza vha
+                    vhona hu nṋe ane anga shuma u lela vhana
+                    vhavho thiri, nahone vho wana nṋe ndi tshi khou
+                    ṱoḓa u bva. Ndi khou ya tshikoloni tsha Tshedza
+                    huna muṱangano, kha vhabve vha ṱuwe na vhana
+                    vhavho.</p>
+            </div></div>
+                <!--  Page 43 -->
+           <div id="page-43" class="page">
+            <div class="space-y-4 novel-content">
+            <p>Vho-Solani vha humela hayani vho borea
+              vhukuma. Vha tshi sedza tshifhinga vha wana uri
+              tsho no vha ḽa zwirethe. Vho-Solani vha vhona uri
+              ndi khwiṋe vha ise vhana ha Vho-Munzhedzi
+              naho vha tshi ambeliwa zwivhi. Vho-Solani vho
+              swika vha amba na Vho- Munzhedzi vha vha
+              vhudza uri vha ḓo vha badela musi ṅwedzi u tshi
+              fhela. Vho-Munzhedzi vhari zwoluga tshimbilani
+              mushumoni ndi ḓo sala navho. Vho-Solani vha sia vhana vha gidimela mushumoni vha tshi swika
+              vha wana mutholi wavho a hone. Vha thoma u
+              tshuwa ngauri na ḓuvha ḽa tou thoma vha tshi
+              fhiwa mushumo uyu, vho vha vho vhudziwa u pfi
+              arali vha ḓa vho lenga vha ḓo pandeliwa. Vho-
+              Solani vho swika vha vha vha tshi khou thoma u
+              ṱalutshedza muhulwane wavho uri vho lengiswa
+              nga mini u ḓa mushumoni. Mutholi wa Vho-
+              Solani vha sa vhuye vha ṱoḓa u pfesesa vha
+              pandela Vho-Solani zwo ralo.</p>  
+              <p>Vho-Solani vha humela hayani vho borea
+                vhukuma. Vhutshilo vhu tshi khou konḓa hu sa
+                tsha vha ḓifhela vhunga zwoṱhe zwine vha fara
+                zwo vha zwi tshi khou sokou kwashekana hu sa
+                lugi tshithu Vho ri u swika hayani vha dzhena
+                nḓuni vha eḓela vha tshi khou thoma u ḓi sola,
+                vhari ngoho ngavhe ndi fulufhedzee kha
+                Mukonḓi musi ndi tshikhuwani ndo vha ndi tshi
+                ḓo vha ndi sa khou vhuya nda i vhona nyeṱe
+                yoṱhe heyi. Na Thandeka wa hone we avha a tshi
+                khou mpengisa u gai zwino ngauri o ntshavha.
+                Ndi hafha a thina na peni ya zwo ndo vha ndi tshi
+                ḓovha ndi khou tou ṋamela nda muisela vhana
+                vhawe tshikhuwani, nda fhedza nda vhuya venḓa. Vho-Solani vho amba vha vhoṱhe vha
+                fhedza vha eḓela miṱodzi i shamani.</p>
+                <p>Nga masiari Vho-Munzhedzi vha hayani vho
+                  dzula muṱani vha tshi khou lela vhana vha Vho-
+                  Solani vha mbo ḓi muvhona Solani a tshi khou
+                  bvela nnḓa. Vho-Munzhedzi vha muvhidzelela
+                  vhari Solani mathina ini ni hone afho hayani.
+                  Vho-Munzhedzi vha mbo ḓi muisela vhana
+                  vhawe vha swika vha ri Solani nṋe nda khou ri ini
+                  no ya mushumoni dzhiani vhana vhaṋu khevha
+                  ṋamusi vha khou kola havha vhana vha khou
+                  sokou lila u bva tshe na tou mpha vhone nga
+                  matsheloni vha khou sokou honḓa. A ni ngo
+                  mpha na Mafhi ni tshi vha ḓisa no sokou vha ḓisa
+                  vho ralo na maḽeri vha si na.</p>
+                  <p>Vho-Munzhedzi vha fha Vho-Solani vhana vha
+                    fhedza vha bva vha ṱuwa vhaya hayani. Vho-
+                    Solani vha sala vha tshi khou sokou lwa nazwo
+                    vha sa ḓivhi na uri vhana vha haano maḓuvha vha
+                    tou itisa hani ngauri vha khou sokou lila. Vho
+                    lingedza u founela Thandeka vha wana luṱingo
+                    lwa Thandeka lu siho muyani. Vho-Solani vha
+                    dzhia card ya mundende vhaya vha rengela
+                    vhana mafhi. Ngeno vhone vha si na zwiḽiwa.</p>
+            </div></div>
+                <!--  Page 44 -->
+           <div id="page-44" class="page">
+            <div class="space-y-4 novel-content">
+            <p>Nga Mugivhela nga masiari Mulweli o vhuya
+              hayani na musidzana ane a seisana nae wa nese,
+              we a wanana nae mushumoni a tshi khou ḓa u
+              muḓivhadza kha mme awe. Mulweli a tshi
+              dzhena nḓuni a wana mme awe vho dzula na
+              Tshedza hu tshi khou ṱaleliwa TV.
+              Mulweli a swika a dzula nṱha ha sofa na
+              musidzana wawe ari mma hoyu ane nda vha nae
+              hafha ndi ene nyaṋenge wanga, nga dzina upfi
+              Wavhuḓi u dzula Mukula. Vho-Mukonḓi vha
+              setshelela vhari habe ndo vha ndi tshi vho tou
+              ṱoḓa na uni vhudzisa uri uyu wa u bika waṋu ndi
+              ḓo muvhona vho lini.</p>
+              <p>Ndi zwino ndi ḽo lindela eḽi
+                ḓuvha. Na dzina ḽi tou vha ḽawe, Wavhuḓi ndi
+                Wavhuḓi ngoho. Mulweli na Wavhuḓi vha mbo ḓi
+                thoma sea. Vho-Mukonḓi vha takuwa vhari
+                Tshedza kha ḓe a dzhie tshelede ndi murume a
+                ye u renga nyamunaithi. Tshedza a ṱuwa a ya u
+                renga nyamunaithi, Vho-Mukonḓi vha sala vha
+                tshi khou ḓivhana na Wavhuḓi.
+                Nga murahu ha minwedzi miraru Mulweli o mbo
+                ḓi thoma u amba ḽa mutshato a humbela
+                Wavhuḓi uri a tende u tshata nae a mu male.
+                Wavhudi a tenda o takala vhukuma ngauri
+                Mulweli u mufuna nga mbilu yawe yoṱhe.</p>
+                <p>Mulweli o mbo ḓi ya a ṱalutshedza na mme awe uri ene u khou ṱoḓa u tshata na Wavhuḓi nahone
+                  u ṱoḓa u ita munyanya muhulu vhukuma. Vho-
+                  Mukonḓi zwa vha takadza vhari Mulweli, ndi
+                  khou pfa ni tshi khou lenga. Ngoho nṋe ndi a ḓi
+                  ṱongisa nga ini ṅwananga, nahone ndi khou
+                  fanela uvha ndi tshi khou fhisa vhukuma ndi do
+                  to rungisa na rokho ya u naka. Nga ṅwedzi wa Nyendavhusiku Mulweli o ita
+                  munyanya muhulu vhukuma. A ramba ḽoṱhe la
+                  tswuka, hu vhashumisani na vhadededzi vhe vha
+                  mufunza ngei Secondary. Ho vha ho ḓala
+                  vhukuma afho munyanyani, wo vha u tshi ri
+                  muthu wa lifha ngauri ho ḓa na vhathu vha kule
+                  vhaṅwe na u rambiwa vha songo rambiwa.</p> 
+                  <p>Vho-
+                    Mukonḓi vho vha vho takalesa vhukuma vha tshi
+                    khou tou pfa unga ndi muḽoro. Vho-Ramaleba na
+                    Vho-Lukoto na vhone vho vha vha hone vho
+                    rambiwa nga ene Mulweli. Vho-Muḓalo vhone
+                    vho vha vha tshi khou tshatisa. Vho-Lukoto vhari
+                    zwithu zwi a itea ngoho, mulovha hanefha
+                    Mulweli o vha o dzula ṱafulani a tshi khou ṅwala
+                    mulingo a songo ambara na zwienda zwa
+                    tshikolo mara ṋamusi khoyu u khou ita
+                    munyanya. Vho-Ramaleba vhari husi munyanya
+                    zwawo, nṋe hezwi a thi athu zwi vhona u bva
+                    tshe nda bebiwa.</p> 
+            </div></div>
+              <!--  Page 45 -->
+              <div id="page-45" class="page">
+                <div class="space-y-4 novel-content">
+                <p>Vho-Solani navho vho vha vha hone mutshatoni vha tshi khou tshimbila na
+                  vhana vhavho. Vhathu vho vha vha tshi khou tou
+                  vha mangala uri mulandu munna a tshi khou tou
+                  tshimbila na vhana. Vho-Solani vho vha vha si na
+                  mushumo nazwo ngauri vho vha vho ḓela zwone
+                  zwiḽiwa sa ezwi hayani husina ngauri avha tsha
+                  shuma.</p> 
+                  <p>Vho-Solani vho vha vha tshi khou alusa vhana
+                    vhavho u vhavha ngauri na hayani vho vha vha si
+                    na muthu ono vha thusa u lela vhana zwi tshi ita
+                    na uri vha sa bve hayani nga nṱhani ha vhana.
+                    Vho-Solani vhana vho thoma u vha netisa ngauri
+                    vho vha vha sa tsha ḽa zwiḽiwa, ngauri tshelede
+                    ine vha i fara i fhelela kha vhana. Musi Vho-Solani
+                    vha tshi vhona uri vhana vho vha netisa, vha
+                    vuwa nga matsheloni ḽiṅwe ḓuvha vha ya vha vha
+                    laṱa dakani vha fhedza vha shavha.</p> 
+                    <p>Vhana vho
+                      waniwa nga mathabama nga vhafumakadzi vha
+                      tshi khou ya khunini, vha founela mapholisa nga
+                      u ṱavhanya. Mapholisa a swika a dzhia vhana a
+                      ita thoḓuluso a fhedza a tshi khou zwi wana uri
+                      vhana vho laṱiwa nga Vho-Solani. Mapholisa a
+                      mbo ḓi ya a fara Vho-Solani vha ya dzhele,
+                      .muthada na dinani o vha asiho ngauri vha khou humbula uri tenda vha tshi ḓo ḽa ḓuvha ḽiṅwe na
+                      ḽiṅwe.
+                      Vho-Mukonḓi vhutshilo ho vha ḓifhela na vhana
+                      vhavho na mufumakadzi wa ṅwana wavho
+                      Wavhuḓi. Vha tshila vhutshilo ha vhuḓi uya hoya.</p>
+                </div></div>
+        </div>
+      </div>
+
+      <!-- Scroll to top button -->
+      <button
+        id="scroll-to-top"
+        class="scroll-to-top"
+        aria-label="Scroll to top"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 10l7-7m0 0l7 7m-7-7v18"
+          />
+        </svg>
+      </button>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#3B2F2A] text-[#F1C6B0] p-6 text-center">
+      <div class="navigation mb-4 flex justify-between items-center">
+        <button
+          id="prev-page-footer"
+          class="bg-gray-200 dark:bg-gray-700 p-2 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+        >
+          Previous
+        </button>
+        <span id="page-number-footer" class="text-lg font-semibold"
+          >Page 1 of 21</span
+        >
+        <button
+          id="next-page-footer"
+          class="bg-gray-200 dark:bg-gray-700 p-2 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+        >
+          Next
+        </button>
+      </div>
+      <p class="mb-2">
+        &copy; <span id="current-year"></span> Hayanihazwitori. All rights
+        reserved.
+      </p>
+      <div class="flex justify-center flex-wrap gap-4 mb-2">
+        <a
+          href="../privacy.html"
+          class="hover:underline text-[#F1C6B0] dark:text-[#F1C6B0]"
+        >
+          Privacy Policy
+        </a>
+        <a
+          href="../terms.html"
+          class="hover:underline text-[#F1C6B0] dark:text-[#F1C6B0]"
+        >
+          Terms of Service
+        </a>
+        <a
+          href="../social.html"
+          class="hover:underline text-[#F1C6B0] dark:text-[#F1C6B0]"
+        >
+          Social Media
+        </a>
+      </div>
+      <div>
+        <a
+          href="https://github.com/Mosha-izhevsk"
+          class="text-sm hover:underline text-[#F1C6B0] dark:text-[#F1C6B0]"
+          aria-label="Visit the website developer's GitHub page"
+        >
+          website by MRI
+        </a>
+      </div>
+    </footer>
+
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+    <script>
+      // Set current year in footer
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+
+      // Toggle mobile menu
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuToggle.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Font size controls
+      const decreaseFont = document.getElementById("decrease-font");
+      const increaseFont = document.getElementById("increase-font");
+      const fontSizeDisplay = document.getElementById("font-size-display");
+      const novelContent = document.getElementById("novel-content-container");
+
+      let fontSize = 16;
+
+      decreaseFont.addEventListener("click", function () {
+        fontSize = Math.max(fontSize - 2, 14);
+        updateFontSize();
+      });
+
+      increaseFont.addEventListener("click", function () {
+        fontSize = Math.min(fontSize + 2, 24);
+        updateFontSize();
+      });
+
+      function updateFontSize() {
+        fontSizeDisplay.textContent = `${fontSize}px`;
+        novelContent.style.fontSize = `${fontSize}px`;
+      }
+
+      // Initialize dark mode based on localStorage
+      const bodyElement = document.getElementById("body-element");
+      const toggleTheme = document.getElementById("toggle-theme");
+      let isDarkMode = localStorage.getItem("dark-mode") === "true";
+
+      // Apply dark mode on page load if enabled
+      if (isDarkMode) {
+        bodyElement.classList.add("dark");
+        toggleTheme.textContent = "Light Mode";
+        toggleTheme.classList.remove("bg-gray-200", "text-gray-800");
+        toggleTheme.classList.add("bg-gray-700", "text-white");
+      }
+
+      // Toggle dark mode and save preference
+      toggleTheme.addEventListener("click", function () {
+        isDarkMode = !isDarkMode;
+        if (isDarkMode) {
+          bodyElement.classList.add("dark");
+          toggleTheme.textContent = "Light Mode";
+          toggleTheme.classList.remove("bg-gray-200", "text-gray-800");
+          toggleTheme.classList.add("bg-gray-700", "text-white");
+        } else {
+          bodyElement.classList.remove("dark");
+          toggleTheme.textContent = "Dark Mode";
+          toggleTheme.classList.remove("bg-gray-700", "text-white");
+          toggleTheme.classList.add("bg-gray-200", "text-gray-800");
+        }
+        localStorage.setItem("dark-mode", isDarkMode);
+      });
+
+      // Scroll to top
+      const scrollToTopButton = document.getElementById("scroll-to-top");
+
+      window.addEventListener("scroll", function () {
+        if (window.pageYOffset > 300) {
+          scrollToTopButton.style.display = "block";
+        } else {
+          scrollToTopButton.style.display = "none";
+        }
+      });
+
+      scrollToTopButton.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Bookmark functionality
+      const bookmarkButton = document.getElementById("bookmark-button");
+
+      bookmarkButton.addEventListener("click", function () {
+        const currentPosition = window.scrollY;
+        const currentPage = getCurrentPage();
+        localStorage.setItem("bookmark-position", currentPosition);
+        localStorage.setItem("bookmark-page", currentPage);
+        alert("Page bookmarked! You can return to this position later.");
+      });
+
+      // Check for bookmark on page load
+      const savedPosition = localStorage.getItem("bookmark-position");
+      const savedPage = localStorage.getItem("bookmark-page");
+      if (savedPosition && savedPage) {
+        // Ask user if they want to go to the bookmarked position
+        const goToBookmark = confirm(
+          "You have a bookmark saved. Would you like to go to that position?"
+        );
+        if (goToBookmark) {
+          showPage(parseInt(savedPage));
+          window.scrollTo({
+            top: parseInt(savedPosition),
+            behavior: "smooth",
+          });
+        }
+      }
+
+      // Share functionality
+      const shareButton = document.getElementById("share-button");
+
+      shareButton.addEventListener("click", function () {
+        if (navigator.share) {
+          navigator
+            .share({
+              title: document.title,
+              url: window.location.href,
+            })
+            .then(() => console.log("Successful share"))
+            .catch((error) => console.log("Error sharing:", error));
+        } else {
+          // Fallback for browsers that don't support the Web Share API
+          const tempInput = document.createElement("input");
+          document.body.appendChild(tempInput);
+          tempInput.value = window.location.href;
+          tempInput.select();
+          document.execCommand("copy");
+          document.body.removeChild(tempInput);
+          alert("Link copied to clipboard!");
+        }
+      });
+
+      // Page navigation functionality
+      let currentPage = 1;
+      const totalPages = 45; // Updated total number of pages
+
+      function getCurrentPage() {
+        return currentPage;
+      }
+
+      function showPage(page) {
+        // Hide all pages
+        document
+          .querySelectorAll(".page")
+          .forEach((div) => div.classList.remove("active"));
+
+        // Show the selected page
+        const pageElement = document.getElementById(`page-${page}`);
+        if (pageElement) {
+          pageElement.classList.add("active");
+
+          // Update page numbers in UI
+          document.getElementById(
+            "page-number"
+          ).innerText = `Page ${page} of ${totalPages}`;
+          document.getElementById(
+            "page-number-footer"
+          ).innerText = `Page ${page} of ${totalPages}`;
+
+          // Scroll to top of content when changing pages
+          window.scrollTo({
+            top: novelContent.offsetTop - 100,
+            behavior: "smooth",
+          });
+
+          // Save current page to localStorage
+          localStorage.setItem("current-page", page);
+          currentPage = page;
+        }
+      }
+
+      function nextPage() {
+        if (currentPage < totalPages) {
+          showPage(currentPage + 1);
+        }
+      }
+
+      function prevPage() {
+        if (currentPage > 1) {
+          showPage(currentPage - 1);
+        }
+      }
+
+      // Add event listeners for page navigation
+      document.getElementById("prev-page").addEventListener("click", prevPage);
+      document.getElementById("next-page").addEventListener("click", nextPage);
+      document
+        .getElementById("prev-page-footer")
+        .addEventListener("click", prevPage);
+      document
+        .getElementById("next-page-footer")
+        .addEventListener("click", nextPage);
+
+      // Check for saved page on load
+      const savedCurrentPage = localStorage.getItem("current-page");
+      if (savedCurrentPage) {
+        currentPage = parseInt(savedCurrentPage);
+        showPage(currentPage);
+      }
+
+      // Add keyboard navigation
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowRight") {
+          nextPage();
+        } else if (e.key === "ArrowLeft") {
+          prevPage();
+        }
+      });
+
+      // Go to Page functionality
+      const goToPageInput = document.getElementById("go-to-page-input");
+      const goToPageButton = document.getElementById("go-to-page-button");
+
+      goToPageButton.addEventListener("click", function () {
+        const pageNumber = parseInt(goToPageInput.value);
+        if (pageNumber >= 1 && pageNumber <= totalPages) {
+          showPage(pageNumber);
+        } else {
+          alert(
+            `Please enter a valid page number between 1 and ${totalPages}.`
+          );
+        }
+      });
+
+      goToPageInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          goToPageButton.click();
+        }
+      });
+    </script>
+  </body>
+</html>

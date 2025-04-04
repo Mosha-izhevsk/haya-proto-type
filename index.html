@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hayani ha zwitori - Home of Stories</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Base styles */
+        body {
+            background-color: #F8F1EB;
+            color: #333333;
+        }
+
+        /* Dark mode variables */
+        .dark {
+            background-color: #1a202c;
+            color: #f7fafc;
+        }
+
+        .dark .bg-primary {
+            background-color: #2d3748;
+        }
+
+        .dark .text-primary {
+            color: #f1c6b0;
+        }
+
+        /* Placeholder image */
+        .placeholder-img {
+            background-color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a0aec0;
+            font-size: 0.875rem;
+        }
+
+        /* Header and navigation */
+        header {
+            background-color: #3B2F2A;
+            color: #F1C6B0;
+        }
+
+        .nav-link {
+            color: #F1C6B0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background-color: #D98F3B;
+            color: #000;
+        }
+
+        .active-nav {
+            background-color: #D98F3B;
+            color: #000;
+        }
+
+        /* Mobile menu */
+        #mobile-menu {
+            background-color: #3B2F2A;
+            color: #F1C6B0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Novel Section */
+        .novel h2 {
+            text-align: center;
+            background-color: #3B2F2A; /* Match header background color */
+            color: #F1C6B0; /* Match header text color */
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        /* Novel content styles */
+        .novel-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            background-color: #F8F1EB;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .novel-content h3 {
+            font-size: 1.25rem;
+            color: #3B2F2A;
+            margin-bottom: 0.5rem;
+        }
+
+        .novel-content p {
+            font-size: 1rem;
+            color: #666666;
+            text-align: center;
+        }
+
+        .novel-content a {
+            margin-top: 1rem;
+            background-color: #D98F3B;
+            color: #000;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .novel-content a:hover {
+            background-color: #F1C6B0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3B2F2A; /* Match header background color */
+            color: #F1C6B0; /* Match header text color */
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #F1C6B0; /* Match header text color */
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            /* No empty ruleset present */
+
+            /* Removed empty ruleset for .nav-links */
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="p-4 flex justify-between items-center fixed w-full z-50 shadow-md">
+        <div class="text-2xl font-bold">Hayanihazwitori</div>
+
+        <nav class="hidden md:block">
+            <ul class="flex space-x-6">
+                <li>
+                    <a href="index.html" class="nav-link active-nav p-2 rounded transition-colors">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="novels.html" class="nav-link p-2 rounded transition-colors">
+                        Novels
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html" class="nav-link p-2 rounded transition-colors">
+                        About
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html" class="nav-link p-2 rounded transition-colors">
+                        Contact
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <button id="menu-toggle" class="md:hidden text-[#F1C6B0]" aria-label="Toggle menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+
+        <form id="search-form" class="hidden md:flex items-center">
+            <input
+                type="text"
+                placeholder="Search novels..."
+                class="p-2 rounded-l text-black"
+                aria-label="Search novels"
+            />
+            <button
+                type="submit"
+                class="bg-[#F1C6B0] text-[#3A3A3A] p-2 rounded-r hover:bg-[#D98F3B] transition-colors"
+                aria-label="Search"
+            >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </button>
+        </form>
+    </header>
+
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobile-menu" class="fixed top-16 left-0 w-full p-4 z-40 md:hidden hidden">
+        <ul class="flex flex-col space-y-4">
+            <li>
+                <a href="index.html" class="block p-2 bg-[#D98F3B] text-black rounded">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="novels.html" class="block p-2 hover:bg-[#D98F3B] hover:text-black rounded text-[#F1C6B0]">
+                    Novels
+                </a>
+            </li>
+            <li>
+                <a href="about.html" class="block p-2 hover:bg-[#D98F3B] hover:text-black rounded text-[#F1C6B0]">
+                    About
+                </a>
+            </li>
+            <li>
+                <a href="contact.html" class="block p-2 hover:bg-[#D98F3B] hover:text-black rounded text-[#F1C6B0]">
+                    Contact
+                </a>
+            </li>
+        </ul>
+        <form class="mt-4 flex">
+            <input
+                type="text"
+                placeholder="Search novels..."
+                class="p-2 rounded-l flex-1 text-black"
+            />
+            <button
+                type="submit"
+                class="bg-[#F1C6B0] text-[#3A3A3A] p-2 rounded-r hover:bg-[#D98F3B] transition-colors"
+            >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </button>
+        </form>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 pt-20 md:pt-24 pb-12">
+        <div class="container mx-auto px-4">
+            <!-- Hero Section -->
+            <section class="bg-[#3B2F2A]/90 text-[#F1C6B0] p-6 rounded-lg mb-8 text-center">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">Welcome to Hayani ha zwitori</h1>
+                <p class="text-xl mb-6">Discover captivating stories from Limpopo, South Africa</p>
+                <div class="flex justify-center space-x-4">
+                    <a
+                        href="novels.html"
+                        class="bg-[#D98F3B] text-black px-6 py-3 rounded-lg font-medium hover:bg-[#F1C6B0] transition-colors"
+                    >
+                        Browse Novels
+                    </a>
+                    <a
+                        href="about.html"
+                        class="bg-[#F1C6B0] text-[#3A3A3A] px-6 py-3 rounded-lg font-medium hover:bg-[#D98F3B] transition-colors"
+                    >
+                        Learn More
+                    </a>
+                </div>
+            </section>
+
+            <!-- Featured Novels -->
+            <section class="mb-12 novel">
+                <h2 class="bg-[#3B2F2A] text-[#F1C6B0] text-xl font-bold p-3 text-center mb-6 hover:bg-[#D98F3B] hover:text-black transition-colors">
+                    Featured Novels
+                </h2>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white/90 p-6 rounded-lg shadow-md hover:shadow-lg transition-all hover:-translate-y-1 border border-transparent hover:border-[#D98F3B]">
+                        <div class="flex flex-col items-center">
+                            <div class="w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-[#F1C6B0]">
+                                <div class="placeholder-img w-full h-full">Image</div>
+                            </div>
+                            <h3 class="text-xl font-bold text-[#3B2F2A] mb-2">Vhutshilo</h3>
+                            <p class="text-gray-600 mb-4 text-center">By Nethononda Mutshidzi</p>
+                            <a
+                                href="novels/vhutshiloni-u-tshi-khou-aluwa-u-si-na-vhabebi-tsini.html"
+                                class="bg-[#F1C6B0] text-[#3A3A3A] px-4 py-2 rounded hover:bg-[#D98F3B] transition-colors"
+                            >
+                                Read Now
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/90 p-6 rounded-lg shadow-md hover:shadow-lg transition-all hover:-translate-y-1 border border-transparent hover:border-[#D98F3B]">
+                        <div class="flex flex-col items-center">
+                            <div class="w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-[#F1C6B0]">
+                                <div class="placeholder-img w-full h-full">Image</div>
+                            </div>
+                            <h3 class="text-xl font-bold text-[#3B2F2A] mb-2">Nae Ndi Muthu</h3>
+                            <p class="text-gray-600 mb-4 text-center">By Nethononda Mutshidzi</p>
+                            <a
+                                href="novels/nae-ndi-muthu.html"
+                                class="bg-[#F1C6B0] text-[#3A3A3A] px-4 py-2 rounded hover:bg-[#D98F3B] transition-colors"
+                            >
+                                Read Now
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/90 p-6 rounded-lg shadow-md hover:shadow-lg transition-all hover:-translate-y-1 border border-transparent hover:border-[#D98F3B]">
+                        <div class="flex flex-col items-center">
+                            <div class="w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-[#F1C6B0]">
+                                <div class="placeholder-img w-full h-full">Image</div>
+                            </div>
+                            <h3 class="text-xl font-bold text-[#3B2F2A] mb-2">More Stories Coming Soon</h3>
+                            <p class="text-gray-600 mb-4 text-center">Coming Soon...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- New Releases -->
+            <section class="novel">
+                <h2 class="bg-[#3B2F2A] text-[#F1C6B0] text-xl font-bold p-3 text-center mb-6 hover:bg-[#D98F3B] hover:text-black transition-colors">
+                    New Releases
+                </h2>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white/90 p-6 rounded-lg shadow-md hover:shadow-lg transition-all hover:-translate-y-1 border border-transparent hover:border-[#D98F3B]">
+                        <div class="flex flex-col items-center">
+                            <div class="w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-[#F1C6B0]">
+                                <div class="placeholder-img w-full h-full">Image</div>
+                            </div>
+                            <h3 class="text-xl font-bold text-[#3B2F2A] mb-2">More Stories Coming Soon</h3>
+                            <p class="text-gray-600 mb-4 text-center">Coming Soon...</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/90 p-6 rounded-lg shadow-md hover:shadow-lg transition-all hover:-translate-y-1 border border-transparent hover:border-[#D98F3B]">
+                        <div class="flex flex-col items-center">
+                            <div class="w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-[#F1C6B0]">
+                                <div class="placeholder-img w-full h-full">Image</div>
+                            </div>
+                            <h3 class="text-xl font-bold text-[#3B2F2A] mb-2">More Stories Coming Soon</h3>
+                            <p class="text-gray-600 mb-4 text-center">Coming Soon...</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/90 p-6 rounded-lg shadow-md hover:shadow-lg transition-all hover:-translate-y-1 border border-transparent hover:border-[#D98F3B]">
+                        <div class="flex flex-col items-center">
+                            <div class="w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-[#F1C6B0]">
+                                <div class="placeholder-img w-full h-full">Image</div>
+                            </div>
+                            <h3 class="text-xl font-bold text-[#3B2F2A] mb-2">More Stories Coming Soon</h3>
+                            <p class="text-gray-600 mb-4 text-center">Coming Soon...</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/90 p-6 rounded-lg shadow-md hover:shadow-lg transition-all hover:-translate-y-1 border border-transparent hover:border-[#D98F3B]">
+                        <div class="flex flex-col items-center">
+                            <div class="w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-[#F1C6B0]">
+                                <div class="placeholder-img w-full h-full">Image</div>
+                            </div>
+                            <h3 class="text-xl font-bold text-[#3B2F2A] mb-2">More Stories Coming Soon</h3>
+                            <p class="text-gray-600 mb-4 text-center">Coming Soon...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#3B2F2A] text-[#F1C6B0] p-6 text-center">
+        <p class="mb-2">&copy; <span id="current-year"></span> Hayanihazwitori. All rights reserved.</p>
+        <div class="flex justify-center flex-wrap gap-4 mb-2">
+            <a href="privacy.html" class="hover:underline px-4 py-2 text-base">
+                Privacy Policy
+            </a>
+            <a href="terms.html" class="hover:underline px-4 py-2 text-base">
+                Terms of Service
+            </a>
+            <a href="social.html" class="hover:underline px-4 py-2 text-base">
+                Social Media
+            </a>
+        </div>
+        <div>
+            <a
+                href="https://github.com/Mosha-izhevsk"
+                class="text-sm hover:underline"
+                aria-label="Visit the website developer's GitHub page"
+            >
+                website by MRI
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Toggle mobile menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Handle search form
+        const searchForm = document.getElementById('search-form');
+
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchQuery = this.querySelector('input').value;
+            console.log('Searching for:', searchQuery);
+            // Implement search functionality
+            alert(`Searching for: ${searchQuery}`);
+        });
+    </script>
+</body>
+</html>

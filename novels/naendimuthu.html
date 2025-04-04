@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Naendimuthu - Hayani ha zwitori</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Base styles */
+      body {
+        background-color: #f8f1eb;
+        color: #333333;
+      }
+
+      /* Dark mode variables */
+      .dark {
+        background-color: #1a202c;
+        color: #f7fafc;
+      }
+
+      .dark .novel-content {
+        color: #f7fafc;
+      }
+
+      .dark .novel-content h2 {
+        color: #f1c6b0;
+      }
+
+      .dark .nav-link {
+        color: #f7fafc;
+      }
+
+      .dark .nav-link:hover {
+        background-color: #d98f3b;
+        color: #000;
+      }
+
+      .dark .placeholder-img {
+        background-color: #2d3748;
+        color: #e2e8f0;
+      }
+
+      .dark .scroll-to-top {
+        background-color: #2d3748;
+        color: #f7fafc;
+      }
+
+      .dark .scroll-to-top:hover {
+        background-color: #d98f3b;
+        color: #000;
+      }
+
+      .dark p,
+      .dark span,
+      .dark label,
+      .dark div {
+        color: #f7fafc;
+      }
+
+      .dark #font-size-display,
+      .dark #page-number,
+      .dark #go-to-page-input {
+        color: #f7fafc;
+        background-color: #2d3748;
+      }
+
+      .dark .page {
+        color: #f7fafc;
+      }
+
+      .dark .navigation button {
+        background-color: #2d3748;
+        color: #f7fafc;
+      }
+
+      .dark .navigation button:hover {
+        background-color: #d98f3b;
+        color: #000;
+      }
+
+      .dark footer {
+        background-color: #2d3748;
+        color: #f7fafc;
+      }
+
+      .dark footer a {
+        color: #f7fafc;
+      }
+
+      .dark footer a:hover {
+        color: #d98f3b;
+      }
+
+      .dark .text-gray-600 {
+        color: #cbd5e0 !important;
+      }
+
+      .dark .text-gray-700,
+      .dark .text-gray-800 {
+        color: #e2e8f0 !important;
+      }
+
+      .dark .bg-gray-100,
+      .dark .bg-gray-200,
+      .dark .bg-white {
+        background-color: #2d3748 !important;
+      }
+
+      /* Header and navigation */
+      header {
+        background-color: #3b2f2a;
+        color: #f1c6b0;
+      }
+
+      .nav-link {
+        color: #f1c6b0;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link:hover {
+        background-color: #d98f3b;
+        color: #000;
+      }
+
+      .active-nav {
+        background-color: #d98f3b;
+        color: #000;
+      }
+
+      /* Mobile menu */
+      #mobile-menu {
+        background-color: #3b2f2a;
+        color: #f1c6b0;
+      }
+
+      /* Novel content styling */
+      .novel-content p {
+        margin-bottom: 1.25rem;
+        line-height: 1.75;
+      }
+
+      .novel-content h2 {
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        color: #3b2f2a;
+      }
+
+      .dark .novel-content h2 {
+        color: #f1c6b0;
+      }
+
+      /* Improve spacing for dialogue */
+      .novel-content p + p {
+        margin-top: 0.5rem;
+      }
+
+      /* Dialog styling */
+      .novel-content p:has(strong),
+      .novel-content p:has(em) {
+        padding-left: 1rem;
+        border-left: 3px solid #d98f3b;
+        margin-bottom: 1.5rem;
+      }
+
+      /* Placeholder image */
+      .placeholder-img {
+        background-color: #e2e8f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #a0aec0;
+        font-size: 0.875rem;
+      }
+
+      /* Scroll to top button */
+      .scroll-to-top {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 99;
+        cursor: pointer;
+        padding: 12px;
+        border-radius: 50%;
+        background-color: #3b2f2a;
+        color: #f1c6b0;
+        transition: all 0.3s;
+      }
+
+      .scroll-to-top:hover {
+        background-color: #d98f3b;
+        color: #000;
+      }
+
+      /* Page navigation styles */
+      .page {
+        display: none;
+      }
+
+      .page.active {
+        display: block;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .novel-content {
+          font-size: 1rem;
+        }
+
+        h1 {
+          font-size: 1.75rem;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+        }
+      }
+
+      /* Footer styles */
+      footer {
+        background-color: #3b2f2a;
+        /* Default footer background */
+        color: #f1c6b0;
+        /* Default footer text color */
+      }
+
+      .dark footer {
+        background-color: #1a202c;
+        /* Dark mode footer background */
+        color: #f7fafc;
+        /* Dark mode footer text color */
+      }
+
+      footer a {
+        color: #f1c6b0;
+        /* Default footer link color */
+      }
+
+      .dark footer a {
+        color: #f7fafc;
+        /* Dark mode footer link color */
+      }
+
+      footer a:hover {
+        color: #d98f3b;
+        /* Hover color for footer links */
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen flex flex-col" id="body-element">
+    <!-- Header -->
+    <header
+      class="p-4 flex justify-between items-center fixed w-full z-50 shadow-md"
+    >
+      <div class="text-2xl font-bold">
+        <a href="../index.html">Hayanihazwitori</a>
+      </div>
+
+      <nav class="hidden md:block">
+        <ul class="flex space-x-6">
+          <li>
+            <a
+              href="../index.html"
+              class="nav-link p-2 rounded transition-colors"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="../novels.html" class="nav-link active-nav p-2 rounded">
+              Novels
+            </a>
+          </li>
+          <li>
+            <a
+              href="../about.html"
+              class="nav-link p-2 rounded transition-colors"
+            >
+              About
+            </a>
+          </li>
+          <li>
+            <a
+              href="../contact.html"
+              class="nav-link p-2 rounded transition-colors"
+            >
+              Contact
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <button
+        id="menu-toggle"
+        class="md:hidden text-[#F1C6B0]"
+        aria-label="Toggle menu"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </button>
+
+      <form id="search-form" class="hidden md:flex items-center">
+        <input
+          type="text"
+          placeholder="Search novels..."
+          class="p-2 rounded-l text-black"
+          aria-label="Search novels"
+        />
+        <button
+          type="submit"
+          class="bg-[#F1C6B0] text-[#3A3A3A] p-2 rounded-r hover:bg-[#D98F3B] transition-colors"
+          aria-label="Search"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            ></path>
+          </svg>
+        </button>
+      </form>
+    </header>
+
+    <!-- Mobile Menu (hidden by default) -->
+    <div
+      id="mobile-menu"
+      class="fixed top-16 left-0 w-full p-4 z-40 md:hidden hidden"
+    >
+      <ul class="flex flex-col space-y-4">
+        <li>
+          <a
+            href="../index.html"
+            class="block p-2 hover:bg-[#D98F3B] hover:text-black rounded text-[#F1C6B0]"
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <a
+            href="../novels.html"
+            class="block p-2 bg-[#D98F3B] text-black rounded"
+          >
+            Novels
+          </a>
+        </li>
+        <li>
+          <a
+            href="../about.html"
+            class="block p-2 hover:bg-[#D98F3B] hover:text-black rounded text-[#F1C6B0]"
+          >
+            About
+          </a>
+        </li>
+        <li>
+          <a
+            href="../contact.html"
+            class="block p-2 hover:bg-[#D98F3B] hover:text-black rounded text-[#F1C6B0]"
+          >
+            Contact
+          </a>
+        </li>
+      </ul>
+      <form class="mt-4 flex">
+        <input
+          type="text"
+          placeholder="Search novels..."
+          class="p-2 rounded-l flex-1 text-black"
+        />
+        <button
+          type="submit"
+          class="bg-[#F1C6B0] text-[#3A3A3A] p-2 rounded-r hover:bg-[#D98F3B] transition-colors"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            ></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 pt-20 pb-12 relative">
+      <div class="container mx-auto px-4 flex flex-col md:flex-row">
+        <!-- Reading Controls - Side Panel -->
+        <div class="md:w-64 mb-8 md:mb-0 md:mr-8">
+          <div
+            class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md sticky top-24"
+          >
+            <h3
+              class="text-lg font-semibold mb-4 text-gray-800 dark:text-[#F1C6B0]"
+            >
+              Reading Settings
+            </h3>
+
+            <div class="space-y-4">
+              <div>
+                <label
+                  class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300"
+                  >Font Size</label
+                >
+                <div class="flex items-center">
+                  <button
+                    id="decrease-font"
+                    class="bg-gray-200 dark:bg-gray-700 p-2 rounded-l hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                    aria-label="Decrease font size"
+                  >
+                    <span class="text-lg font-bold">-</span>
+                  </button>
+                  <div
+                    id="font-size-display"
+                    class="px-4 py-2 bg-gray-100 dark:bg-gray-800 text-center"
+                  >
+                    16px
+                  </div>
+                  <button
+                    id="increase-font"
+                    class="bg-gray-200 dark:bg-gray-700 p-2 rounded-r hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                    aria-label="Increase font size"
+                  >
+                    <span class="text-lg font-bold">+</span>
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <label
+                  class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300"
+                  >Theme</label
+                >
+                <button
+                  id="toggle-theme"
+                  class="w-full py-2 px-4 rounded flex items-center justify-center bg-gray-200 text-gray-800 hover:bg-gray-300 transition-colors"
+                >
+                  Dark Mode
+                </button>
+              </div>
+
+              <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
+                <div class="flex justify-between">
+                  <button
+                    id="bookmark-button"
+                    class="flex items-center text-gray-800 dark:text-[#F1C6B0] hover:text-[#D98F3B] dark:hover:text-[#D98F3B] transition-colors"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 mr-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+                      />
+                    </svg>
+                    <span>Bookmark</span>
+                  </button>
+                  <button
+                    id="share-button"
+                    class="flex items-center text-gray-800 dark:text-[#F1C6B0] hover:text-[#D98F3B] dark:hover:text-[#D98F3B] transition-colors"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 mr-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+                      />
+                    </svg>
+                    <span>Share</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
+                <a
+                  href="../novels.html"
+                  class="inline-flex items-center text-gray-800 dark:text-[#F1C6B0] hover:text-[#D98F3B] dark:hover:text-[#D98F3B] transition-colors"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                    />
+                  </svg>
+                  <span>Back to Novels</span>
+                </a>
+              </div>
+
+              <!-- Page Navigation Controls -->
+              <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
+                <label
+                  class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300"
+                  >Page Navigation</label
+                >
+                <div class="flex items-center justify-between">
+                  <button
+                    id="prev-page"
+                    class="bg-gray-200 dark:bg-gray-700 p-2 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                    aria-label="Previous page"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 19l-7-7 7-7"
+                      />
+                    </svg>
+                  </button>
+                  <div
+                    id="page-number"
+                    class="px-4 py-2 bg-gray-100 dark:bg-gray-800 text-center"
+                  >
+                    Page 1 of 10
+                  </div>
+                  <button
+                    id="next-page"
+                    class="bg-gray-200 dark:bg-gray-700 p-2 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                    aria-label="Next page"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
+                <label
+                  class="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300"
+                  >Go to Page</label
+                >
+                <div class="flex items-center">
+                  <input
+                    id="go-to-page-input"
+                    type="number"
+                    min="1"
+                    max="10"
+                    class="p-2 rounded-l text-black border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300"
+                    placeholder="Enter page number"
+                    aria-label="Go to page input"
+                  />
+                  <button
+                    id="go-to-page-button"
+                    class="bg-gray-200 dark:bg-gray-700 p-2 rounded-r hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                    aria-label="Go to page button"
+                  >
+                    Go
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Novel Content -->
+        <div
+          id="novel-content-container"
+          class="flex-1 bg-white dark:bg-gray-800 p-6 md:p-8 rounded-lg shadow-md dark:text-white"
+          style="font-size: 16px"
+        >
+          <h1 class="text-3xl md:text-4xl font-bold mb-6">Naendimuthu</h1>
+          <div class="flex items-center mb-8">
+            <div class="mr-4">
+              <div class="placeholder-img w-[80px] h-[80px] rounded-full">
+                Image
+              </div>
+            </div>
+            <div>
+              <p class="font-semibold text-lg">Author Name</p>
+              <p class="text-gray-600 dark:text-gray-400">Published: 2023</p>
+            </div>
+          </div>
+
+          <!-- Page 1 -->
+          <div id="page-1" class="page active">
+            <div class="space-y-4 novel-content">
+              <p>
+                Vhutshiloni u tshi khou aluwa u si na vhabebi tsini a vhungo vhuya ha leluwa 
+                na luthihi, nga mannḓa arali u tshi dzula na vhathu vhane a vha na ndavha 
+                na iwe na vhumatshelo hau.
+              </p>
+              <p>
+                Maemu ndi musidzana wa minwaha ya 14 ane a kha ḓi tou vha kha murole 
+                wa gireidi ya vhu malo ngei Secondary ya Tshidzini ino wanala hanefho kha 
+                muvhundu wa Tshidzini. Afho ndi hune Maemu a dzula hone na Mmane wawe
+                Vho-Luvhengo vhane vho vhingwa nga Vho-Mufanyisi. A vho vhavhili Vho-
+                Mufanyisi na Vho-Luvhengo vha na ṅwana muthihi ane a vha Lutendo vha ḓi 
+                dzula nae hanefha hayani khathihi na Maemu ane a vha ṅwana wa 
+                mukomana wa Vho-Luvhengo. Maemu oḓa afha muḓini wa Vho-Mufanyisi nga
+                murahu ha musi vhabebi vhawe vho ri sia shangoni nga khombo ya moḓoro 
+                musi Maemu ana minwaha ya 10. Musidzana wo funa tshikolo ane a khou 
+                tshila na vhulwadze ha Albinism.
+              </p>
+              <h2>Luṱa 1</h2>
+              <p>
+                (Ngei ha Vho-Mufanyisi nga matsheloni hu vhonala Vho-Luvhengo, vha vuwa 
+                nga matshelonitsheloni vhaya u khokhonyela Maemu lufherani lwawe)
+              </p>
+              <p>
+                <strong>Vho-Luvhengo:</strong> Maemu vuwani ḓuvha ḽo tsha ndi kale ni ite zwo shuma ḽi 
+                saathu ṱavha. Ni khou tea u thoma nga uya maḓini.
+              </p>
+              <p>
+                <strong>Maemu:</strong> Holuga ndi khou ḓa ndo vha pfa.
+              </p>
+              <p>
+                (Vho-Luvhengo vha mbo ḓi rembuluwa vha humela lufherani lwavho vha 
+                swika vha dzhena nguvhoni ngauri ho vha hu vhuriya hu tshi khou rothola 
+                vhukuma. Maemu a sala a tshi vuwa a thoma ngo rabela, a tshi fhedza a 
+                konaha u bva afho lufherani a ṱuwa aya lufherani lwa Lutendo uri a humbele 
+                u fheledziwa maḓini)
+              </p>
+            </div>
+          </div>
+
+          <!-- Page 2 -->
+          <div id="page-2" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                <strong>Maemu:</strong> Lutendo mathina no no vuwa kale. Ndi khou humbela u 
+                fhelekedziwa u ka maḓi tshisimani.
+              </p>
+              <p>
+                <strong>Lutendo:</strong> Nga matsheloni mangafha hu tshi khou rothola ngaurali. Maemu 
+                tshimbilani ni yo eḓela ri ḓo ya zwezwino.
+              </p>
+              <p>
+                <strong>Maemu:</strong> Zwoluga ndi ḓo ṱuwa ndi ndoṱhe, nṋe a thi khou ṱoḓa u semiwa 
+                nga mme aṋu.
+              </p>
+              <p>
+                <strong>Lutendo:</strong> Irani ndi vuwe ndi ni fhelekedze, mme anga vhaya bora ngoho.
+              </p>
+              <p>
+                (Lutendo o mbo ḓi vuwa a farisana nḓila na Maemu vha livha tshisimani hune
+                havha uri ndi kule. Nga murahu ha awara musi ḓuvha ḽo no ṱavha, Maemu na
+                Lutendo vha ya vhuya hayani vha wana Vho-Luvhengo vho no vuwa vho ḓi 
+                dzulela muṱani. Vho-Luvhengo vho mbo ḓi thoma u sinyuwa musi vha tshi 
+                vhona Lutendo na Maemu vha tshi khou dzhena vha vhavhili)
+              </p>
+              <p>
+                <strong>Vho-Luvhengo:</strong> (vha fara na khundu) Lutendo inwi ni khou bva ngafhi 
+                matsheloni mangafha? Zwa uri hu khou rothola ni tou vha ni sa zwipfi kana ni
+                khou hangwa uri ani lengi u fariwa nga duda?
+              </p>
+              <p>
+                <strong>Lutendo:</strong> Ndo vha ndo fhelekedza Maemu u ka maḓi, hafhu ndo ḓi ambara 
+                zwiambaro zwo dudela.
+              </p>
+            </div>
+          </div>
+
+          <!-- Page 3 -->
+          <div id="page-3" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                <strong>Vho-Luvhengo:</strong> Lutendo ṅwananga mara ndi nnyi we ari oyu muthu u khou
+                ṱoḓa u fhelekedziwa. U khou fhelekedzwa zwifhio ngauri Maemu uya hu ḓivha
+                hune maḓi a wanala hone. Asi zwone Maemu kani ani hu ḓivhi inwi?
+              </p>
+              <p>
+                (Maemu asi fhindule, Lutendo a hwenya a dzhena nḓuni. Vho-Luvhengo vha 
+                sala na Maemu)
+              </p>
+              <p>
+                <strong>Vho-Luvhengo:</strong> Maemu vulani nḓevhe dzaṋu ni mpfe ni mpfesese, arali 
+                inwi ni tshi khou ḓi ṱoḓa u dzula fhano muḓini wanga ndi khou humbela uri  arali 
+                inwi ni tshi khou ḓi ṱoḓa u dzula fhano muḓini wanga ndi khou humbela uri 
+                hezwi ndi tshi ni ruma ni ite zwe nṋe nda amba zwone nahone nga tshifhinga
+                ni noṱhe. No vhuya na mpfa ndi tshi ri ni ṱuwe na Lutendo ngei maḓini?
+              </p>
+              <p>
+                (Maemu a dzungudza ṱhoho)
+              </p>
+              <p>
+                <strong>Vho-Luvhengo:</strong> Ni khou dzungudza ṱhoho a ni tsha kona u amba inwi?
+              </p>
+              <p>
+                <strong>Maemu:</strong> Ndi a kona, ndi khou humbela pfarelo. (o ṱungufhala)
+              </p>
+              <p>
+                <strong>Vho-Luvhengo:</strong> Zwoluga, tshimbila ni yo vhea zwigubu ni thome u swiela 
+                muṱa, ni ṱanzwe na zwigoḓelo ndi khou ṱoḓa u bika Vho-Mufanyisi vha khou 
+                tea u wana zwiḽiwa vha tshi vuwa.
+              </p>
+              <p>
+                (Maemu a sokou vha lavhelesa a fhedza a mbo ḓi thoma u ita zwine a khou 
+                vhudziwa ngauri uya zwiḓivha uri arali a sa ita u ḓo rwiwa. Nangoho o 
+                kulumaga a ṱanzwa na zwigoḓelo a tshi fhedza a konaha uya nḓuni a thoma 
+                u vhala bugu dzawe.
+              </p>
+            </div>
+          </div>
+
+          <!-- Page 4 -->
+          <div id="page-4" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                Nga Swondaha nga matsheloni Maemu o vuwa u ṱavhanya a tshi itela u 
+                shuma mishumo ya afha hayani uri a ṱavhanye u fhedza aye kerekeni 
+                vhunga sa ezwi hu kale asa kandi. Vho-Luvhengo vho ri u vuwa, vha wana 
+                Maemu ono fhedza mishumo yoṱhe ya afha hayani ho tou sala hone u bika 
+                zwine zwa itiwa nga vho ngauri Maemu ha koni. Ho ḓo ri musi tshifhinga I 
+                awara ya vhu 9 Maemu aya a doba ndishi a tshi ṱoḓa u ṱamba. Mmane wawe 
+                vha mulavhelesa.
+              </p>
+              <p>
+                <strong>Vho-Luvhengo:</strong> Hupfi mulandu musidzana ni tshi vho farana na dzi ndishi 
+                ndi u ṱoḓa u ṱamba na ya fhi nga matsheloni mangafha?
+              </p>
+              <p>
+                <strong>Maemu:</strong> Ndi khou ṱoḓa uya kerekeni.
+              </p>
+              <p>
+                <strong>Vho-Luvhengo:</strong> (vha lidza tsaṅwa) Ni khou ya u ita mini kerekeni, Maemu 
+                u thoma lini inwi ni tshi dzhena kereke ngauri no vha no I litsha. Ahuna hune 
+                na khou ya hone ni ḓivha mini nga kereke inwi ni ṅwana muṱukuṱuku. Ni khou
+                litsha u vhala bugu kereke iḓo ni thusa nga mini?
+              </p>
+            </div>
+          </div>
+
+          <!-- Page 5 -->
+          <div id="page-5" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                (Vho-Mufanyisi vho vha vha tshi khou bvela)
+              </p>
+              <p>
+                <strong>Vho-Mufanyisi:</strong> Hupfi ndi phosho ya mini mme a Lutendo? Uri kereke iya 
+                tou vusa phosho nngafha nga matsheloni. Kha vha mulitshe aye kerekeni thi 
+                ndi zwine ene muṋe a khou ṱoḓa. U khou tea u vha a tshi khou ita mini afha 
+                hayani arali a sa yi kerekeni?
+              </p>
+              <p>
+                <strong>Vho-Luvhengo:</strong> Zwino vha khou tou muimelela, kha tshimbile aye kerekeni
+                hahone zwiafana ahuna na zwine a khou yela.
+              </p>
+              <p>
+                <strong>Vho-Mufanyisi:</strong> Muthu uḓo tou balelwa no awela nga nṱhani ha phosho ya 
+                vho. U vuwa havho zwi tea u vusa na riṋe vhaṅwe.
+              </p>
+              <p>
+                <strong>Vho-Luvhengo:</strong> Vha mpfarele Vho-Mufanyisi fhedzi nṋe na vhone ri si ngo 
+                lwiswa nga Maemu. A vhari ndi vhe ndi tshi yo vha lugisela vhuragane.
+              </p>
+              <p>
+                (Maemu o mbo ḓi ṱuwa aya u ṱamba, Lutendo nae ori a tshi muvhona ari u 
+                khou ṱuwa nae kerekeni. Vhuvhili havho vha tshi tou fhedza u ḓi lugisa vha 
+                dzhena nḓilani vha tshimbila vha tshi khou haseledza)
+              </p>
+            </div>
+          </div>
+
+          <!-- Page 6 -->
+          <div id="page-6" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                <strong>Maemu:</strong> Nṋe ndo ṱuvha vhabebi vhanga, arali vho vha vha tshe hone ndo 
+                vha ndi tshi ḓovha ndi khou ṱuwa na vho kerekeni. Lutendo mme aṋu vha ya 
+                mmbenga a thi ḓivhi uri ndo vha ita mini. Tshifhinga tshoṱhe naho ndi si ngo 
+                khakha vhaya ntsema.
+              </p>
+              <p>
+                <strong>Lutendo:</strong> Ni si ngo vhilaela, mme a nga vha ḓo fhedza vho ni funa. Inwi a 
+                ni dini a thi ḓivhi uri ndi nga mini vha sa ni funi, zwi a mbavha ndi tshi vhona 
+                vha tshi khou ni fara u nga ri ni mushumi.
+              </p>
+              <p>
+                <strong>Maemu:</strong> Khamusi ndi ngauri nṋe ndi mu'Albion a thi fani na inwi, fhedzi 
+                mme a nga kale vha tshe hone vho vha vha sa nnyali. Vho mbudza uri na 
+                nṋe ndi muthu ndi fana na vhaṅwe ndo sikwa nga Mudzimu.
+              </p>
+              <p>
+                <strong>Lutendo:</strong> Ndi tou tama nga vhe mme a nga na vhathu vhoṱhe vhane vha si
+                ni fare zwavhuḓi vha tshi zwi limuwa uri roṱhe ri vhana vha Mudzimu ria fana.
+                Kale mme aṋu vha tshe hone ro vha ri tshi ḓi phiṋa, ndi nga zwo nda tshi ḓa 
+                u dala tshifhinga tshoṱhe. Mme a nga vhaya bora.
+              </p>
+              <p>
+                <strong>Maemu:</strong> Ari hwenye ri ḓo nga ri sa lenge u swika kerekeni.
+              </p>
+            </div>
+          </div>
+
+          <!-- Page 7 -->
+          <div id="page-7" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                (Maemu na Lutendo vho mbo ḓi thoma u hwenya vha swika kerekeni. Maemu
+                ori a tshi u tou dzhena kerekeni a humbula tshoṱhe vhabebi vhawe vhunga o 
+                vha a tshi dzulela u ṱuwa na vho afho kerekeni ya Tshidzini Christian Church 
+                fhasi ha vhafunzi Vho-Muḓodzwa. Yo vha Swondaha ya maṱhakheni vhukuma 
+                kha Maemu)
+              </p>
+              <p>
+                (Nga murahu ha awara tharu kereke yo no bva Maemu o ṱuwa a tshi khou 
+                anetshela Lutendo nga pfunzo ya vhafunzi naho Lutendo o vha a hone)
+              </p>
+              <p>
+                <strong>Maemu:</strong> Ngoho nia ḓivha ndo takala vhukuma u ḓi wana ndi kerekeni. 
+                Vhafunzi vho funza pfunzo ya vhuḓi vhukuma. Vha ri ku tshilele kune ra 
+                khou tshila kone zwa zwino, hu ḓovha na mbadelo kana khaṋo phanḓa zwi si 
+                na ndavha uri muthu u khou tshilisa hani. Vhutshilo ndi liga vhuya mona. 
+                Arali ni muita zwivhi ni ḓo kaṋa kha zwivhi zwaṋu zwine na tshila zwone 
+                fhedzi arali ni muita zwivhuya ni ḓo kaṋa kha zwivhuya zwaṋu. Mudzimu vha 
+                ḓo vula dzi nḓila, zwine zwa amba uri muthu muṅwe na muṅwe zwine a vha 
+                zwone ṋamusi o tou zwi ṱahulela zwi tshi bva kha kutshilele kwawe. Ri tshi 
+                khou tshila ri tea u humbulela na vhumatshelo hashu kha tsheo dzine ra dzi 
+                dzhia.
+              </p>
+            </div>
+          </div>
+
+          <!-- Page 8 -->
+          <div id="page-8" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                <strong>Lutendo:</strong> Ni khou amba zwone Maemu ri tea u dzulela u ḓa kerekeni nṋe 
+                nda khou takadziwa nga Vho-Muṱhweṱhwe. No vha vhona vha tshi khou 
+                tshina nga luya luimbo lwa uri "sigidime" habe vha tshi nga vha sa wa.
+              </p>
+              <p>
+                <strong>Maemu:</strong> (uya Sea) Zwino inwi ni si ngo ya na tshina phanḓa, habe nṋe ndo
+                vha ndi tshi khou shona u ṱuwa ndi ndoṱhe ndi tshi khou ri inwi ni ḓo ya nda 
+                tevhela.
+              </p>
+              <p>
+                <strong>Lutendo:</strong> Nda khou lindela inwi ni tshi takuwa ra ṱuwa roṱhe, nṋe habe ndi 
+                lwa u thoma ndi tshi khou ya kerekeni a thi koni na u tshina ni gudise.
+              </p>
+              <p>
+                (Maemu na Lutendo vha kati na u haseledza ho mbo ḓi swika vhaṅwe 
+                vhaṱhannga vhavhili vhane vha dzhena na vho tshikolo, Lukhoro na Mateo. 
+                Vhatukana a vho vho tshimbila vha tshi khou kolela Maemu nga zwine a vha 
+                zwone vha tshi musea)
+              </p>
+              <p>
+                <strong>Lukhoro:</strong> Maemu mukhuwa, habe no tshena, ni tou nga mini kana.
+              </p>
+            </div>
+          </div>
+
+          <!-- Page 9 -->
+          <div id="page-9" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                <strong>Mateo:</strong> Ni khou ḓi amba zwo tshena maṱo ahone no no mavhona 
+                zwavhuḓi, u nga shavha vhusiku.
+              </p>
+              <p>
+                <strong>Lukhoro:</strong> U nga si litshe u shavha habe aya funga vhusiku maṱo ahone asi 
+                zwone Lutendo?
+              </p>
+              <p>
+                <strong>Lutendo:</strong> Ndi khou humbela ni litshe u kolela murathu wanga, a zwi seisi 
+                zwine na khou amba zwone.
+              </p>
+              <p>
+                <strong>Maemu:</strong> Lutendo vha litsheni ri ṱuwe hayani.
+              </p>
+              <p>
+                <strong>Mateo:</strong> Lutendo inwi ni tou vha ḽoyara yawe uyu Maemu ni tshi vho sokou 
+                kayakaya. Riṋe ri khou amba na Maemu ni litshe u phapha zwi a rwisa.
+              </p>
+              <p>
+                <strong>Lutendo:</strong> U rwa nnyi wahaṋu. Ni tou vhona unga nṋe ndia ni shavha inwi 
+                Mateo?
+              </p>
+            </div>
+          </div>
+
+          <!-- Page 10 -->
+          <div id="page-10" class="page">
+            <div class="space-y-4 novel-content">
+              <p>
+                <strong>Maemu:</strong> Lutendo ari hwenye ri ṱuwe hayani ni vha litshe havha vhathu.
+              </p>
+              <p>
+                <strong>Lukhoro:</strong> Lutendo inwi ni ri a ni shavhi nga Mateo?
+              </p>
+              <p>
+                <strong>Lutendo:</strong> Ndi tshi mushavha mini ngauri nae ndi muthu, nṋe kani nṋe a 
+                thina zwanḓa.
+              </p>
+              <p>
+                <strong>Mateo:</strong> (A hwenya a fara Maemu nga tshanḓa) Ambani ndi tsini ndo swika 
+                ni ri mini?
+              </p>
+              <p>
+                (Lutendo o mbo ḓi rwa Mateo nga mpama vha thoma u lwa, Lutendo vha 
+                muwisela fhasi vha thoma u murwa. Maemu a tshi ri a lamule vha mufara 
+                nga uḽa Lukhoro ari kha vha litshiwe vha lwe ngauri Lutendo o tou levha. Yo 
+                vha yo no tou ṱanganedzana vhukuma Maemu a tshi vho sokou ṱavha mikosi.
+                Ho thusa ha bvelela vhaṅwe munna vha ne vhapfi Vho-Ramabannda, vha 
+                dzula nga hanefho tsini na bada vha gidima vha tshi ya u vha lamula)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll to top button -->
+      <button
+        id="scroll-to-top"
+        class="scroll-to-top"
+        aria-label="Scroll to top"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 10l7-7m0 0l7 7m-7-7v18"
+          />
+        </svg>
+      </button>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#3B2F2A] text-[#F1C6B0] p-6 text-center">
+      <div class="navigation mb-4 flex justify-between items-center">
+        <button
+          id="prev-page-footer"
+          class="bg-gray-200 dark:bg-gray-700 p-2 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+        >
+          Previous
+        </button>
+        <span id="page-number-footer" class="text-lg font-semibold"
+          >Page 1 of 10</span
+        >
+        <button
+          id="next-page-footer"
+          class="bg-gray-200 dark:bg-gray-700 p-2 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+        >
+          Next
+        </button>
+      </div>
+      <p class="mb-2">
+        &copy; <span id="current-year"></span> Hayanihazwitori. All rights
+        reserved.
+      </p>
+      <div class="flex justify-center flex-wrap gap-4 mb-2">
+        <a
+          href="../privacy.html"
+          class="hover:underline text-[#F1C6B0] dark:text-[#F1C6B0]"
+        >
+          Privacy Policy
+        </a>
+        <a
+          href="../terms.html"
+          class="hover:underline text-[#F1C6B0] dark:text-[#F1C6B0]"
+        >
+          Terms of Service
+        </a>
+        <a
+          href="../social.html"
+          class="hover:underline text-[#F1C6B0] dark:text-[#F1C6B0]"
+        >
+          Social Media
+        </a>
+      </div>
+      <div>
+        <a
+          href="https://github.com/Mosha-izhevsk"
+          class="text-sm hover:underline text-[#F1C6B0] dark:text-[#F1C6B0]"
+          aria-label="Visit the website developer's GitHub page"
+        >
+          website by MRI
+        </a>
+      </div>
+    </footer>
+
+    <script>
+      // Set current year in footer
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+
+      // Toggle mobile menu
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuToggle.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Font size controls
+      const decreaseFont = document.getElementById("decrease-font");
+      const increaseFont = document.getElementById("increase-font");
+      const fontSizeDisplay = document.getElementById("font-size-display");
+      const novelContent = document.getElementById("novel-content-container");
+
+      let fontSize = 16;
+
+      decreaseFont.addEventListener("click", function () {
+        fontSize = Math.max(fontSize - 2, 14);
+        updateFontSize();
+      });
+
+      increaseFont.addEventListener("click", function () {
+        fontSize = Math.min(fontSize + 2, 24);
+        updateFontSize();
+      });
+
+      function updateFontSize() {
+        fontSizeDisplay.textContent = `${fontSize}px`;
+        novelContent.style.fontSize = `${fontSize}px`;
+      }
+
+      // Initialize dark mode based on localStorage
+      const bodyElement = document.getElementById("body-element");
+      const toggleTheme = document.getElementById("toggle-theme");
+      let isDarkMode = localStorage.getItem("dark-mode") === "true";
+
+      // Apply dark mode on page load if enabled
+      if (isDarkMode) {
+        bodyElement.classList.add("dark");
+        toggleTheme.textContent = "Light Mode";
+        toggleTheme.classList.remove("bg-gray-200", "text-gray-800");
+        toggleTheme.classList.add("bg-gray-700", "text-white");
+      }
+
+      // Toggle dark mode and save preference
+      toggleTheme.addEventListener("click", function () {
+        isDarkMode = !isDarkMode;
+        if (isDarkMode) {
+          bodyElement.classList.add("dark");
+          toggleTheme.textContent = "Light Mode";
+          toggleTheme.classList.remove("bg-gray-200", "text-gray-800");
+          toggleTheme.classList.add("bg-gray-700", "text-white");
+        } else {
+          bodyElement.classList.remove("dark");
+          toggleTheme.textContent = "Dark Mode";
+          toggleTheme.classList.remove("bg-gray-700", "text-white");
+          toggleTheme.classList.add("bg-gray-200", "text-gray-800");
+        }
+        localStorage.setItem("dark-mode", isDarkMode);
+      });
+
+      // Scroll to top
+      const scrollToTopButton = document.getElementById("scroll-to-top");
+
+      window.addEventListener("scroll", function () {
+        if (window.pageYOffset > 300) {
+          scrollToTopButton.style.display = "block";
+        } else {
+          scrollToTopButton.style.display = "none";
+        }
+      });
+
+      scrollToTopButton.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Bookmark functionality
+      const bookmarkButton = document.getElementById("bookmark-button");
+
+      bookmarkButton.addEventListener("click", function () {
+        const currentPosition = window.scrollY;
+        const currentPage = getCurrentPage();
+        localStorage.setItem("bookmark-position", currentPosition);
+        localStorage.setItem("bookmark-page", currentPage);
+        alert("Page bookmarked! You can return to this position later.");
+      });
+
+      // Check for bookmark on page load
+      const savedPosition = localStorage.getItem("bookmark-position");
+      const savedPage = localStorage.getItem("bookmark-page");
+      if (savedPosition && savedPage) {
+        // Ask user if they want to go to the bookmarked position
+        const goToBookmark = confirm(
+          "You have a bookmark saved. Would you like to go to that position?"
+        );
+        if (goToBookmark) {
+          showPage(parseInt(savedPage));
+          window.scrollTo({
+            top: parseInt(savedPosition),
+            behavior: "smooth",
+          });
+        }
+      }
+
+      // Share functionality
+      const shareButton = document.getElementById("share-button");
+
+      shareButton.addEventListener("click", function () {
+        if (navigator.share) {
+          navigator
+            .share({
+              title: document.title,
+              url: window.location.href,
+            })
+            .then(() => console.log("Successful share"))
+            .catch((error) => console.log("Error sharing:", error));
+        } else {
+          // Fallback for browsers that don't support the Web Share API
+          const tempInput = document.createElement("input");
+          document.body.appendChild(tempInput);
+          tempInput.value = window.location.href;
+          tempInput.select();
+          document.execCommand("copy");
+          document.body.removeChild(tempInput);
+          alert("Link copied to clipboard!");
+        }
+      });
+
+      // Page navigation functionality
+      let currentPage = 1;
+      const totalPages = 10; // Total number of pages
+
+      function getCurrentPage() {
+        return currentPage;
+      }
+
+      function showPage(page) {
+        // Hide all pages
+        document
+          .querySelectorAll(".page")
+          .forEach((div) => div.classList.remove("active"));
+
+        // Show the selected page
+        const pageElement = document.getElementById(`page-${page}`);
+        if (pageElement) {
+          pageElement.classList.add("active");
+
+          // Update page numbers in UI
+          document.getElementById(
+            "page-number"
+          ).innerText = `Page ${page} of ${totalPages}`;
+          document.getElementById(
+            "page-number-footer"
+          ).innerText = `Page ${page} of ${totalPages}`;
+
+          // Scroll to top of content when changing pages
+          window.scrollTo({
+            top: novelContent.offsetTop - 100,
+            behavior: "smooth",
+          });
+
+          // Save current page to localStorage
+          localStorage.setItem("current-page", page);
+          currentPage = page;
+        }
+      }
+
+      function nextPage() {
+        if (currentPage < totalPages) {
+          showPage(currentPage + 1);
+        }
+      }
+
+      function prevPage() {
+        if (currentPage > 1) {
+          showPage(currentPage - 1);
+        }
+      }
+
+      // Add event listeners for page navigation
+      document.getElementById("prev-page").addEventListener("click", prevPage);
+      document.getElementById("next-page").addEventListener("click", nextPage);
+      document
+        .getElementById("prev-page-footer")
+        .addEventListener("click", prevPage);
+      document
+        .getElementById("next-page-footer")
+        .addEventListener("click", nextPage);
+
+      // Check for saved page on load
+      const savedCurrentPage = localStorage.getItem("current-page");
+      if (savedCurrentPage) {
+        currentPage = parseInt(savedCurrentPage);
+        showPage(currentPage);
+      }
+
+      // Add keyboard navigation
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowRight") {
+          nextPage();
+        } else if (e.key === "ArrowLeft") {
+          prevPage();
+        }
+      });
+
+      // Go to Page functionality
+      const goToPageInput = document.getElementById("go-to-page-input");
+      const goToPageButton = document.getElementById("go-to-page-button");
+
+      goToPageButton.addEventListener("click", function () {
+        const pageNumber = parseInt(goToPageInput.value);
+        if (pageNumber >= 1 && pageNumber <= totalPages) {
+          showPage(pageNumber);
+        } else {
+          alert(
+            `Please enter a valid page number between 1 and ${totalPages}.`
+          );
+        }
+      });
+
+      goToPageInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          goToPageButton.click();
+        }
+      });
+    </script>
+  </body>
+</html>

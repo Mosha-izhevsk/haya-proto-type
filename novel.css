@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul.nav-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul.nav-links li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul.nav-links li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+.novel-details {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.novel-header {
+    text-align: center;
+}
+
+.novel-header img.novel-cover {
+    max-width: 200px;
+    margin-top: 10px;
+}
+
+.novel-header .novel-title {
+    font-size: 28px;
+    color: #333;
+}
+
+.novel-description {
+    font-size: 16px;
+    color: #555;
+    margin-top: 10px;
+}
+
+#pdf-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+canvas {
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.navigation button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.navigation button:hover {
+    background-color: #0056b3;
+}
+
+.back-to-home {
+    font-size: 16px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.back-to-home:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}

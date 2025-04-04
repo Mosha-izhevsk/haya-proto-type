@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Hayani ha zwitori</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Base styles */
+        body {
+            background-color: #F8F1EB;
+            color: #333333;
+        }
+
+        /* Dark mode variables */
+        .dark {
+            background-color: #1a202c;
+            color: #f7fafc;
+        }
+
+        .dark .bg-primary {
+            background-color: #2d3748;
+        }
+
+        .dark .text-primary {
+            color: #f1c6b0;
+        }
+
+        /* Placeholder image */
+        .placeholder-img {
+            background-color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a0aec0;
+            font-size: 0.875rem;
+        }
+
+        /* Header and navigation */
+        header {
+            background-color: #3B2F2A;
+            color: #F1C6B0;
+        }
+
+        .nav-link {
+            color: #F1C6B0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background-color: #D98F3B;
+            color: #000;
+        }
+
+        .active-nav {
+            background-color: #D98F3B;
+            color: #000;
+        }
+
+        /* Mobile menu */
+        #mobile-menu {
+            background-color: #3B2F2A;
+            color: #F1C6B0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Ensure consistent layout and spacing */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Adjust header and footer for consistency */
+        header, footer {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Ensure consistent button styles */
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-primary {
+            background-color: #3B2F2A;
+            color: #F1C6B0;
+        }
+
+        .btn-primary:hover {
+            background-color: #D98F3B;
+            color: #000;
+        }
+
+        .btn-secondary {
+            background-color: #F1C6B0;
+            color: #3A3A3A;
+        }
+
+        .btn-secondary:hover {
+            background-color: #D98F3B;
+            color: #000;
+        }
+        footer {
+            background-color: #3B2F2A;
+            color: #F1C6B0;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="p-4 flex justify-between items-center fixed w-full z-50 bg-[#3B2F2A] text-[#F1C6B0]">
+        <div class="text-2xl font-bold">
+            <a href="index.html">Hayanihazwitori</a>
+        </div>
+
+        <nav class="hidden md:block">
+            <ul class="flex space-x-6">
+                <li>
+                    <a href="index.html" class="nav-link p-2 rounded transition-colors">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="novels.html" class="nav-link p-2 rounded transition-colors">
+                        Novels
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html" class="nav-link active-nav p-2 rounded">
+                        About
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html" class="nav-link p-2 rounded transition-colors">
+                        Contact
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <button id="menu-toggle" class="md:hidden text-[#F1C6B0]" aria-label="Toggle menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+
+        <form id="search-form" class="hidden md:flex items-center">
+            <input
+                type="text"
+                placeholder="Search novels..."
+                class="p-2 rounded-l text-black"
+                aria-label="Search novels"
+            />
+            <button
+                type="submit"
+                class="bg-[#F1C6B0] text-[#3A3A3A] p-2 rounded-r hover:bg-[#D98F3B] transition-colors"
+                aria-label="Search"
+            >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </button>
+        </form>
+    </header>
+
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobile-menu" class="hidden fixed top-16 left-0 w-full bg-[#3B2F2A] text-[#F1C6B0] p-4 z-40">
+        <ul class="flex flex-col space-y-4">
+            <li>
+                <a href="index.html" class="block p-2 hover:bg-[#D98F3B] hover:text-black rounded text-[#F1C6B0]">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="novels.html" class="block p-2 hover:bg-[#D98F3B] hover:text-black rounded text-[#F1C6B0]">
+                    Novels
+                </a>
+            </li>
+            <li>
+                <a href="about.html" class="block p-2 bg-[#D98F3B] text-black rounded">
+                    About
+                </a>
+            </li>
+            <li>
+                <a href="contact.html" class="block p-2 hover:bg-[#D98F3B] hover:text-black rounded text-[#F1C6B0]">
+                    Contact
+                </a>
+            </li>
+        </ul>
+        <form class="mt-4 flex">
+            <input
+                type="text"
+                placeholder="Search novels..."
+                class="p-2 rounded-l flex-1 text-black"
+            />
+            <button
+                type="submit"
+                class="bg-[#F1C6B0] text-[#3A3A3A] p-2 rounded-r hover:bg-[#D98F3B] transition-colors"
+            >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </button>
+        </form>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 pt-20 md:pt-24 pb-12">
+        <div class="container">
+            <!-- Page Title -->
+            <div class="bg-[#3B2F2A]/90 text-[#F1C6B0] p-6 rounded-lg mb-8">
+                <h1 class="text-3xl md:text-4xl font-bold">About Hayani ha zwitori</h1>
+                <p class="mt-2">Stories for gender-based violence awareness and social change</p>
+            </div>
+
+            <!-- About Section -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-12">
+                <div class="md:flex">
+                    <div class="md:w-1/3 p-6 flex justify-center items-center bg-[#3B2F2A]/5">
+                        <div class="placeholder-img w-full h-[300px] rounded-md shadow-md">Logo Image</div>
+                    </div>
+                    <div class="md:w-2/3 p-6 md:p-8">
+                        <h2 class="text-2xl font-bold text-[#3B2F2A] mb-4">Our Story</h2>
+                        <p class="text-gray-700 mb-4">
+                            Hayani ha zwitori (Home of Stories) was created with a powerful purpose: to raise awareness about gender-based violence through compelling storytelling. We believe that stories can be a catalyst for social change, helping to shed light on difficult issues while fostering empathy and understanding.
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            Our platform features narratives that explore the realities of gender-based violence, its impact on individuals and communities, and pathways to healing and justice. The stories featured on our website are hand-crafted by Nethononda Mutshidzi, a talented storyteller dedicated to using literature as a tool for social awareness and change.
+                        </p>
+                        <p class="text-gray-700">
+                            Through these narratives, we aim to educate, inspire action, and provide support to those affected by gender-based violence. We believe that by bringing these stories to light, we can contribute to breaking the cycle of violence and creating a more just and equitable society.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission and Values -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-[#3B2F2A] p-3 rounded-full mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#F1C6B0]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <h2 class="text-xl font-bold text-[#3B2F2A]">Our Mission</h2>
+                    </div>
+                    <p class="text-gray-700">
+                        To use storytelling as a powerful tool for raising awareness about gender-based violence, challenging harmful norms, and promoting social change. We aim to create a platform where these important narratives can reach a wide audience, fostering understanding and inspiring action to address gender-based violence in our communities.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-[#3B2F2A] p-3 rounded-full mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#F1C6B0]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <h2 class="text-xl font-bold text-[#3B2F2A]">Our Values</h2>
+                    </div>
+                    <ul class="text-gray-700 space-y-2">
+                        <li class="flex items-start">
+                            <span class="text-[#D98F3B] mr-2">•</span>
+                            <span><strong>Empathy:</strong> We believe in the power of stories to foster understanding and compassion.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-[#D98F3B] mr-2">•</span>
+                            <span><strong>Advocacy:</strong> We are committed to advocating for survivors of gender-based violence.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-[#D98F3B] mr-2">•</span>
+                            <span><strong>Education:</strong> We aim to educate communities about the realities and impact of gender-based violence.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-[#D98F3B] mr-2">•</span>
+                            <span><strong>Empowerment:</strong> We seek to empower individuals to speak out and take action against gender-based violence.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- GBV Awareness Section -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-12">
+                <h2 class="text-2xl font-bold text-[#3B2F2A] mb-4">Gender-Based Violence Awareness</h2>
+                <p class="text-gray-700 mb-4">
+                    Gender-based violence (GBV) is a pervasive issue that affects millions of people worldwide. It includes physical, sexual, emotional, and economic abuse, as well as harmful practices rooted in gender inequality. Through our stories, we aim to:
+                </p>
+                <ul class="text-gray-700 space-y-2 mb-4">
+                    <li class="flex items-start">
+                        <span class="text-[#D98F3B] mr-2">•</span>
+                        <span>Illustrate the various forms of gender-based violence and their impact on individuals and communities</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-[#D98F3B] mr-2">•</span>
+                        <span>Challenge harmful cultural norms and practices that perpetuate gender inequality</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-[#D98F3B] mr-2">•</span>
+                        <span>Highlight pathways to support, healing, and justice for survivors</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-[#D98F3B] mr-2">•</span>
+                        <span>Promote dialogue and action to prevent gender-based violence</span>
+                    </li>
+                </ul>
+                <p class="text-gray-700">
+                    Our stories are crafted with sensitivity and respect, drawing on real-life experiences while protecting the privacy and dignity of survivors. We believe that by bringing these narratives to light, we can contribute to breaking the silence around gender-based violence and fostering a culture of respect, equality, and non-violence.
+                </p>
+            </div>
+
+            <!-- Team Section -->
+            <h2 class="bg-[#3B2F2A] text-[#F1C6B0] text-xl font-bold p-3 text-center mb-6 hover:bg-[#D98F3B] hover:text-black transition-colors">
+                The People Behind Hayani ha zwitori
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="mb-4 mx-auto w-32 h-32 rounded-full overflow-hidden border-4 border-[#F1C6B0]">
+                        <div class="placeholder-img w-full h-full">Photo</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#3B2F2A] mb-1">Phindulo Nemudzivhadi</h3>
+                    <p class="text-[#D98F3B] font-medium mb-3">Website Creator</p>
+                    <p class="text-gray-700 mb-4">
+                        Phindulo is the creative mind behind the Hayani ha zwitori website. With a passion for technology and social justice, Phindulo developed this platform to raise awareness about gender-based violence through storytelling.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="mb-4 mx-auto w-32 h-32 rounded-full overflow-hidden border-4 border-[#F1C6B0]">
+                        <div class="placeholder-img w-full h-full">Photo</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#3B2F2A] mb-1">Nethononda Mutshidzi</h3>
+                    <p class="text-[#D98F3B] font-medium mb-3">Author & Storyteller</p>
+                    <p class="text-gray-700 mb-4">
+                        Nethononda Mutshidzi is the talented author behind the hand-crafted stories featured on our website. Through powerful narratives, Nethononda explores the complex realities of gender-based violence, giving voice to experiences that often remain unheard.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Featured Work -->
+            <h2 class="bg-[#3B2F2A] text-[#F1C6B0] text-xl font-bold p-3 text-center mb-6 hover:bg-[#D98F3B] hover:text-black transition-colors">
+                Featured Work
+            </h2>
+
+            <div class="bg-white p-6 rounded-lg shadow-md mb-12">
+                <div class="md:flex items-center">
+                    <div class="md:w-1/4 mb-4 md:mb-0 md:pr-6 flex justify-center">
+                        <div class="placeholder-img w-[150px] h-[225px] rounded-md shadow-md">Book Cover</div>
+                    </div>
+                    <div class="md:w-3/4">
+                        <h3 class="text-xl font-bold text-[#3B2F2A] mb-2">Vhutshiloni u tshi khou aluwa u si na vhabebi tsini</h3>
+                        <p class="text-gray-600 mb-2">by Nethononda Mutshidzi</p>
+                        <p class="text-gray-700 mb-4">
+                            This powerful story follows Maemu, a 14-year-old orphan living with her aunt. Through Maemu's experiences, the narrative explores themes of emotional abuse, neglect, and the vulnerability of children without parental protection. The story highlights how gender-based violence can manifest in various forms, including the mistreatment of vulnerable young girls.
+                        </p>
+                        <a
+                            href="novels/vhutshiloni-u-tshi-khou-aluwa-u-si-na-vhabebi-tsini.html"
+                            class="inline-block bg-[#3B2F2A] text-[#F1C6B0] px-4 py-2 rounded hover:bg-[#D98F3B] hover:text-black transition-colors"
+                        >
+                            Read the Story
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resources Section -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-12">
+                <h2 class="text-2xl font-bold text-[#3B2F2A] mb-4">Support Resources</h2>
+                <p class="text-gray-700 mb-4">
+                    If you or someone you know is experiencing gender-based violence, help is available. Below are some resources that provide support, information, and assistance:
+                </p>
+                <ul class="text-gray-700 space-y-3 mb-4">
+                    <li class="flex items-start">
+                        <span class="text-[#D98F3B] mr-2">•</span>
+                        <span><strong>Gender-Based Violence Command Centre:</strong> 0800 428 428 or *120*7867# (free from any cell phone)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-[#D98F3B] mr-2">•</span>
+                        <span><strong>People Opposing Women Abuse (POWA):</strong> 011 642 4345/6</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-[#D98F3B] mr-2">•</span>
+                        <span><strong>Childline South Africa:</strong> 0800 055 555</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-[#D98F3B] mr-2">•</span>
+                        <span><strong>South African Police Service:</strong> 10111</span>
+                    </li>
+                </ul>
+                <p class="text-gray-700">
+                    Remember, you are not alone, and reaching out for help is a sign of strength, not weakness.
+                </p>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="bg-[#3B2F2A]/10 p-8 rounded-lg text-center">
+                <h2 class="text-2xl font-bold text-[#3B2F2A] mb-4">Join the Movement</h2>
+                <p class="text-gray-700 mb-6 max-w-2xl mx-auto">
+                    By reading and sharing these stories, you are helping to raise awareness about gender-based violence and contributing to social change. Explore our collection of narratives that shed light on these important issues.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a
+                        href="novels.html"
+                        class="bg-[#3B2F2A] text-[#F1C6B0] px-6 py-3 rounded-lg font-medium hover:bg-[#D98F3B] hover:text-black transition-colors"
+                    >
+                        Read Our Stories
+                    </a>
+                    <a
+                        href="contact.html"
+                        class="bg-[#F1C6B0] text-[#3A3A3A] px-6 py-3 rounded-lg font-medium hover:bg-[#D98F3B] transition-colors"
+                    >
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#3B2F2A] text-[#F1C6B0] p-6 text-center">
+        <p class="mb-2">&copy; <span id="current-year"></span> Hayanihazwitori. All rights reserved.</p>
+        <div class="flex justify-center flex-wrap gap-4 mb-2">
+            <a href="privacy.html" class="hover:bg-[#D98F3B] hover:text-black p-2 rounded transition-colors">
+                Privacy Policy
+            </a>
+            <a href="terms.html" class="hover:bg-[#D98F3B] hover:text-black p-2 rounded transition-colors">
+                Terms of Service
+            </a>
+            <a href="social.html" class="hover:bg-[#D98F3B] hover:text-black p-2 rounded transition-colors">
+                Social Media
+            </a>
+        </div>
+        <div class="mt-4">
+            <label for="goto-page" class="block text-sm mb-2">Go to Page:</label>
+            <div class="flex justify-center items-center gap-2">
+                <input
+                    type="text"
+                    id="goto-page"
+                    placeholder="Enter page name (e.g., novels.html)"
+                    class="p-2 rounded text-black"
+                />
+                <button
+                    onclick="goToPage()"
+                    class="bg-[#D98F3B] text-black px-4 py-2 rounded hover:bg-[#F1C6B0] transition-colors"
+                >
+                    Go
+                </button>
+            </div>
+        </div>
+        <div>
+            <a
+                href="https://github.com/Mosha-izhevsk"
+                class="text-sm hover:bg-[#D98F3B] hover:text-black p-2 rounded transition-colors"
+                aria-label="Visit the website developer's GitHub page"
+            >
+                website by MRI
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Toggle mobile menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Handle search form
+        const searchForm = document.getElementById('search-form');
+        
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchQuery = this.querySelector('input').value;
+            console.log('Searching for:', searchQuery);
+            // Implement search functionality
+            alert(`Searching for: ${searchQuery}`);
+        });
+
+        // Go to Page functionality
+        function goToPage() {
+            const pageInput = document.getElementById('goto-page').value.trim();
+            if (pageInput) {
+                window.location.href = pageInput;
+            } else {
+                alert('Please enter a valid page name.');
+            }
+        }
+    </script>
+</body>
+</html>
